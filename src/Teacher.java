@@ -8,6 +8,7 @@ public class Teacher {
 	private String address;
 	private int hourlySalary;
 	private ArrayList <Course> taught;
+	private ArrayList<Course> course = new ArrayList<Course>();
 	
 	//Constructors
 	public Teacher(String employeeId, String name, String title, String address, int hourlySalary) {
@@ -17,6 +18,7 @@ public class Teacher {
 		this.address = address;
 		this.hourlySalary = hourlySalary;
 		this.taught = new ArrayList<Course>();
+		this.course = new ArrayList<Course>();
 	}
 	
 	public Teacher() {
@@ -33,6 +35,14 @@ public class Teacher {
 
 	public void setTaught(ArrayList<Course> taught) {
 		this.taught = taught;
+	}
+	public ArrayList<Course> getCourse() {
+		return course;
+	}
+
+
+	public void setCourse(ArrayList<Course> course) {
+		this.course = course;
 	}
 
 	public String getEmployeeId() {
