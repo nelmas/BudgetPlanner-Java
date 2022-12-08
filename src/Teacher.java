@@ -22,6 +22,14 @@ public class Teacher {
 		this.taught = new ArrayList<Course>();
 		
 	}
+	public ArrayList<Course> getTaught() {
+		return taught;
+	}
+
+	public void setTaught(ArrayList<Course> taught) {
+		this.taught = taught;
+	}
+
 	public String getEmployeeId() {
 		return employeeId;
 	}
