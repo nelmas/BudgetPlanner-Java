@@ -9,6 +9,7 @@ public class Teacher {
 	private int hourlySalary;
 	private ArrayList <Course> taught;
 	
+	//Constructors
 	public Teacher(String employeeId, String name, String title, String address, int hourlySalary) {
 		this.employeeId = employeeId;
 		this.name = name;
@@ -22,6 +23,10 @@ public class Teacher {
 		this.taught = new ArrayList<Course>();
 		
 	}
+	//Instances
+	
+	
+	//Getters & Setters
 	public ArrayList<Course> getTaught() {
 		return taught;
 	}
@@ -69,5 +74,6 @@ public class Teacher {
 	public void setHourlySalary(int hourlySalary) {
 		this.hourlySalary = hourlySalary;
 	}
-
+	
+	//Methods
 }
