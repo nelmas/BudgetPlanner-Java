@@ -5,11 +5,11 @@ private String name;
 private String courseCode;
 private int credits;
 private String cycle;
-private ArrayList <Teacher> thaughtBy;
+private ArrayList <Teacher> teaches;
 
 
 public Course() {
-	this.thaughtBy = new ArrayList<Teacher>(); 
+	this.teaches = new ArrayList<Teacher>(); 
 
 }
 
@@ -18,9 +18,9 @@ public Course(String name, String courseCode, int credits, String cycle) {
  this.courseCode = courseCode;
  this.credits = credits;
  this.cycle = cycle;
-this.thaughtBy = new ArrayList<Teacher>(); 
+ this.teaches = new ArrayList<Teacher>(); 
 
-	
+
 }
 
 public String getName() {
