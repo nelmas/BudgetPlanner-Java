@@ -10,6 +10,10 @@ public class Department {
 	public Department(String name, String address, int budget) {
 		
 	}
+	
+	public Department () {
+		
+	}
 	public String getName() {
 		return name;
 	}
