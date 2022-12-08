@@ -84,16 +84,15 @@ public void setTeaches(ArrayList <Teacher> teaches) {
 
 //Methods
 
-public void createCorse(){
-	Course course = new Course();
-course.setName(name);
-course.setCourseCode(courseCode);
-course.setCycle(cycle);
-course.setResponsible(responsible);
-course.setTeaches(teaches);
-this.course.add(course);
-
-}
+//public void createCorse(){
+//	Course course = new Course();
+//course.setName(name);
+//course.setCourseCode(courseCode);
+//course.setCycle(cycle);
+//course.setResponsible(responsible);
+//course.setTeaches(teaches);
+//this.course.add(course);
+//}
 
 public void readCorse(){
 	Course course = new Course();
@@ -104,9 +103,9 @@ public void readCorse(){
 	
 }
 
-public void deleteCorse(){
-		
-}
+//public void deleteCorse(){
+//		
+//}
 
 public void displayAllTeachers() {
 for (int i = 0; i>teaches.size(); i++ ) {
