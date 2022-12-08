@@ -8,7 +8,7 @@ public class Teacher {
 	private String address;
 	private int hourlySalary;
 	private ArrayList <Course> taught;
-	private ArrayList<Course> course = new ArrayList<Course>();
+	private ArrayList<Course> course;
 	
 	//Constructors
 	public Teacher(String employeeId, String name, String title, String address, int hourlySalary) {
