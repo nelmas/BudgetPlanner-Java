@@ -6,7 +6,14 @@ public class Teacher {
 	private String title;
 	private String address;
 	private int hourlySalary;
-
+	
+	public Teacher(String employeeId, String name, String title, String address, int hourlySalary) {
+		
+	}
+	
+	public Teacher() {
+		
+	}
 	public String getEmployeeId() {
 		return employeeId;
 	}
