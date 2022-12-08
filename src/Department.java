@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 
 public class Department {
-
+   //Declare attributes
 	private String name;
 	private Teacher works;
 	private String address;
@@ -12,7 +12,9 @@ public class Department {
 	private ArrayList<Teacher> teacher = new ArrayList<Teacher>();
 	private ArrayList<Course> course = new ArrayList<Course>();
 	
-	
+    //constructors
+	public Department () {
+		}
 	
 	public Department(String name, String address, int budget) {
 		this.address = address;
@@ -22,6 +24,7 @@ public class Department {
 		this.course = new ArrayList<Course>();
 	}
 	
+	//getters and setters
 	public Teacher getWorks() {
 		return works;
 	}
@@ -38,9 +41,7 @@ public class Department {
 		this.course = course;
 	}
 
-	public Department () {
-		
-	}
+	
 	public ArrayList<Teacher> getTeacher() {
 		return teacher;
 	}
@@ -48,9 +49,7 @@ public class Department {
 		this.teacher = teacher;
 		
 	}
-	public void addTeacher(Teacher teacher) {
-		this.teacher.add(teacher);
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -68,6 +67,11 @@ public class Department {
 	}
 	public void setBudget(int budget) {
 		this.budget = budget;
+	}
+	
+	//add teacher method
+	public void addTeacher(Teacher teacher) {
+		this.teacher.add(teacher);
 	}
 	
 	public static void main(String[] args) {
