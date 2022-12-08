@@ -10,6 +10,7 @@ public class Department {
 	
 	private int budget;
 	private ArrayList<Teacher> teacher = new ArrayList<Teacher>();
+	private ArrayList<Course> course = new ArrayList<Course>();
 	
 	
 	
@@ -18,8 +19,25 @@ public class Department {
 		this.budget = budget;
 		this.name = name;
 		this.teacher = new ArrayList<Teacher>();
+		this.course = new ArrayList<Course>();
 	}
 	
+	public Teacher getWorks() {
+		return works;
+	}
+
+	public ArrayList<Course> getCourse() {
+		return course;
+	}
+
+	public void setWorks(Teacher works) {
+		this.works = works;
+	}
+
+	public void setCourse(ArrayList<Course> course) {
+		this.course = course;
+	}
+
 	public Department () {
 		
 	}
