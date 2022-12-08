@@ -25,8 +25,16 @@ public class Teacher {
 		this.taught = new ArrayList<Course>();
 		
 	}
-	//Instances
+	//Titles
+	enum Titles {
+		LECTURER,
+		ASSISTANTPROFESSOR,
+		ASSOCIATEPROFESSOR,
+		PROFESSOR,
 	
+	//Titles title = Titles.ASSISTANTPROFESSOR;
+		//System.out.println(title);
+	}
 	
 	//Getters & Setters
 	public ArrayList<Course> getTaught() {
