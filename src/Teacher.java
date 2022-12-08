@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Teacher {
 
@@ -7,12 +7,19 @@ public class Teacher {
 	private String title;
 	private String address;
 	private int hourlySalary;
+	private ArrayList <Course> taught;
 	
 	public Teacher(String employeeId, String name, String title, String address, int hourlySalary) {
-		
+		this.employeeId = employeeId;
+		this.name = name;
+		this.title = title;
+		this.address = address;
+		this.hourlySalary = hourlySalary;
+		this.taught = new ArrayList<Course>();
 	}
 	
 	public Teacher() {
+		this.taught = new ArrayList<Course>();
 		
 	}
 	public String getEmployeeId() {
