@@ -86,4 +86,13 @@ public class Teacher {
 	}
 	
 	//Methods
+	public void addCourse(Course course) {
+		this.course.add(course);
+	}
+	
+	//remove teacher method
+	public void removeCourse(Course course) {
+		this.course.remove(course);
+		
+	}
 }
