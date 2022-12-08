@@ -76,11 +76,13 @@ public class Department {
 		
 	}
 	
-	public static void main(String[] args) {
-		
-		
-				
-
+	//add department
+	public void addDepartment(Department department) {
+		this.addDepartment(department);
+	}
+	//remove department
+	public void removeDepartment(Department department) {
+		this.removeDepartment(department);
 	}
 
 }
