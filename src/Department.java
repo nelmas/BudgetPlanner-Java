@@ -11,10 +11,13 @@ public class Department {
 	private String address;
 	private int budget;
 	private ArrayList<Teacher> teacher;
+	private ArrayList<Department> department;
 	
 	
     //constructors
 	
+	
+
 	public Department () {
 		}
 	
@@ -23,7 +26,7 @@ public class Department {
 		this.budget = budget;
 		this.name = name;
 		this.teacher = new ArrayList<Teacher>();
-		
+		this.department = new ArrayList<Department>();
 	}
 	
 	//getters and setters
@@ -43,6 +46,13 @@ public class Department {
 	public void setTeacher(ArrayList<Teacher> teacher) {
 		this.teacher = teacher;
 		
+	}
+	public ArrayList<Department> getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(ArrayList<Department> department) {
+		this.department = department;
 	}
 	
 	public String getName() {
@@ -78,11 +88,11 @@ public class Department {
 	
 	//add department
 	public void addDepartment(Department department) {
-		this.addDepartment(department);
+		this.department.add(department);
 	}
 	//remove department
 	public void removeDepartment(Department department) {
-		this.removeDepartment(department);
+		this.department.remove(department);
 	}
 
 }
