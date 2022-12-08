@@ -29,6 +29,8 @@ public Course(String name, String courseCode, int credits, String cycle, Teacher
 
 //instansiera andra klasser
 Teacher teacher = new Teacher();
+Department department = new Department();
+
 
 
 //Getters & Setters
@@ -83,16 +85,19 @@ public void setTeaches(ArrayList <Teacher> teaches) {
 //Methods
 
 public void createCorse(){
-		
+	
+	
 }
 
 public void readCorse(){
 	
 	
 }
+
 public void deleteCorse(){
 		
 }
+
 public void displayAllTeachers() {
 for (int i = 0; i>teaches.size(); i++ ) {
 	teacher.getName();
@@ -101,6 +106,9 @@ for (int i = 0; i>teaches.size(); i++ ) {
 
 }
 public void displayResponsible() {
+	responsible.getName();
+	responsible.getEmployeeId();
+	responsible.getTitle();
 	
 }
 
@@ -112,6 +120,7 @@ public void removeTeacher(Teacher teacher) {
 	
 }
 public void addResponsible() {
+	
 	
 }
 public void removeResponsible() {
