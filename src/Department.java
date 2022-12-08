@@ -78,6 +78,12 @@ public class Department {
 		this.teacher.add(teacher);
 	}
 	
+	//remove teacher method
+	public void removeTeacher(Teacher teacher) {
+		this.teacher.remove(teacher);
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		
