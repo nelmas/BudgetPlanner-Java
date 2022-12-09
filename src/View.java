@@ -53,7 +53,7 @@ public class View extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		panelAddDepartment = new JPanel();
-		tabbedPane.addTab("New tab", null, panelAddDepartment, null);
+		tabbedPane.addTab("Add Department", null, panelAddDepartment, null);
 		panelAddDepartment.setLayout(null);
 		
 		textField = new JTextField();
@@ -84,7 +84,7 @@ public class View extends JFrame {
 		panelAddDepartment.add(lblDepartmentAddress);
 		
 		panel = new JPanel();
-		tabbedPane.addTab("New tab", null, panel, null);
+		tabbedPane.addTab("Add Teacher", null, panel, null);
 		panel.setLayout(null);
 		
 		JLabel lblFullName = new JLabel("Full Name");
