@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import assignment4.New.BankAccount;
+import assignment4.New.Person;
+
 
 
 public class Department {
@@ -12,12 +15,9 @@ public class Department {
 	private int budget;
 	private ArrayList<Teacher> teacher;
 	private ArrayList<Department> department;
-	
-	
+
     //constructors
 	
-	
-
 	public Department () {
 		}
 	
@@ -50,6 +50,19 @@ public class Department {
 	public ArrayList<Department> getDepartment() {
 		return department;
 	}
+	
+	
+	public Department findDepartment(String name) {
+		for (Department department : department) {
+			if (department.findDepartment(name) != null) {
+				if (department.findDepartment(name).getName().equals(name))
+					return department.findDepartment(name);
+			}
+		}
+		return null;
+	}
+	
+	
 
 	public void setDepartment(ArrayList<Department> department) {
 		this.department = department;
