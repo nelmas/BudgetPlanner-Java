@@ -24,7 +24,7 @@ public class View extends JFrame {
     private JTabbedPane tabbedPane;
     private JPanel panel;
     private JPanel panelAddDepartment;
-    private JTextField textField;
+    private JTextField textFieldAddDepartmentName;
     private JTextField textField_1;
     private JTextField textField_2;
     private JTextField textField_3;
@@ -58,10 +58,10 @@ public class View extends JFrame {
 		tabbedPane.addTab("Deparment", null, panelAddDepartment, null);
 		panelAddDepartment.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(218, 73, 130, 26);
-		panelAddDepartment.add(textField);
-		textField.setColumns(10);
+		textFieldAddDepartmentName = new JTextField();
+		textFieldAddDepartmentName.setBounds(218, 73, 130, 26);
+		panelAddDepartment.add(textFieldAddDepartmentName);
+		textFieldAddDepartmentName.setColumns(10);
 		
 		JLabel lbldepartmentName = new JLabel("Name");
 		lbldepartmentName.setBounds(111, 78, 61, 16);
