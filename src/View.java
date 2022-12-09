@@ -22,10 +22,14 @@ public class View extends JFrame {
     private JTabbedPane tabbedPane;
     private JPanel panel;
     private JPanel panelAddDepartment;
-    private JButton btnNewButton;
     private JTextField textField;
     private JTextField textField_1;
     private JTextField textField_2;
+    private JTextField textField_3;
+    private JTextField textField_4;
+    private JTextField textField_5;
+    private JTextField textField_6;
+    private JTextField textField_7;
    
     
 	public View() {
@@ -81,9 +85,52 @@ public class View extends JFrame {
 		
 		panel = new JPanel();
 		tabbedPane.addTab("New tab", null, panel, null);
+		panel.setLayout(null);
 		
-		btnNewButton = new JButton("New button");
-		panel.add(btnNewButton);
+		JLabel lblFullName = new JLabel("Full Name");
+		lblFullName.setBounds(232, 11, 63, 16);
+		panel.add(lblFullName);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(319, 6, 130, 26);
+		textField_4.setColumns(10);
+		panel.add(textField_4);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(319, 74, 130, 26);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JLabel lblEmployeeID = new JLabel("EmployeeID");
+		lblEmployeeID.setBounds(232, 79, 75, 16);
+		panel.add(lblEmployeeID);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(319, 150, 130, 26);
+		panel.add(textField_5);
+		textField_5.setColumns(10);
+		
+		JLabel lblTitle = new JLabel("Title");
+		lblTitle.setBounds(234, 155, 61, 16);
+		panel.add(lblTitle);
+		
+		textField_6 = new JTextField();
+		textField_6.setBounds(319, 229, 130, 26);
+		panel.add(textField_6);
+		textField_6.setColumns(10);
+		
+		JLabel lblAddress = new JLabel("Address");
+		lblAddress.setBounds(234, 234, 61, 16);
+		panel.add(lblAddress);
+		
+		textField_7 = new JTextField();
+		textField_7.setBounds(319, 305, 130, 26);
+		panel.add(textField_7);
+		textField_7.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Hourly Salary");
+		lblNewLabel.setBounds(232, 310, 86, 16);
+		panel.add(lblNewLabel);
 		
 	
 	
