@@ -15,36 +15,6 @@ public class View extends JFrame {
 	private JMenu departmentMenu;
 	private JMenu courseMenu;
 	private JMenu teacherMenu;
-    private JMenuItem addDepartmentItem;
-    private JMenuItem removeDepartmentItem;
-    private JMenuItem getCourseInfoItem;
-    private JMenuItem  editCourseItem;
-    private JMenuItem editTeacherItem;
-    private JMenuItem setHoursItem;
-    private JMenuItem  displayTeachers;
-    private JTabbedPane tabbedPane;
-    private JPanel panel;
-    private JPanel panelAddDepartment;
-    private JTextField textFieldAddDepartmentName;
-
-    private JTextField textField_1;
-    private JTextField textField_2;
-
-    private JLabel lblDepartmentBudget;
-   private JLabel lblDepartmentAddress;
-   private JLabel lbldepartmentName;
-
-    private JTextField textField_3;
-    private JTextField textField_4;
-    private JTextField textField_5;
-    private JTextField textField_6;
-    private JTextField textField_7;
-
-    private JTextField textFieldAddDepartmentBudget;
-    private JTextField textFieldAddDepartmentAddress;
-    private JTextField textFieldAddTeacherEmployeeID;
-    
-	
 	private JMenuItem addDepartmentItem;
 	private JMenuItem removeDepartmentItem;
 	private JMenuItem getCourseInfoItem;
@@ -69,18 +39,6 @@ public class View extends JFrame {
 	private JTextField textFieldCourseCode;
 	private JTextField textFieldAddCourseName;
 	private JTextField textFieldAddTeacherName;
-
-    private JTextField textFieldAddTeacherTitle;
-    private JTextField textFieldAddTeacherAddress;
-    private JTextField textFieldAddTeacherHourlySalary;
-    private JButton btnAddTeacher;
-    private JButton btnRemoveTeacher;
-    private JButton btnAddDepartment;
-    private JButton btnRemoveDepartment;
-    
-    
-    
-  
 	private JTextField textFieldAddTeacherTitle;
 	private JTextField textFieldAddTeacherAddress;
 	private JTextField textFieldAddTeacherHourlySalary;
@@ -123,8 +81,6 @@ public class View extends JFrame {
 		textFieldAddDepartmentName.setBounds(218, 73, 130, 26);
 		panelAddDepartment.add(textFieldAddDepartmentName);
 		textFieldAddDepartmentName.setColumns(10);
-		
-		lbldepartmentName = new JLabel("Name");
 
 		JLabel lbldepartmentName = new JLabel("Name");
 		lbldepartmentName.setBounds(111, 78, 61, 16);
@@ -139,12 +95,6 @@ public class View extends JFrame {
 		textFieldAddDepartmentAddress.setColumns(10);
 		textFieldAddDepartmentAddress.setBounds(218, 196, 130, 26);
 		panelAddDepartment.add(textFieldAddDepartmentAddress);
-		
-		lblDepartmentBudget = new JLabel("Budget");
-		lblDepartmentBudget.setBounds(111, 142, 61, 16);
-		panelAddDepartment.add(lblDepartmentBudget);
-		
-		lblDepartmentAddress = new JLabel("New label");
 
 		JLabel lblDepartmentBudget = new JLabel("Budget");
 		lblDepartmentBudget.setBounds(111, 142, 61, 16);
@@ -353,26 +303,6 @@ public class View extends JFrame {
 	public JMenuItem getDisplayTeachers() {
 		return displayTeachers;
 	}
-	public JTextField getTextField() {
-		return textField;
-	}
-	public void setTextField(JTextField textField) {
-		this.textField = textField;
-	}
-	public JTextField getTextField_1() {
-		return textField_1;
-	}
-	public void setTextField_1(JTextField textField_1) {
-		this.textField_1 = textField_1;
-	}
-	public JTextField getTextField_2() {
-		return textField_2;
-	}
-	public void setTextField_2(JTextField textField_2) {
-		this.textField_2 = textField_2;
-
-	
-	//button getters 
 
 	// button getters
 	public JTextField getTextFieldAddTeacherEmployeeID() {
