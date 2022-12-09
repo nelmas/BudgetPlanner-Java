@@ -93,33 +93,33 @@ public void setTeaches(ArrayList <Teacher> teaches) {
 //course.setTeaches(teaches);
 //this.course.add(course);
 //}
-
-public void readCorse(){
-	Course course = new Course();
-	course.getName();
-	course.getCredits();
-	course.getCycle();
-	
-	
-}
+//
+//public void readCorse(){
+//	Course course = new Course();
+//	course.getName();
+//	course.getCredits();
+//	course.getCycle();
+//	
+//	
+//}
 
 //public void deleteCorse(){
 //		
 //}
-
-public void displayAllTeachers() {
-for (int i = 0; i>teaches.size(); i++ ) {
-	teacher.getName();
-	teacher.getEmployeeId();
-}
-
-}
-public void displayResponsible() {
-	responsible.getName();
-	responsible.getEmployeeId();
-	responsible.getTitle();
-	
-}
+//
+//public void displayAllTeachers() {
+//for (int i = 0; i>teaches.size(); i++ ) {
+//	teacher.getName();
+//	teacher.getEmployeeId();
+//}
+//
+//}
+//public void displayResponsible() {
+//	responsible.getName();
+//	responsible.getEmployeeId();
+//	responsible.getTitle();
+//	
+//}
 
 public void addCourseTeacher(Teacher teacher) {
 	this.teaches.add(teacher);
@@ -133,6 +133,7 @@ public void addResponsible() {
 	
 }
 public void removeResponsible() {
+	
 }
 
 
