@@ -7,9 +7,13 @@ public class Teacher {
 	private String title;
 	private String address;
 	private int hourlySalary;
-	private ArrayList <Course> taught;
-	
-	//Constructors
+	// course can be taught by several teachers
+	private ArrayList<Course> taught;
+
+	// teacher can teach several courses
+	private ArrayList<Teacher> course;
+
+	// Constructors
 	public Teacher(String employeeId, String name, String title, String address, int hourlySalary) {
 		this.employeeId = employeeId;
 		this.name = name;
@@ -17,24 +21,24 @@ public class Teacher {
 		this.address = address;
 		this.hourlySalary = hourlySalary;
 		this.taught = new ArrayList<Course>();
+
+		this.course = new ArrayList<Teacher>();
 	}
-	
+
 	public Teacher() {
 		this.taught = new ArrayList<Course>();
-		
+
 	}
-	//Titles
+
+	// Titles
 	enum Titles {
-		LECTURER,
-		ASSISTANTPROFESSOR,
-		ASSOCIATEPROFESSOR,
-		PROFESSOR,
-	
-	//Titles title = Titles.ASSISTANTPROFESSOR;
-		//System.out.println(title);
+		LECTURER, ASSISTANTPROFESSOR, ASSOCIATEPROFESSOR, PROFESSOR,
+
+		// Titles title = Titles.ASSISTANTPROFESSOR;
+		// System.out.println(title);
 	}
-	
-	//Getters & Setters
+
+	// Getters & Setters
 	public ArrayList<Course> getTaught() {
 		return taught;
 	}
@@ -43,10 +47,18 @@ public class Teacher {
 		this.taught = taught;
 	}
 
+	public ArrayList<Teacher> getCourse() {
+		return course;
+	}
+
+	public void setCourse(ArrayList<Teacher> course) {
+		this.course = course;
+	}
+
 	public String getEmployeeId() {
 		return employeeId;
 	}
-		
+
 	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
 	}
@@ -82,6 +94,16 @@ public class Teacher {
 	public void setHourlySalary(int hourlySalary) {
 		this.hourlySalary = hourlySalary;
 	}
-	
-	//Methods
+
+	// Methods
+
+	public void addCourse(Teacher course) {
+		this.course.add(course);
+	}
+
+	// remove teacher method
+	public void removeCourse(Teacher course) {
+		this.course.remove(course);
+
+	}
 }
