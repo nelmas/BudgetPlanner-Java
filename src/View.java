@@ -44,7 +44,10 @@ public class View extends JFrame {
     private JTextField textFieldAddDepartmentBudget;
     private JTextField textFieldAddDepartmentAddress;
     private JTextField textFieldAddTeacherEmployeeID;
-    private JTextField textFieldAddTeacherName;
+    
+	
+
+	private JTextField textFieldAddTeacherName;
     private JTextField textFieldAddTeacherTitle;
     private JTextField textFieldAddTeacherAddress;
     private JTextField textFieldAddTeacherHourlySalary;
@@ -52,6 +55,8 @@ public class View extends JFrame {
     private JButton btnRemoveTeacher;
     private JButton btnAddDepartment;
     private JButton btnRemoveDepartment;
+    
+    
     
    
 	public View() {
@@ -111,10 +116,6 @@ public class View extends JFrame {
 		panelAddDepartment.add(btnAddDepartment);
 		
 		btnRemoveDepartment = new JButton("Remove");
-		btnRemoveDepartment.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnRemoveDepartment.setBounds(276, 251, 93, 27);
 		panelAddDepartment.add(btnRemoveDepartment);
 		
@@ -286,5 +287,22 @@ public class View extends JFrame {
 	}
 	public void setTextField_2(JTextField textField_2) {
 		this.textField_2 = textField_2;
+
+	
+	//button getters 
+	public JTextField getTextFieldAddTeacherEmployeeID() {
+		return textFieldAddTeacherEmployeeID;
+	}
+	public JButton getBtnAddTeacher() {
+		return btnAddTeacher;
+	}
+	public JButton getBtnRemoveTeacher() {
+		return btnRemoveTeacher;
+	}
+	public JButton getBtnAddDepartment() {
+		return btnAddDepartment;
+	}
+	public JButton getBtnRemoveDepartment() {
+		return btnRemoveDepartment;
 	}
 }
