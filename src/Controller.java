@@ -18,10 +18,20 @@ public class Controller implements ActionListener {
 		
 	}
 	private void declareListeners() {
-		view.getAddDepartmentItem().addActionListener(new ActionListener(){
+		view.getBtnAddDepartment().addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
+			String departmentName = view.getTextFieldAddDepartmentName().getText();
+			int budget = Integer.parseInt(view.getTextFieldAddDepartmentBudget().getText());
+			String address = view.getTextFieldAddDepartmentAddress().getText();
+		
+			Department tmpDepartment = new Department();
+			tmpDepartment.setName(departmentName);
+			tmpDepartment.setBudget(budget);
+			tmpDepartment.setAddress(address);
+		if (budget > 0)	{
+			tmpDepartment.addDepartment(tmpDepartment);
+		}
 			
-				
 				
 				System.out.println("hej");
 			}
