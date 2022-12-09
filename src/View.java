@@ -19,9 +19,7 @@ public class View extends JFrame {
     private JMenuItem editTeacherItem;
     private JMenuItem setHoursItem;
     private JMenuItem  displayTeachers;
-    private JTabbedPane tabbedPane;
-    private JPanel panel1;
-    private JPanel panel;
+  
     
 	public View() {
 		
@@ -39,18 +37,7 @@ public class View extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(6, 6, 851, 533);
-		contentPane.add(tabbedPane);
-		
-		panel1 = new JPanel();
-		panel1.setBackground(Color.PINK);
-		tabbedPane.addTab("New tab", null, panel1, null);
-		
-		panel = new JPanel();
-		panel.setBackground(Color.RED);
-		//tabbedPane.addTab("New tab", null, panel, null);
-		
+	
 	
 		menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);

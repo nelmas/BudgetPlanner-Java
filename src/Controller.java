@@ -20,7 +20,7 @@ public class Controller implements ActionListener {
 	private void declareListeners() {
 		view.getAddDepartmentItem().addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				view.getPanel1();
+			
 				
 				
 				System.out.println("hej");
