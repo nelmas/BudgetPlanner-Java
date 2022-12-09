@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class View extends JFrame {
+	
+	
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenu departmentMenu;
@@ -25,6 +27,7 @@ public class View extends JFrame {
     private JPanel panel;
     private JPanel panelAddDepartment;
     private JTextField textFieldAddDepartmentName;
+
     private JTextField textField_1;
     private JTextField textField_2;
 
@@ -37,6 +40,19 @@ public class View extends JFrame {
     private JTextField textField_5;
     private JTextField textField_6;
     private JTextField textField_7;
+
+    private JTextField textFieldAddDepartmentBudget;
+    private JTextField textFieldAddDepartmentAddress;
+    private JTextField textFieldAddTeacherEmployeeID;
+    private JTextField textFieldAddTeacherName;
+    private JTextField textFieldAddTeacherTitle;
+    private JTextField textFieldAddTeacherAddress;
+    private JTextField textFieldAddTeacherHourlySalary;
+    private JButton btnAddTeacher;
+    private JButton btnRemoveTeacher;
+    private JButton btnAddDepartment;
+    private JButton btnRemoveDepartment;
+    
    
 	public View() {
 		
@@ -71,15 +87,15 @@ public class View extends JFrame {
 		lbldepartmentName.setBounds(111, 78, 61, 16);
 		panelAddDepartment.add(lbldepartmentName);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(218, 137, 130, 26);
-		panelAddDepartment.add(textField_1);
+		textFieldAddDepartmentBudget = new JTextField();
+		textFieldAddDepartmentBudget.setColumns(10);
+		textFieldAddDepartmentBudget.setBounds(218, 137, 130, 26);
+		panelAddDepartment.add(textFieldAddDepartmentBudget);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(218, 196, 130, 26);
-		panelAddDepartment.add(textField_2);
+		textFieldAddDepartmentAddress = new JTextField();
+		textFieldAddDepartmentAddress.setColumns(10);
+		textFieldAddDepartmentAddress.setBounds(218, 196, 130, 26);
+		panelAddDepartment.add(textFieldAddDepartmentAddress);
 		
 		lblDepartmentBudget = new JLabel("Budget");
 		lblDepartmentBudget.setBounds(111, 142, 61, 16);
@@ -90,11 +106,11 @@ public class View extends JFrame {
 		lblDepartmentAddress.setBounds(111, 201, 61, 16);
 		panelAddDepartment.add(lblDepartmentAddress);
 		
-		JButton btnAddDepartment = new JButton("Add");
+		btnAddDepartment = new JButton("Add");
 		btnAddDepartment.setBounds(208, 251, 70, 26);
 		panelAddDepartment.add(btnAddDepartment);
 		
-		JButton btnRemoveDepartment = new JButton("Remove");
+		btnRemoveDepartment = new JButton("Remove");
 		btnRemoveDepartment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -114,52 +130,52 @@ public class View extends JFrame {
 		lblFullName.setBounds(232, 11, 63, 16);
 		panel.add(lblFullName);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(319, 6, 130, 26);
-		textField_4.setColumns(10);
-		panel.add(textField_4);
+		textFieldAddTeacherName = new JTextField();
+		textFieldAddTeacherName.setBounds(319, 6, 130, 26);
+		textFieldAddTeacherName.setColumns(10);
+		panel.add(textFieldAddTeacherName);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(319, 74, 130, 26);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		textFieldAddTeacherEmployeeID = new JTextField();
+		textFieldAddTeacherEmployeeID.setBounds(319, 74, 130, 26);
+		panel.add(textFieldAddTeacherEmployeeID);
+		textFieldAddTeacherEmployeeID.setColumns(10);
 		
 		JLabel lblEmployeeID = new JLabel("EmployeeID");
 		lblEmployeeID.setBounds(232, 79, 75, 16);
 		panel.add(lblEmployeeID);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(319, 150, 130, 26);
-		panel.add(textField_5);
-		textField_5.setColumns(10);
+		textFieldAddTeacherTitle = new JTextField();
+		textFieldAddTeacherTitle.setBounds(319, 150, 130, 26);
+		panel.add(textFieldAddTeacherTitle);
+		textFieldAddTeacherTitle.setColumns(10);
 		
 		JLabel lblTitle = new JLabel("Title");
 		lblTitle.setBounds(234, 155, 61, 16);
 		panel.add(lblTitle);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(319, 229, 130, 26);
-		panel.add(textField_6);
-		textField_6.setColumns(10);
+		textFieldAddTeacherAddress = new JTextField();
+		textFieldAddTeacherAddress.setBounds(319, 229, 130, 26);
+		panel.add(textFieldAddTeacherAddress);
+		textFieldAddTeacherAddress.setColumns(10);
 		
 		JLabel lblAddress = new JLabel("Address");
 		lblAddress.setBounds(234, 234, 61, 16);
 		panel.add(lblAddress);
 		
-		textField_7 = new JTextField();
-		textField_7.setBounds(319, 305, 130, 26);
-		panel.add(textField_7);
-		textField_7.setColumns(10);
+		textFieldAddTeacherHourlySalary = new JTextField();
+		textFieldAddTeacherHourlySalary.setBounds(319, 305, 130, 26);
+		panel.add(textFieldAddTeacherHourlySalary);
+		textFieldAddTeacherHourlySalary.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Hourly Salary");
 		lblNewLabel.setBounds(232, 310, 86, 16);
 		panel.add(lblNewLabel);
 		
-		JButton btnAddTeacher = new JButton("Add");
+		btnAddTeacher = new JButton("Add");
 		btnAddTeacher.setBounds(320, 359, 117, 29);
 		panel.add(btnAddTeacher);
 		
-		JButton btnRemoveTeacher = new JButton("remove");
+		btnRemoveTeacher = new JButton("remove");
 		btnRemoveTeacher.setBounds(475, 74, 117, 29);
 		panel.add(btnRemoveTeacher);
 		
