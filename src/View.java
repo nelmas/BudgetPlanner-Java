@@ -19,7 +19,14 @@ public class View extends JFrame {
     private JMenuItem editTeacherItem;
     private JMenuItem setHoursItem;
     private JMenuItem  displayTeachers;
-  
+    private JTabbedPane tabbedPane;
+    private JPanel panel;
+    private JPanel panelAddDepartment;
+    private JButton btnNewButton;
+    private JTextField textField;
+    private JTextField textField_1;
+    private JTextField textField_2;
+   
     
 	public View() {
 		
@@ -36,6 +43,47 @@ public class View extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(6, 6, 851, 522);
+		contentPane.add(tabbedPane);
+		
+		panelAddDepartment = new JPanel();
+		tabbedPane.addTab("New tab", null, panelAddDepartment, null);
+		panelAddDepartment.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(218, 73, 130, 26);
+		panelAddDepartment.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lbldepartmentName = new JLabel("Name");
+		lbldepartmentName.setBounds(111, 78, 61, 16);
+		panelAddDepartment.add(lbldepartmentName);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(218, 137, 130, 26);
+		panelAddDepartment.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(218, 196, 130, 26);
+		panelAddDepartment.add(textField_2);
+		
+		JLabel lblDepartmentBudget = new JLabel("Budget");
+		lblDepartmentBudget.setBounds(111, 142, 61, 16);
+		panelAddDepartment.add(lblDepartmentBudget);
+		
+		JLabel lblDepartmentAddress = new JLabel("New label");
+		lblDepartmentAddress.setBounds(111, 201, 61, 16);
+		panelAddDepartment.add(lblDepartmentAddress);
+		
+		panel = new JPanel();
+		tabbedPane.addTab("New tab", null, panel, null);
+		
+		btnNewButton = new JButton("New button");
+		panel.add(btnNewButton);
 		
 	
 	
@@ -123,14 +171,4 @@ public class View extends JFrame {
 	public JMenuItem getDisplayTeachers() {
 		return displayTeachers;
 	}
-	public JPanel getPanel1() {
-		return panel1;
-	}
-	
-	public JPanel getPanel() {
-		return panel;
-	}
-	
-	
-	}
-
+}
