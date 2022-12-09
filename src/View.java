@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class View extends JFrame {
 	private JPanel contentPane;
@@ -57,7 +59,7 @@ public class View extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		panelAddDepartment = new JPanel();
-		tabbedPane.addTab("Add Department", null, panelAddDepartment, null);
+		tabbedPane.addTab("Deparment", null, panelAddDepartment, null);
 		panelAddDepartment.setLayout(null);
 		
 		textField = new JTextField();
@@ -84,11 +86,28 @@ public class View extends JFrame {
 		panelAddDepartment.add(lblDepartmentBudget);
 		
 		lblDepartmentAddress = new JLabel("New label");
+		JLabel lblDepartmentAddress = new JLabel("Address");
 		lblDepartmentAddress.setBounds(111, 201, 61, 16);
 		panelAddDepartment.add(lblDepartmentAddress);
 		
+		JButton btnAddDepartment = new JButton("Add");
+		btnAddDepartment.setBounds(208, 251, 70, 26);
+		panelAddDepartment.add(btnAddDepartment);
+		
+		JButton btnRemoveDepartment = new JButton("Remove");
+		btnRemoveDepartment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRemoveDepartment.setBounds(276, 251, 93, 27);
+		panelAddDepartment.add(btnRemoveDepartment);
+		
+		JLabel lblNewLabel_2 = new JLabel("If you wish to remove a department, enter name and press remove");
+		lblNewLabel_2.setBounds(111, 48, 428, 16);
+		panelAddDepartment.add(lblNewLabel_2);
+		
 		panel = new JPanel();
-		tabbedPane.addTab("Add Teacher", null, panel, null);
+		tabbedPane.addTab("Teacher", null, panel, null);
 		panel.setLayout(null);
 		
 		JLabel lblFullName = new JLabel("Full Name");
@@ -135,6 +154,18 @@ public class View extends JFrame {
 		JLabel lblNewLabel = new JLabel("Hourly Salary");
 		lblNewLabel.setBounds(232, 310, 86, 16);
 		panel.add(lblNewLabel);
+		
+		JButton btnAddTeacher = new JButton("Add");
+		btnAddTeacher.setBounds(320, 359, 117, 29);
+		panel.add(btnAddTeacher);
+		
+		JButton btnRemoveTeacher = new JButton("remove");
+		btnRemoveTeacher.setBounds(475, 74, 117, 29);
+		panel.add(btnRemoveTeacher);
+		
+		JLabel lblNewLabel_1 = new JLabel("If you wish to remove a teacher from the system, only enter EmployeeID and press remove");
+		lblNewLabel_1.setBounds(120, 46, 577, 16);
+		panel.add(lblNewLabel_1);
 		
 	
 	
