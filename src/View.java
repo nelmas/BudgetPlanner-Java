@@ -26,8 +26,11 @@ public class View extends JFrame {
     private JTextField textField;
     private JTextField textField_1;
     private JTextField textField_2;
+   private JLabel lblDepartmentBudget;
+   private JLabel lblDepartmentAddress;
+   private JLabel lbldepartmentName;
+
    
-    
 	public View() {
 		
 		setTitle("Contoso University");
@@ -57,7 +60,7 @@ public class View extends JFrame {
 		panelAddDepartment.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lbldepartmentName = new JLabel("Name");
+		lbldepartmentName = new JLabel("Name");
 		lbldepartmentName.setBounds(111, 78, 61, 16);
 		panelAddDepartment.add(lbldepartmentName);
 		
@@ -71,11 +74,11 @@ public class View extends JFrame {
 		textField_2.setBounds(218, 196, 130, 26);
 		panelAddDepartment.add(textField_2);
 		
-		JLabel lblDepartmentBudget = new JLabel("Budget");
+		lblDepartmentBudget = new JLabel("Budget");
 		lblDepartmentBudget.setBounds(111, 142, 61, 16);
 		panelAddDepartment.add(lblDepartmentBudget);
 		
-		JLabel lblDepartmentAddress = new JLabel("New label");
+		lblDepartmentAddress = new JLabel("New label");
 		lblDepartmentAddress.setBounds(111, 201, 61, 16);
 		panelAddDepartment.add(lblDepartmentAddress);
 		
@@ -170,5 +173,23 @@ public class View extends JFrame {
 	
 	public JMenuItem getDisplayTeachers() {
 		return displayTeachers;
+	}
+	public JTextField getTextField() {
+		return textField;
+	}
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+	public JTextField getTextField_1() {
+		return textField_1;
+	}
+	public void setTextField_1(JTextField textField_1) {
+		this.textField_1 = textField_1;
+	}
+	public JTextField getTextField_2() {
+		return textField_2;
+	}
+	public void setTextField_2(JTextField textField_2) {
+		this.textField_2 = textField_2;
 	}
 }
