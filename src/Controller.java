@@ -38,6 +38,8 @@ private void declareListeners() {
 	
 
 
+CourseTableModel courseTableModel = new CourseTableModel();
+courseTableModel.addCourse(tmpCourse);
 	
 	
 }
