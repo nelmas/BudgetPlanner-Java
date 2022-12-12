@@ -55,12 +55,10 @@ public class View extends JFrame {
 	private JLabel lblCourseCode;
 	private JLabel lblNewLabel_3;
 
-
 	private JScrollPane scrollPaneCourse;
 
 	private JTable teacherTableModel;
 	private JTable courseTableModel;
-
 
 	private JScrollPane scrollPane;
 
@@ -234,34 +232,33 @@ public class View extends JFrame {
 		btnRemoveCourse = new JButton("Remove");
 		btnRemoveCourse.setBounds(394, 236, 87, 29);
 		panel_1.add(btnRemoveCourse);
-		
+
 		scrollPaneCourse = new JScrollPane();
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
 		panel_1.add(scrollPaneCourse);
-		
+
 		table = new JTable();
-		
+
 		CourseTableModel courseTableModel = new CourseTableModel();
-		
+
 		table.setModel(courseTableModel);
 		scrollPaneCourse.setViewportView(table);
-		
+
 		scrollBar = new JScrollBar();
 		scrollPaneCourse.setRowHeaderView(scrollBar);
-	
+
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(475, 150, 324, 228);
 		panel.add(scrollPane);
-		
+
 		table = new JTable();
-		
-		
+
 		scrollPane.setViewportView(table);
-		
-		TeacherTableModel	teacherTableModel = new TeacherTableModel();
-		
+
+		TeacherTableModel teacherTableModel = new TeacherTableModel();
+
 		table.setModel(teacherTableModel);
-		
+
 		scrollBarCourse = new JScrollBar();
 		scrollPane.setRowHeaderView(scrollBarCourse);
 
@@ -278,8 +275,6 @@ public class View extends JFrame {
 		textFieldAddCredits.setBounds(329, 111, 130, 26);
 		panel_1.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
-
-		
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 187, 130, 26);
@@ -390,8 +385,6 @@ public class View extends JFrame {
 		return textFieldAddTeacherEmployeeID;
 	}
 
-
-	
 	public JTextField getTextFieldAddTeacherName() {
 		return textFieldAddTeacherName;
 	}
@@ -420,12 +413,9 @@ public class View extends JFrame {
 		return btnRemoveCourse;
 	}
 
-	
-
 	public void setTextFieldAddCredits(JTextField textFieldAddCredits) {
 		this.textFieldAddCredits = textFieldAddCredits;
 	}
-
 
 	public JTabbedPane getTabbedPane() {
 		return tabbedPane;
@@ -464,16 +454,13 @@ public class View extends JFrame {
 		this.textFieldCourseCode = textFieldCourseCode;
 	}
 
-
 	public JTextField getTextFieldAddCourseName() {
 		return textFieldAddCourseName;
 	}
 
-
 	public void setTextFieldAddCourseName(JTextField textFieldAddCourseName) {
 		this.textFieldAddCourseName = textFieldAddCourseName;
 	}
-	
 
 	public JTextField getTextFieldAddTeacherTitle() {
 		return textFieldAddTeacherTitle;
