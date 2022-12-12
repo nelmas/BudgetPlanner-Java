@@ -29,6 +29,8 @@ public class Controller implements ActionListener {
 				int courseCredit = Integer.parseInt(strCourseCredit);
 				
 				
+				int courseCredit = Integer.parseInt(view.getTextFieldAddCredits().getText());
+
 				Course tmpCourse = new Course();
 				tmpCourse.setName(courseName);
 				tmpCourse.setCredits(courseCredit);
@@ -42,6 +44,10 @@ public class Controller implements ActionListener {
 				
 			courseTableModel.addCourse(tmpCourse);
    
+
+				CourseTableModel courseTableModel = new CourseTableModel();
+				courseTableModel.addCourse(tmpCourse);
+
 			}
 		});
 
@@ -59,6 +65,28 @@ public class Controller implements ActionListener {
 				String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
 				String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
 				String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+				String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+
+				int teacherSalary = Integer.parseInt(strTeacherSalary);
+				System.out.println("Hej");
+
+				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
+				
+				
+//				Teacher tmpTeacher = new Teacher();
+//				tmpTeacher.setAddress(teacherAddress);
+//				tmpTeacher.setCourse(null);
+//				tmpTeacher.setEmployeeId(teacherID);
+//				tmpTeacher.setHourlySalary(teacherSalary);
+//				tmpTeacher.setName(teacherName);
+//				tmpTeacher.setTitle(teacherTitle);
+//				tmpTeacher.setTaught(null);
+//				
+//				TeacherTableModel teacherTableModel = new TeacherTableModel();
+//								
+//				teacherTableModel.addTeacher(tmpTeacher);
+				
+				view.getTeacherTable()
 
 			}
 		});
