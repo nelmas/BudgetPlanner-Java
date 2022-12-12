@@ -60,6 +60,8 @@ public class View extends JFrame {
 
 	private JTable teacherTable;
 	private JTable courseTable;
+	
+	private TeacherTableModel teacherTableModel;
 
 	private JScrollPane scrollPane;
 
@@ -238,11 +240,11 @@ public class View extends JFrame {
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
 		panel_1.add(scrollPaneCourse);
 
-		table = new JTable();
+		courseTable = new JTable();
 
 		CourseTableModel courseTableModel = new CourseTableModel();
 
-		table.setModel(courseTableModel);
+		courseTable.setModel(courseTableModel);
 		scrollPaneCourse.setViewportView(table);
 
 		scrollBar = new JScrollBar();
@@ -252,22 +254,30 @@ public class View extends JFrame {
 		scrollPane.setBounds(475, 150, 324, 228);
 		panel.add(scrollPane);
 
+		
+		
+		
 		teacherTable = new JTable();
 
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(teacherTable);
 		
-		TeacherTableModel teacherTableModel = new TeacherTableModel();
+		teacherTableModel = new TeacherTableModel();
 		
-		table.setModel(teacherTableModel);
+//		teacherTable.setModel(teacherTableModel);
 		
 
-		TeacherTableModel teacherTableModel = new TeacherTableModel();
+//		TeacherTableModel teacherTableModel = new TeacherTableModel();
 
-		teacherTable.setModel(teacherTableModel);
+		
 
 		scrollBarCourse = new JScrollBar();
 		scrollPane.setRowHeaderView(scrollBarCourse);
 
+	//	scrollPane.add(teacherTable);
+		teacherTable.setModel(teacherTableModel);
+
+		
+		//panel.add(teacherTable);
 		textFieldAddCourseName = new JTextField();
 		textFieldAddCourseName.setBounds(329, 52, 130, 26);
 		panel_1.add(textFieldAddCourseName);
@@ -500,19 +510,37 @@ public class View extends JFrame {
 		return table;
 	}
 
-	public JTable getCourseTableModel() {
-		return courseTableModel;
-	}
-
-	public void setCourseTableModel(JTable courseTableModel) {
-		this.courseTableModel = courseTableModel;
-	}
-
-	public JTable getTeacherTableModel() {
-		return teacherTableModel;
-	}
 	public JTable getTeacherTable() {
 		return teacherTable;
+	}
+
+	public JTable getCourseTable() {
+		return courseTable;
+	}
+
+	public TeacherTableModel getTeacherTableModel() {
+		return teacherTableModel;
+	}
+
+	public void setTeacherTableModel(TeacherTableModel teacherTableModel) {
+		this.teacherTableModel = teacherTableModel;
+	}
+
+
+	public JPanel getPanel_1() {
+		return panel_1;
+	}
+
+	public JScrollPane getScrollPaneCourse() {
+		return scrollPaneCourse;
+	}
+
+	public JScrollBar getScrollBarCourse() {
+		return scrollBarCourse;
+	}
+
+	public JScrollBar getScrollBar() {
+		return scrollBar;
 	}
 
 }

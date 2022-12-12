@@ -29,24 +29,20 @@ public class Controller implements ActionListener {
 				int courseCredit = Integer.parseInt(strCourseCredit);
 				
 				
-				int courseCredit = Integer.parseInt(view.getTextFieldAddCredits().getText());
+				//int courseCredit = Integer.parseInt(view.getTextFieldAddCredits().getText());
 
 				Course tmpCourse = new Course();
 				tmpCourse.setName(courseName);
 				tmpCourse.setCredits(courseCredit);
 				tmpCourse.setCourseCode(courseCode);
-//				tmpCourse.setTeaches(null);
-//				tmpCourse.setResponsible(teacher);
-//				tmpCourse.setCycle("e");
-
-				CourseTableModel courseTableModel = new CourseTableModel();
+				tmpCourse.setTeaches(null);
+				tmpCourse.setResponsible(teacher);
+				tmpCourse.setCycle("e");
 
 				
-			courseTableModel.addCourse(tmpCourse);
-   
-
-				CourseTableModel courseTableModel = new CourseTableModel();
-				courseTableModel.addCourse(tmpCourse);
+			//CourseTableModel courseTableModel = new CourseTableModel();
+				view.getCourseTable();
+			
 
 			}
 		});
@@ -64,7 +60,7 @@ public class Controller implements ActionListener {
 				String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
 				String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
 				String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
-				String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+				//String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
 				String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
 
 				int teacherSalary = Integer.parseInt(strTeacherSalary);
@@ -82,11 +78,12 @@ public class Controller implements ActionListener {
 //				tmpTeacher.setTitle(teacherTitle);
 //				tmpTeacher.setTaught(null);
 //				
-//				TeacherTableModel teacherTableModel = new TeacherTableModel();
+//	TeacherTableModel teacherTableModel = new TeacherTableModel();
 //								
 //				teacherTableModel.addTeacher(tmpTeacher);
 				
-				view.getTeacherTable()
+			view.getTeacherTableModel().addTeacher(tmpTeacher);
+			
 
 			}
 		});
