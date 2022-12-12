@@ -9,6 +9,8 @@ private String[] columns = {"Name", "Course Code", "ECTS", "Cycle", "Responsible
 
 public void addCourse(Course course) {
 	 courses.add(course);
+	 // defined in superclass 
+	 this.fireTableDataChanged();
 }
 
 
