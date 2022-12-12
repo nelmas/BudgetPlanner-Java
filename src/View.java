@@ -55,6 +55,13 @@ public class View extends JFrame {
 	private JLabel lblCourseCode;
 	private JLabel lblNewLabel_3;
 
+
+	private JScrollPane scrollPaneCourse;
+
+	private JScrollPane scrollPane;
+
+	private JTable table;
+
 	public View() {
 
 		setTitle("Contoso University");
@@ -220,6 +227,77 @@ public class View extends JFrame {
 		btnRemoveCourse = new JButton("Remove");
 		btnRemoveCourse.setBounds(394, 236, 87, 29);
 		panel_1.add(btnRemoveCourse);
+		
+		scrollPaneCourse = new JScrollPane();
+		scrollPaneCourse.setBounds(66, 278, 675, 171);
+		panel_1.add(scrollPaneCourse);
+		
+		table = new JTable();
+		CourseTableModel courseTableModel = new CourseTableModel();
+		
+		table.setModel(courseTableModel);
+		scrollPaneCourse.setViewportView(table);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollPaneCourse.setRowHeaderView(scrollBar);
+		
+
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(475, 150, 324, 228);
+		panel.add(scrollPane);
+		
+		table = new JTable();
+		
+		
+		scrollPane.setViewportView(table);
+		
+		TeacherTableModel teacherTableModel = new TeacherTableModel();
+		
+		table.setModel(teacherTableModel);
+		
+		JScrollBar scrollBarCourse = new JScrollBar();
+		scrollPane.setRowHeaderView(scrollBar);
+
+		JPanel panelCourse = new JPanel();
+		tabbedPane.addTab("Courses", null, panelCourse, null);
+		panelCourse.setLayout(null);
+
+		textFieldAddCourseName = new JTextField();
+		textFieldAddCourseName.setBounds(329, 52, 130, 26);
+		panel_1.add(textFieldAddCourseName);
+		textFieldAddCourseName.setColumns(10);
+
+		lblCourseName = new JLabel("Name");
+		lblCourseName.setBounds(230, 57, 80, 16);
+		panel_1.add(lblCourseName);
+
+		textFieldAddCredits = new JTextField();
+		textFieldAddCredits.setBounds(329, 111, 130, 26);
+		panel_1.add(textFieldAddCredits);
+		textFieldAddCredits.setColumns(10);
+
+		
+
+		textFieldCourseCode = new JTextField();
+		textFieldCourseCode.setBounds(329, 187, 130, 26);
+		panel_1.add(textFieldCourseCode);
+		textFieldCourseCode.setColumns(10);
+
+		lblCourseCode = new JLabel("CourseCode");
+		lblCourseCode.setBounds(230, 192, 80, 16);
+		panel_1.add(lblCourseCode);
+
+		lblNewLabel_3 = new JLabel("If you wish to remove a Course, only enter the CourseCode and press remove");
+		lblNewLabel_3.setBounds(140, 159, 485, 16);
+		panel_1.add(lblNewLabel_3);
+
+		btnAddCourse = new JButton("Add");
+		btnAddCourse.setBounds(308, 236, 87, 29);
+		panel_1.add(btnAddCourse);
+
+		btnRemoveCourse = new JButton("Remove");
+		btnRemoveCourse.setBounds(394, 236, 87, 29);
+		panel_1.add(btnRemoveCourse);
 
 		menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);
@@ -309,6 +387,12 @@ public class View extends JFrame {
 		return textFieldAddTeacherEmployeeID;
 	}
 
+
+	
+	public JTextField getTextFieldAddTeacherName() {
+		return textFieldAddTeacherName;
+	}
+
 	public JButton getBtnAddTeacher() {
 		return btnAddTeacher;
 	}
@@ -331,5 +415,92 @@ public class View extends JFrame {
 
 	public JButton getBtnRemoveCourse() {
 		return btnRemoveCourse;
+	}
+
+	
+
+	public void setTextFieldAddCredits(JTextField textFieldAddCredits) {
+		this.textFieldAddCredits = textFieldAddCredits;
+	}
+
+
+	public JTabbedPane getTabbedPane() {
+		return tabbedPane;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public JPanel getPanelAddDepartment() {
+		return panelAddDepartment;
+	}
+
+	public JTextField getTextFieldAddDepartmentName() {
+		return textFieldAddDepartmentName;
+	}
+
+	public JTextField getTextFieldAddDepartmentBudget() {
+		return textFieldAddDepartmentBudget;
+	}
+
+	public JTextField getTextFieldAddDepartmentAddress() {
+		return textFieldAddDepartmentAddress;
+	}
+
+	public JTextField getTextFieldAddCredits() {
+		return textFieldAddCredits;
+
+	}
+
+	public JTextField getTextFieldCourseCode() {
+		return textFieldCourseCode;
+	}
+
+	public void setTextFieldCourseCode(JTextField textFieldCourseCode) {
+		this.textFieldCourseCode = textFieldCourseCode;
+	}
+
+
+	public JTextField getTextFieldAddCourseName() {
+		return textFieldAddCourseName;
+	}
+
+
+	public void setTextFieldAddCourseName(JTextField textFieldAddCourseName) {
+		this.textFieldAddCourseName = textFieldAddCourseName;
+	}
+	
+
+	public JTextField getTextFieldAddTeacherTitle() {
+		return textFieldAddTeacherTitle;
+	}
+
+	public JTextField getTextFieldAddTeacherAddress() {
+		return textFieldAddTeacherAddress;
+	}
+
+	public JTextField getTextFieldAddTeacherHourlySalary() {
+		return textFieldAddTeacherHourlySalary;
+	}
+
+	public JLabel getLblCourseName() {
+		return lblCourseName;
+	}
+
+	public JLabel getLblCourseCode() {
+		return lblCourseCode;
+	}
+
+	public JLabel getLblNewLabel_3() {
+		return lblNewLabel_3;
+	}
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+	public JTable getTable() {
+		return table;
 	}
 }
