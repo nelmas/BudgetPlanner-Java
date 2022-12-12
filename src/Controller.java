@@ -35,7 +35,8 @@ private void declareListeners() {
 	tmpCourse.setCourseCode(courseCode);
 	
 	
-
+CourseTableModel courseTableModel = new CourseTableModel();
+courseTableModel.addCourse(tmpCourse);
 	
 	
 }
