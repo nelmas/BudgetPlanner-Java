@@ -255,12 +255,12 @@ public class View extends JFrame {
 		
 		table.setModel(teacherTableModel);
 		
-		JScrollBar scrollBar = new JScrollBar();
+		JScrollBar scrollBarCourse = new JScrollBar();
 		scrollPane.setRowHeaderView(scrollBar);
 
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Courses", null, panel_1, null);
-		panel_1.setLayout(null);
+		JPanel panelCourse = new JPanel();
+		tabbedPane.addTab("Courses", null, panelCourse, null);
+		panelCourse.setLayout(null);
 
 		textFieldAddCourseName = new JTextField();
 		textFieldAddCourseName.setBounds(329, 52, 130, 26);
@@ -276,9 +276,7 @@ public class View extends JFrame {
 		panel_1.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 
-		JLabel lblCourseCredits = new JLabel("Credits");
-		lblCourseCredits.setBounds(230, 116, 61, 16);
-		panel_1.add(lblCourseCredits);
+		
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 187, 130, 26);
@@ -418,16 +416,12 @@ public class View extends JFrame {
 		return btnRemoveCourse;
 	}
 
-	public JTextField getTextFieldAddCredits() {
-		return textFieldAddCredits;
-	}
+	
 
 	public void setTextFieldAddCredits(JTextField textFieldAddCredits) {
 		this.textFieldAddCredits = textFieldAddCredits;
 	}
-	public JMenuBar getMenuBar() {
-		return menuBar;
-	}
+
 
 	public JTabbedPane getTabbedPane() {
 		return tabbedPane;

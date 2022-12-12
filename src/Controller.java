@@ -20,14 +20,6 @@ public class Controller implements ActionListener {
 	}
 	
 
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 private void declareListeners() {
@@ -42,37 +34,18 @@ private void declareListeners() {
 	tmpCourse.setCredits(courseCredit);
 	tmpCourse.setCourseCode(courseCode);
 	
+	
+
+	
+	
 }
 });
-}
-//	
-//	
-//		view.getBtnRemoveDepartment().addActionListener(new ActionListener(){
-//			public void actionPerformed(ActionEvent e) {
-//				
-//				String departmentName = view.getTextFieldAddDepartmentName().getText();
-//				Department tmpDepartment = department.findDepartment(departmentName);
-//				department.removeDepartment(tmpDepartment);
-//
-//				
-//			}});
-//		}
-//	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
-	}
+
+	
 	
 
-	private void declareListeners() {
+
 		view.getAddDepartmentItem().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -96,5 +69,12 @@ private void declareListeners() {
 		
 	}
 
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+
+}
 
 	}
+	
+
