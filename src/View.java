@@ -54,6 +54,7 @@ public class View extends JFrame {
 	private JLabel lblCourseName;
 	private JLabel lblCourseCode;
 	private JLabel lblNewLabel_3;
+	private JScrollPane scrollPaneCourse;
 
 	public View() {
 
@@ -220,6 +221,10 @@ public class View extends JFrame {
 		btnRemoveCourse = new JButton("Remove");
 		btnRemoveCourse.setBounds(394, 236, 87, 29);
 		panel_1.add(btnRemoveCourse);
+		
+		scrollPaneCourse = new JScrollPane();
+		scrollPaneCourse.setBounds(160, 278, 497, 171);
+		panel_1.add(scrollPaneCourse);
 
 		menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);
