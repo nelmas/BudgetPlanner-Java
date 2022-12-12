@@ -8,6 +8,7 @@ public class TeacherTableModel extends AbstractTableModel {
 
 	public void addTeacher(Teacher teacher) {
 		teachers.add(teacher);
+		this.fireTableDataChanged();
 	}
 
 	@Override

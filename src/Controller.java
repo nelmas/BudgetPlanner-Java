@@ -49,7 +49,28 @@ public class Controller implements ActionListener {
 				String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
 				String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
 				String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
-				String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+				String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+
+				int teacherSalary = Integer.parseInt(strTeacherSalary);
+				System.out.println("Hej");
+
+				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
+				
+				
+//				Teacher tmpTeacher = new Teacher();
+//				tmpTeacher.setAddress(teacherAddress);
+//				tmpTeacher.setCourse(null);
+//				tmpTeacher.setEmployeeId(teacherID);
+//				tmpTeacher.setHourlySalary(teacherSalary);
+//				tmpTeacher.setName(teacherName);
+//				tmpTeacher.setTitle(teacherTitle);
+//				tmpTeacher.setTaught(null);
+//				
+//				TeacherTableModel teacherTableModel = new TeacherTableModel();
+//								
+//				teacherTableModel.addTeacher(tmpTeacher);
+				
+				view.getTeacherTable()
 
 			}
 		});
