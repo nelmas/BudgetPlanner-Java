@@ -46,6 +46,17 @@ public class Teacher {
 	public void setTaught(ArrayList<Course> taught) {
 		this.taught = taught;
 	}
+	
+	public void addTaught(Course taught) {
+		this.taught.add(taught);
+
+		
+	}
+	public void removeTaught(Course taught) {
+		this.taught.remove(taught);
+
+		
+	}
 
 	public ArrayList<Teacher> getCourse() {
 		return course;

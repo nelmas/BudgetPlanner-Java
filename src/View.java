@@ -29,6 +29,7 @@ public class View extends JFrame {
 	// JPanels
 	private JPanel contentPane;
 	private JPanel panel;
+	private JPanel panel_1 = new JPanel();
 	private JPanel panelAddDepartment;
 
 	// JTextFields
@@ -192,7 +193,7 @@ public class View extends JFrame {
 		lblNewLabel_1.setBounds(120, 46, 577, 16);
 		panel.add(lblNewLabel_1);
 
-		JPanel panel_1 = new JPanel();
+
 		tabbedPane.addTab("Courses", null, panel_1, null);
 		panel_1.setLayout(null);
 
@@ -229,7 +230,7 @@ public class View extends JFrame {
 
 		btnAddCourse = new JButton("Add");
 		btnAddCourse.setBounds(308, 236, 87, 29);
-		panel_1.add(btnAddCourse);
+		panel.add(btnAddCourse);
 
 		btnRemoveCourse = new JButton("Remove");
 		btnRemoveCourse.setBounds(394, 236, 87, 29);
@@ -258,7 +259,7 @@ public class View extends JFrame {
 		
 		scrollPane.setViewportView(table);
 		
-		TeacherTableModel	teacherTableModel = new TeacherTableModel();
+		TeacherTableModel teacherTableModel = new TeacherTableModel();
 		
 		table.setModel(teacherTableModel);
 		
@@ -504,5 +505,17 @@ public class View extends JFrame {
 
 	public JTable getTable() {
 		return table;
+	}
+
+	public JTable getCourseTableModel() {
+		return courseTableModel;
+	}
+
+	public void setCourseTableModel(JTable courseTableModel) {
+		this.courseTableModel = courseTableModel;
+	}
+
+	public JTable getTeacherTableModel() {
+		return teacherTableModel;
 	}
 }
