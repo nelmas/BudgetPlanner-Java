@@ -265,10 +265,6 @@ public class View extends JFrame {
 		scrollBarCourse = new JScrollBar();
 		scrollPane.setRowHeaderView(scrollBarCourse);
 
-		JPanel panelCourse = new JPanel();
-		tabbedPane.addTab("Courses", null, panelCourse, null);
-		panelCourse.setLayout(null);
-
 		textFieldAddCourseName = new JTextField();
 		textFieldAddCourseName.setBounds(329, 52, 130, 26);
 		panel_1.add(textFieldAddCourseName);
