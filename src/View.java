@@ -327,6 +327,9 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddTeacherEmployeeID() {
 		return textFieldAddTeacherEmployeeID;
 	}
+	public JTextField getTextFieldAddTeacherName() {
+		return textFieldAddTeacherName;
+	}
 
 	public JButton getBtnAddTeacher() {
 		return btnAddTeacher;
@@ -350,5 +353,77 @@ public class View extends JFrame {
 
 	public JButton getBtnRemoveCourse() {
 		return btnRemoveCourse;
+	}
+
+	public JMenuBar getMenuBar() {
+		return menuBar;
+	}
+
+	public JTabbedPane getTabbedPane() {
+		return tabbedPane;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public JPanel getPanelAddDepartment() {
+		return panelAddDepartment;
+	}
+
+	public JTextField getTextFieldAddDepartmentName() {
+		return textFieldAddDepartmentName;
+	}
+
+	public JTextField getTextFieldAddDepartmentBudget() {
+		return textFieldAddDepartmentBudget;
+	}
+
+	public JTextField getTextFieldAddDepartmentAddress() {
+		return textFieldAddDepartmentAddress;
+	}
+
+	public JTextField getTextFieldAddCredits() {
+		return textFieldAddCredits;
+	}
+
+	public JTextField getTextFieldCourseCode() {
+		return textFieldCourseCode;
+	}
+
+	public JTextField getTextFieldAddCourseName() {
+		return textFieldAddCourseName;
+	}
+
+	public JTextField getTextFieldAddTeacherTitle() {
+		return textFieldAddTeacherTitle;
+	}
+
+	public JTextField getTextFieldAddTeacherAddress() {
+		return textFieldAddTeacherAddress;
+	}
+
+	public JTextField getTextFieldAddTeacherHourlySalary() {
+		return textFieldAddTeacherHourlySalary;
+	}
+
+	public JLabel getLblCourseName() {
+		return lblCourseName;
+	}
+
+	public JLabel getLblCourseCode() {
+		return lblCourseCode;
+	}
+
+	public JLabel getLblNewLabel_3() {
+		return lblNewLabel_3;
+	}
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+	public JTable getTable() {
+		return table;
 	}
 }
