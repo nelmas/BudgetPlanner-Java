@@ -9,15 +9,17 @@ public class Controller implements ActionListener {
 	private Teacher teacher;
 	private Department department;
 	private Course course;
+	private TeacherTableModel teacherTableModel;
 	//private CourseTableModel courseTableModel = new CourseTableModel();
-	Controller(View view, Teacher teacher, Department department, Course course) {
+	
 	private CourseTableModel courseTableModel = new CourseTableModel();
-	Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister) {
+	Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister, TeacherTableModel teacherTableModel) {
 		this.view = view;
 		this.teacher = teacher;
 		this.department = department;
 		this.course = course;
 		this.departmentRegister = departmentRegister;
+		this.teacherTableModel = teacherTableModel;
 		declareListeners();
 
 
@@ -48,11 +50,29 @@ view.getCourseTableModel().addCourse(tmpCourse);
 
 			}
 		});
-
-		view.getAddDepartmentItem().addActionListener(new ActionListener() {
+		
+		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+				
+		});
 
-				System.out.println("hej");
+		view.getBtnAddDepartment().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String departmentName = view.getTextFieldAddDepartmentName().getText();
+				String strDepartmentBudget = view.getTextFieldAddDepartmentBudget().getText();
+				int departmentBudget = Integer.parseInt(strDepartmentBudget);
+				String departmentAddress = view.getTextFieldAddDepartmentAddress().getText();
+				
+				Department tmpDepartment = new Department(departmentName, departmentAddress, departmentBudget);
+				
+				view.getDepartmentTableModel().addDepartment(tmpDepartment);
+
+				
 			}
 		});
 		
@@ -69,7 +89,7 @@ view.getCourseTableModel().addCourse(tmpCourse);
 				
 				System.out.println(tmpTeacher.getName());
 				}
-				catch (NullPointerException e1) {
+				catch (NumberFormatException e1) {
 					view.getTextFieldErrorMessage().setText("Person does not exist");
 				}
 			}
@@ -86,7 +106,7 @@ view.getCourseTableModel().addCourse(tmpCourse);
 				String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
 
 				int teacherSalary = Integer.parseInt(strTeacherSalary);
-				System.out.println("Hej");
+				
 
 				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
 				
