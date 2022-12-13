@@ -51,5 +51,30 @@ public class CourseTableModel extends AbstractTableModel {
 		return null;
 	}
 	
+	@Override
+	public void setValueAt(Object val, int rowIndex, int columnIndex) {
+		Course tmpCourse = courses.get(rowIndex);
+		if(columnIndex == 0) {
+			String newName = val.toString();
+			tmpCourse.setName(newName);
+		} else if (columnIndex == 1) {
+			String newCourseCode = val.toString();
+			tmpCourse.setCourseCode(newCourseCode);
+		} else if (columnIndex == 2) {
+		int newCredits = (int) val;
+		tmpCourse.setCredits(newCredits);
+	} else if (columnIndex == 3) {
+		String newCycle = val.toString();
+		tmpCourse.setCycle(newCycle);
+		
+	}	
+		this.fireTableCellUpdated(rowIndex, columnIndex);
+	}
+
+	@Override
+public boolean isCellEditable(int rowIndex, int columnIndex) {
+		
+		return true;
+	}
 
 }
