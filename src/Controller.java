@@ -29,7 +29,7 @@ public class Controller implements ActionListener {
 				String cycle = view.getTextFieldCycle().getText();
 
 				
-				String strCourseCredit = "12";
+				String strCourseCredit = view.getTextFieldAddCredits().getText();
 
 				int courseCredit = Integer.parseInt(strCourseCredit.trim());
 			

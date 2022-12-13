@@ -37,11 +37,8 @@ public class View extends JFrame {
 	private JTextField textFieldAddDepartmentAddress;
 	private JTextField textFieldAddTeacherEmployeeID;
 	private JTextField textFieldAddCredits;
-	private JTextField textFieldAddCredits_1;
 	private JTextField textFieldCourseCode;
-	private JTextField textFieldCourseCode_1;
 	private JTextField textFieldAddCourseName;
-	private JTextField textFieldAddCourseName_1;
 	private JTextField textFieldAddTeacherName;
 	private JTextField textFieldAddTeacherTitle;
 	private JTextField textFieldAddTeacherAddress;
@@ -53,7 +50,6 @@ public class View extends JFrame {
 	private JButton btnRemoveDepartment;
 	private JButton btnAddCourse;
 	private JButton btnRemoveCourse;
-	private JButton btnRemoveCourse_1;
 
 	// JLabels
 	private JLabel lblCourseName;
@@ -282,26 +278,9 @@ public class View extends JFrame {
 	//	scrollPane.add(teacherTable);
 		teacherTable.setModel(teacherTableModel);
 
-		
-		//panel.add(teacherTable);
-		textFieldAddCourseName_1 = new JTextField();
-		textFieldAddCourseName_1.setBounds(329, 52, 130, 26);
-		panelAddCourses.add(textFieldAddCourseName_1);
-		textFieldAddCourseName_1.setColumns(10);
-
 		lblCourseName_1 = new JLabel("Name");
 		lblCourseName_1.setBounds(230, 57, 80, 16);
 		panelAddCourses.add(lblCourseName_1);
-
-		textFieldAddCredits_1 = new JTextField();
-		textFieldAddCredits_1.setBounds(329, 111, 130, 26);
-		panelAddCourses.add(textFieldAddCredits_1);
-		textFieldAddCredits_1.setColumns(10);
-
-		textFieldCourseCode_1 = new JTextField();
-		textFieldCourseCode_1.setBounds(329, 187, 130, 26);
-		panelAddCourses.add(textFieldCourseCode_1);
-		textFieldCourseCode_1.setColumns(10);
 
 		lblCourseCode_1 = new JLabel("CourseCode");
 		lblCourseCode_1.setBounds(230, 192, 80, 16);
@@ -314,10 +293,6 @@ public class View extends JFrame {
 		btnAddCourse = new JButton("Add");
 		btnAddCourse.setBounds(308, 236, 87, 29);
 		panelAddCourses.add(btnAddCourse);
-
-		btnRemoveCourse_1 = new JButton("Remove");
-		btnRemoveCourse_1.setBounds(394, 236, 87, 29);
-		panelAddCourses.add(btnRemoveCourse_1);
 		
 		textFieldCycle = new JTextField();
 		textFieldCycle.setBounds(661, 52, 130, 26);
@@ -440,13 +415,8 @@ public class View extends JFrame {
 		return btnAddCourse;
 	}
 
-	public JButton getBtnRemoveCourse() {
-		return btnRemoveCourse_1;
-	}
 
-	public void setTextFieldAddCredits(JTextField textFieldAddCredits) {
-		this.textFieldAddCredits_1 = textFieldAddCredits;
-	}
+
 
 	public JTabbedPane getTabbedPane() {
 		return tabbedPane;
@@ -472,25 +442,20 @@ public class View extends JFrame {
 		return textFieldAddDepartmentAddress;
 	}
 
-	public JTextField getTextFieldAddCredits() {
-		return textFieldAddCredits_1;
-
-	}
+	
 
 	public JTextField getTextFieldCourseCode() {
-		return textFieldCourseCode_1;
+		return textFieldCourseCode;
 	}
 
-	public void setTextFieldCourseCode(JTextField textFieldCourseCode) {
-		this.textFieldCourseCode_1 = textFieldCourseCode;
-	}
+
 
 	public JTextField getTextFieldAddCourseName() {
-		return textFieldAddCourseName_1;
+		return textFieldAddCourseName;
 	}
 
 	public void setTextFieldAddCourseName(JTextField textFieldAddCourseName) {
-		this.textFieldAddCourseName_1 = textFieldAddCourseName;
+		this.textFieldAddCourseName = textFieldAddCourseName;
 	}
 
 	public JTextField getTextFieldAddTeacherTitle() {
@@ -562,6 +527,11 @@ public class View extends JFrame {
 	public JTextField getTextFieldCycle() {
 		return textFieldCycle;
 	}
+
+	public JTextField getTextFieldAddCredits() {
+		return textFieldAddCredits;
+	}
+
 
 
 	
