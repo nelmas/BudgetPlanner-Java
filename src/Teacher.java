@@ -15,6 +15,7 @@ public class Teacher {
 	private ArrayList<Teacher> course;
 
 	// Constructors
+
 	public Teacher( String name,String employeeId, String title, String address, int hourlySalary) {
 		this.name = name;
 		this.employeeId = employeeId;
@@ -67,15 +68,8 @@ public class Teacher {
 	public void setCourse(ArrayList<Teacher> course) {
 		this.course = course;
 	}
-	public Course findCourse(String courseCode) {
-		for (Teacher teacher : course) {
-			if (teacher.findCourse(courseCode) != null) {
-				if (teacher.findCourse(courseCode).getCourseCode().equals(courseCode))
-					return teacher.findCourse(courseCode);
-			}
-		}
-		return null;
-	}
+
+	
 
 	public String getEmployeeId() {
 		return employeeId;
