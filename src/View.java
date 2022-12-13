@@ -62,11 +62,12 @@ public class View extends JFrame {
 	private JTable courseTable;
 	
 	private TeacherTableModel teacherTableModel;
+	private CourseTableModel courseTableModel;
 
 	private JScrollPane scrollPane;
 
 	private JScrollBar scrollBarCourse;
-	private JScrollBar scrollBar;
+	private JScrollBar scrollBarTeacher;
 
 	private JTable table;
 
@@ -241,20 +242,21 @@ public class View extends JFrame {
 		panel_1.add(scrollPaneCourse);
 
 		courseTable = new JTable();
+		
+		scrollPaneCourse.setViewportView(courseTable);
 
-		CourseTableModel courseTableModel = new CourseTableModel();
+	    courseTableModel = new CourseTableModel();
 
-		courseTable.setModel(courseTableModel);
-		scrollPaneCourse.setViewportView(table);
 
-		scrollBar = new JScrollBar();
-		scrollPaneCourse.setRowHeaderView(scrollBar);
+		scrollBarCourse = new JScrollBar();
+		scrollPaneCourse.setRowHeaderView(scrollBarCourse);
 
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(475, 150, 324, 228);
 		panel.add(scrollPane);
 
-		
+		courseTable.setModel(courseTableModel);
+
 		
 		
 		teacherTable = new JTable();
@@ -270,8 +272,8 @@ public class View extends JFrame {
 
 		
 
-		scrollBarCourse = new JScrollBar();
-		scrollPane.setRowHeaderView(scrollBarCourse);
+		scrollBarTeacher = new JScrollBar();
+		scrollPane.setRowHeaderView(scrollBarTeacher);
 
 	//	scrollPane.add(teacherTable);
 		teacherTable.setModel(teacherTableModel);
@@ -520,6 +522,11 @@ public class View extends JFrame {
 
 	public TeacherTableModel getTeacherTableModel() {
 		return teacherTableModel;
+	}
+
+
+	public CourseTableModel getCourseTableModel() {
+		return courseTableModel;
 	}
 
 	public void setTeacherTableModel(TeacherTableModel teacherTableModel) {

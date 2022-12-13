@@ -31,18 +31,13 @@ public class Controller implements ActionListener {
 				
 				//int courseCredit = Integer.parseInt(view.getTextFieldAddCredits().getText());
 
-				Course tmpCourse = new Course();
-				tmpCourse.setName(courseName);
-				tmpCourse.setCredits(courseCredit);
-				tmpCourse.setCourseCode(courseCode);
-				tmpCourse.setTeaches(null);
-				tmpCourse.setResponsible(teacher);
-				tmpCourse.setCycle("e");
+				Course tmpCourse = new Course(courseName, courseCode, courseCredit);
+			
+
 
 				
 			//CourseTableModel courseTableModel = new CourseTableModel();
-				view.getCourseTable();
-			
+view.getCourseTableModel().addCourse(tmpCourse);		
 
 			}
 		});
