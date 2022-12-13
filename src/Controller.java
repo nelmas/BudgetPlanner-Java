@@ -8,7 +8,7 @@ public class Controller implements ActionListener {
 	private Teacher teacher;
 	private Department department;
 	private Course course;
-	private CourseTableModel courseTableModel = new CourseTableModel();
+	//private CourseTableModel courseTableModel = new CourseTableModel();
 	Controller(View view, Teacher teacher, Department department, Course course) {
 		this.view = view;
 		this.teacher = teacher;
@@ -22,16 +22,19 @@ public class Controller implements ActionListener {
 	private void declareListeners() {
 		view.getBtnAddCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+
 				String courseName = view.getTextFieldAddCourseName().getText();
 				String courseCode = view.getTextFieldCourseCode().getText();
-				String strCourseCredit = view.getTextFieldAddCredits().getText();
+				String cycle = view.getTextFieldCycle().getText();
 
-				int courseCredit = Integer.parseInt(strCourseCredit);
 				
-				
-				//int courseCredit = Integer.parseInt(view.getTextFieldAddCredits().getText());
+				String strCourseCredit = "12";
 
-				Course tmpCourse = new Course(courseName, courseCode, courseCredit);
+				int courseCredit = Integer.parseInt(strCourseCredit.trim());
+			
+
+				Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
 			
 
 

@@ -40,11 +40,11 @@ public class CourseTableModel extends AbstractTableModel {
 		case 2:
 			return tmpCourse.getCredits();
 		case 3:
-//			return tmpCourse.getCycle();
-//		case 4:
-//			return tmpCourse.getResponsible();
-//		case 5:
-//			return tmpCourse.getTeaches();
+			return tmpCourse.getCycle();
+		case 4:
+			return tmpCourse.getResponsible();
+		case 5:
+			return tmpCourse.getTeaches();
 
 		}
 		return null;
