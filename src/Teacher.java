@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import assignment4.New.BankAccount;
+import assignment4.New.Person;
+
 public class Teacher {
 
 	private String employeeId;
@@ -43,12 +46,13 @@ public class Teacher {
 	// Getters & Setters
 	public ArrayList<Course> getTaught() {
 		return taught;
-	}
+	}  
 
 	public void setTaught(ArrayList<Course> taught) {
 		this.taught = taught;
 	}
 	
+
 	public void addTaught(Course taught) {
 		this.taught.add(taught);
 
@@ -66,6 +70,15 @@ public class Teacher {
 
 	public void setCourse(ArrayList<Teacher> course) {
 		this.course = course;
+	}
+	public Course findCourse(String courseCode) {
+		for (Teacher teacher : course) {
+			if (teacher.findCourse(courseCode) != null) {
+				if (teacher.findCourse(courseCode).getCourseCode().equals(courseCode))
+					return teacher.findCourse(courseCode);
+			}
+		}
+		return null;
 	}
 
 	public String getEmployeeId() {

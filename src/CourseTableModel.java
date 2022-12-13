@@ -17,7 +17,7 @@ public class CourseTableModel extends AbstractTableModel {
 	public int getRowCount() {
 		return courses.size();
 	}
-
+  
 	@Override
 	public int getColumnCount() {
 		return columns.length;
@@ -49,5 +49,6 @@ public class CourseTableModel extends AbstractTableModel {
 		}
 		return null;
 	}
+	   
 
 }

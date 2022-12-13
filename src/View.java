@@ -515,7 +515,7 @@ public class View extends JFrame {
 	public TeacherTableModel getTeacherTableModel() {
 		return teacherTableModel;
 	}
-
+  
 
 	public CourseTableModel getCourseTableModel() {
 		return courseTableModel;
@@ -544,6 +544,7 @@ public class View extends JFrame {
 
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
+		
 	public JButton getBtnFindTeacher() {
 		return btnFindTeacher;
 	}

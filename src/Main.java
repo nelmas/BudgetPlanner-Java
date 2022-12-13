@@ -10,5 +10,5 @@ public class Main {
 		DepartmentRegister departmentRegister = new DepartmentRegister();
 		Controller controller = new Controller(view, teacher, department, course, departmentRegister);
 
-	}
+	}  
 }

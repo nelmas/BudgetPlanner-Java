@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Controller implements ActionListener {
-
+  
 	private View view;
 	private DepartmentRegister departmentRegister;
 	private Teacher teacher;
@@ -48,6 +48,17 @@ view.getCourseTableModel().addCourse(tmpCourse);
 
 			}
 		});
+		
+		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+			});
+		
+		
+		
+		
+		
+		
 
 		view.getAddDepartmentItem().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
