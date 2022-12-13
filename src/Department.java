@@ -8,7 +8,7 @@ public class Department {
 	private Teacher works;
 	private String address;
 	private int budget;
-	private ArrayList<Teacher> teacher;
+	private ArrayList<Teacher> teachers;
 	
 
 	// constructors
@@ -20,7 +20,7 @@ public class Department {
 		this.address = address;
 		this.budget = budget;
 		this.name = name;
-		this.teacher = new ArrayList<Teacher>();
+		this.teachers = new ArrayList<Teacher>();
 		
 	}
 
@@ -35,11 +35,11 @@ public class Department {
 	}
 
 	public ArrayList<Teacher> getTeacher() {
-		return teacher;
+		return teachers;
 	}
 
 	public void setTeacher(ArrayList<Teacher> teacher) {
-		this.teacher = teacher;
+		this.teachers = teacher;
 
 	}
 
@@ -75,13 +75,22 @@ public class Department {
 
 	// add teacher method
 	public void addTeacher(Teacher teacher) {
-		this.teacher.add(teacher);
+		this.teachers.add(teacher);
 	}
 
 	// remove teacher method
 	public void removeTeacher(Teacher teacher) {
-		this.teacher.remove(teacher);
+		this.teachers.remove(teacher);
 
+	}
+	// find Teacher
+	public Teacher findTeacher(String employeeID) {
+		for (Teacher teacher : teachers) {
+			if (teacher.getEmployeeId().equals(employeeID)) {
+				return teacher;
+			}
+		}
+		return null;
 	}
 
 	

@@ -43,6 +43,7 @@ public class View extends JFrame {
 	private JTextField textFieldAddTeacherTitle;
 	private JTextField textFieldAddTeacherAddress;
 	private JTextField textFieldAddTeacherHourlySalary;
+	private JTextField textFieldErrorMessage;
 	// JButtons
 	private JButton btnAddTeacher;
 	private JButton btnRemoveTeacher;
@@ -50,6 +51,7 @@ public class View extends JFrame {
 	private JButton btnRemoveDepartment;
 	private JButton btnAddCourse;
 	private JButton btnRemoveCourse;
+	private JButton btnFindTeacher;
 
 	// JLabels
 	private JLabel lblCourseName;
@@ -74,6 +76,8 @@ public class View extends JFrame {
 
 	private JTable table;
 	private JTextField textFieldCycle;
+	
+	
 
 	public View() {
 
@@ -189,7 +193,7 @@ public class View extends JFrame {
 		btnAddTeacher.setBounds(320, 359, 117, 29);
 		panelAddTeacher.add(btnAddTeacher);
 
-		btnRemoveTeacher = new JButton("remove");
+		btnRemoveTeacher = new JButton("Remove");
 		btnRemoveTeacher.setBounds(475, 74, 117, 29);
 		panelAddTeacher.add(btnRemoveTeacher);
 
@@ -277,6 +281,16 @@ public class View extends JFrame {
 
 	//	scrollPane.add(teacherTable);
 		teacherTable.setModel(teacherTableModel);
+
+		
+		textFieldErrorMessage = new JTextField();
+		textFieldErrorMessage.setBounds(498, 390, 301, 80);
+		panelAddTeacher.add(textFieldErrorMessage);
+		textFieldErrorMessage.setColumns(10);
+		
+		btnFindTeacher = new JButton("Find");
+		btnFindTeacher.setBounds(593, 74, 117, 29);
+		panelAddTeacher.add(btnFindTeacher);
 
 		lblCourseName_1 = new JLabel("Name");
 		lblCourseName_1.setBounds(230, 57, 80, 16);
@@ -530,6 +544,14 @@ public class View extends JFrame {
 
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
+	public JButton getBtnFindTeacher() {
+		return btnFindTeacher;
+	}
+
+
+
+	public JTextField getTextFieldErrorMessage() {
+		return textFieldErrorMessage;
 	}
 
 

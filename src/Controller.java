@@ -5,15 +5,19 @@ import java.util.ArrayList;
 public class Controller implements ActionListener {
 
 	private View view;
+	private DepartmentRegister departmentRegister;
 	private Teacher teacher;
 	private Department department;
 	private Course course;
 	//private CourseTableModel courseTableModel = new CourseTableModel();
 	Controller(View view, Teacher teacher, Department department, Course course) {
+	private CourseTableModel courseTableModel = new CourseTableModel();
+	Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister) {
 		this.view = view;
 		this.teacher = teacher;
 		this.department = department;
 		this.course = course;
+		this.departmentRegister = departmentRegister;
 		declareListeners();
 
 
@@ -49,6 +53,25 @@ view.getCourseTableModel().addCourse(tmpCourse);
 			public void actionPerformed(ActionEvent e) {
 
 				System.out.println("hej");
+			}
+		});
+		
+		view.getBtnFindTeacher().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				
+				String EmployeeID = view.getTextFieldAddTeacherEmployeeID().getText();
+				Teacher tmpTeacher = department.findTeacher(EmployeeID);
+				
+				view.getTextFieldAddTeacherName().setText(tmpTeacher.getName());
+				
+				
+				System.out.println(tmpTeacher.getName());
+				}
+				catch (NullPointerException e1) {
+					view.getTextFieldErrorMessage().setText("Person does not exist");
+				}
 			}
 		});
 
