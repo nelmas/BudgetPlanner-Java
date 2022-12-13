@@ -85,10 +85,10 @@ view.getCourseTableModel().addCourse(tmpCourse);
 							
 							
 						view.getTextFieldAddTeacherName().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
-						view.getTextFieldAddTeacherEmployeeID().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
-						view.getTextFieldAddTeacherTitle().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
-						view.getTextFieldAddTeacherAddress().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
-						view.getTextFieldAddTeacherHourlySalary().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
+						view.getTextFieldAddTeacherEmployeeID().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 1).toString());
+						view.getTextFieldAddTeacherTitle().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 2).toString());
+						view.getTextFieldAddTeacherAddress().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 3).toString());
+						view.getTextFieldAddTeacherHourlySalary().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 4).toString());
 
 						}
 ;					}

@@ -559,9 +559,5 @@ public class View extends JFrame {
 	public JButton getBtnRemoveCourse() {
 		return btnRemoveCourse;
 	}
-
-
-	
-	
 }
 
