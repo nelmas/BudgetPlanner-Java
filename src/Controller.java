@@ -99,7 +99,7 @@ view.getCourseTableModel().addCourse(tmpCourse);
 
 		view.getBtnAddDepartment().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
 				String departmentName = view.getTextFieldAddDepartmentName().getText();
 				String strDepartmentBudget = view.getTextFieldAddDepartmentBudget().getText();
 				int departmentBudget = Integer.parseInt(strDepartmentBudget);
@@ -108,6 +108,10 @@ view.getCourseTableModel().addCourse(tmpCourse);
 				Department tmpDepartment = new Department(departmentName, departmentAddress, departmentBudget);
 				
 				view.getDepartmentTableModel().addDepartment(tmpDepartment);
+				}catch (NumberFormatException e2) {
+					view.getTextFieldErrorMessageDepartment().setText("Please enter numbers for budget");
+					
+				}
 
 				
 			}
