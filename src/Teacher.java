@@ -71,15 +71,8 @@ public class Teacher {
 	public void setCourse(ArrayList<Teacher> course) {
 		this.course = course;
 	}
-	public Course findCourse(String courseCode) {
-		for (Teacher teacher : course) {
-			if (teacher.findCourse(courseCode) != null) {
-				if (teacher.findCourse(courseCode).getCourseCode().equals(courseCode))
-					return teacher.findCourse(courseCode);
-			}
-		}
-		return null;
-	}
+
+	
 
 	public String getEmployeeId() {
 		return employeeId;

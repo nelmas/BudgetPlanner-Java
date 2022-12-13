@@ -544,6 +544,7 @@ public class View extends JFrame {
 
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
+	}
 		
 	public JButton getBtnFindTeacher() {
 		return btnFindTeacher;
@@ -554,6 +555,12 @@ public class View extends JFrame {
 	public JTextField getTextFieldErrorMessage() {
 		return textFieldErrorMessage;
 	}
+
+	public JButton getBtnRemoveCourse() {
+		return btnRemoveCourse;
+	}
+
+
 
 
 	

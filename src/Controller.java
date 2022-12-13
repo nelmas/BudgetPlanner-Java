@@ -10,8 +10,10 @@ public class Controller implements ActionListener {
 	private Department department;
 	private Course course;
 	//private CourseTableModel courseTableModel = new CourseTableModel();
-	Controller(View view, Teacher teacher, Department department, Course course) {
+	Controller(View view, Teacher teacher, Department department, Course course) {}
 	private CourseTableModel courseTableModel = new CourseTableModel();
+	
+	
 	Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister) {
 		this.view = view;
 		this.teacher = teacher;
@@ -19,7 +21,7 @@ public class Controller implements ActionListener {
 		this.course = course;
 		this.departmentRegister = departmentRegister;
 		declareListeners();
-
+	
 
 	}
 
@@ -51,6 +53,8 @@ view.getCourseTableModel().addCourse(tmpCourse);
 		
 		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+				
 			}
 			});
 		
@@ -128,6 +132,7 @@ view.getCourseTableModel().addCourse(tmpCourse);
 		});
 
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

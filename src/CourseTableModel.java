@@ -6,7 +6,8 @@ import javax.swing.table.AbstractTableModel;
 public class CourseTableModel extends AbstractTableModel {
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	private String[] columns = { "Name", "Course Code", "ECTS", "Cycle", "Responsible", "Teachers" };
-
+	
+	
 	public void addCourse(Course course) {
 		courses.add(course);
 		// defined in superclass
@@ -49,6 +50,6 @@ public class CourseTableModel extends AbstractTableModel {
 		}
 		return null;
 	}
-	   
+	
 
 }
