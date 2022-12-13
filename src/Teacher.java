@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import assignment4.New.BankAccount;
-import assignment4.New.Person;
 
 public class Teacher {
 
@@ -17,8 +15,6 @@ public class Teacher {
 	private ArrayList<Teacher> course;
 
 	// Constructors
-	public Teacher(String name, String employeeId, String title, String address, int hourlySalary) {
-		this.employeeId = employeeId;
 	public Teacher( String name,String employeeId, String title, String address, int hourlySalary) {
 		this.name = name;
 		this.employeeId = employeeId;
