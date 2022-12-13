@@ -14,7 +14,7 @@ public class Teacher {
 	private ArrayList<Teacher> course;
 
 	// Constructors
-	public Teacher(String employeeId, String name, String title, String address, int hourlySalary) {
+	public Teacher(String name, String employeeId, String title, String address, int hourlySalary) {
 		this.employeeId = employeeId;
 		this.name = name;
 		this.title = title;
