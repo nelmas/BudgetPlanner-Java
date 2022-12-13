@@ -56,6 +56,7 @@ public class Controller implements ActionListener {
 
 		view.getBtnAddTeacher().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
 				String teacherName = view.getTextFieldAddTeacherName().getText();
 				String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
 				String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
@@ -67,6 +68,12 @@ public class Controller implements ActionListener {
 				System.out.println("Hej");
 
 				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
+				
+				view.getTeacherTableModel().addTeacher(tmpTeacher);
+				}catch (NumberFormatException exception) {
+					view.getTextFieldErrorMessage().setText("Please only enter numbers");
+				}
+
 				
 				
 //				Teacher tmpTeacher = new Teacher();
@@ -82,7 +89,7 @@ public class Controller implements ActionListener {
 //								
 //				teacherTableModel.addTeacher(tmpTeacher);
 				
-			view.getTeacherTableModel().addTeacher(tmpTeacher);
+			
 			
 
 			}
