@@ -2,8 +2,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class Controller implements ActionListener {
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
+public class Controller implements ActionListener {
+  
 	private View view;
 	private DepartmentRegister departmentRegister;
 	private Teacher teacher;
@@ -11,9 +14,12 @@ public class Controller implements ActionListener {
 	private Course course;
 	private TeacherTableModel teacherTableModel;
 	//private CourseTableModel courseTableModel = new CourseTableModel();
+
 	
 	private CourseTableModel courseTableModel = new CourseTableModel();
 	Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister, TeacherTableModel teacherTableModel) {
+
+	
 		this.view = view;
 		this.teacher = teacher;
 		this.department = department;
@@ -21,7 +27,7 @@ public class Controller implements ActionListener {
 		this.departmentRegister = departmentRegister;
 		this.teacherTableModel = teacherTableModel;
 		declareListeners();
-
+	
 
 	}
 
@@ -51,7 +57,38 @@ view.getCourseTableModel().addCourse(tmpCourse);
 			}
 		});
 		
-		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+
+	
+				view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+				
+					public void valueChanged(ListSelectionEvent event) {
+						//för att den inte ska printa allt två gånger 
+		
+						if(!event.getValueIsAdjusting()) {
+							
+							
+							view.getTextFieldAddCourseName().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
+							view.getTextFieldCourseCode().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
+							view.getTextFieldAddCredits().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
+							view.getTextFieldCycle().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 3).toString());
+
+							
+							
+							
+						}
+				}
+				
+				}
+		);
+		
+		
+		
+		
+		
+		
+
+		view.getAddDepartmentItem().addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				
 				
@@ -137,6 +174,7 @@ view.getCourseTableModel().addCourse(tmpCourse);
 		});
 
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

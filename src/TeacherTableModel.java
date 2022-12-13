@@ -21,7 +21,7 @@ public class TeacherTableModel extends AbstractTableModel {
 		// TODO Auto-generated method stub
 		return teachers.size();
 	}
-
+  
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub

@@ -11,5 +11,5 @@ public class Main {
 		TeacherTableModel teacherTableModel = new TeacherTableModel();
 		Controller controller = new Controller(view, teacher, department, course, departmentRegister, teacherTableModel);
 
-	}
+	}  
 }

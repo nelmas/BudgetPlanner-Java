@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class Teacher {
 
 	private String employeeId;
@@ -14,7 +15,7 @@ public class Teacher {
 	private ArrayList<Teacher> course;
 
 	// Constructors
-	
+
 	public Teacher( String name,String employeeId, String title, String address, int hourlySalary) {
 		this.name = name;
 		this.employeeId = employeeId;
@@ -42,12 +43,13 @@ public class Teacher {
 	// Getters & Setters
 	public ArrayList<Course> getTaught() {
 		return taught;
-	}
+	}  
 
 	public void setTaught(ArrayList<Course> taught) {
 		this.taught = taught;
 	}
 	
+
 	public void addTaught(Course taught) {
 		this.taught.add(taught);
 
@@ -66,6 +68,8 @@ public class Teacher {
 	public void setCourse(ArrayList<Teacher> course) {
 		this.course = course;
 	}
+
+	
 
 	public String getEmployeeId() {
 		return employeeId;

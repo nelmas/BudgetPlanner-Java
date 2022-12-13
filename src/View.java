@@ -579,7 +579,7 @@ public class View extends JFrame {
 	public TeacherTableModel getTeacherTableModel() {
 		return teacherTableModel;
 	}
-
+  
 
 	public CourseTableModel getCourseTableModel() {
 		return courseTableModel;
@@ -609,6 +609,10 @@ public class View extends JFrame {
 	public JScrollBar getScrollBarCourse() {
 		return scrollBarCourse;
 	}
+
+
+	
+
 
 	
 	public JTabbedPane getTabbedPane() {

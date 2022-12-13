@@ -6,7 +6,8 @@ import javax.swing.table.AbstractTableModel;
 public class CourseTableModel extends AbstractTableModel {
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	private String[] columns = { "Name", "Course Code", "ECTS", "Cycle", "Responsible", "Teachers" };
-
+	
+	
 	public void addCourse(Course course) {
 		courses.add(course);
 		// defined in superclass
@@ -21,7 +22,7 @@ public class CourseTableModel extends AbstractTableModel {
 	public int getRowCount() {
 		return courses.size();
 	}
-
+  
 	@Override
 	public int getColumnCount() {
 		return columns.length;
@@ -52,6 +53,32 @@ public class CourseTableModel extends AbstractTableModel {
 
 		}
 		return null;
+	}
+	
+	@Override
+	public void setValueAt(Object val, int rowIndex, int columnIndex) {
+		Course tmpCourse = courses.get(rowIndex);
+		if(columnIndex == 0) {
+			String newName = val.toString();
+			tmpCourse.setName(newName);
+		} else if (columnIndex == 1) {
+			String newCourseCode = val.toString();
+			tmpCourse.setCourseCode(newCourseCode);
+		} else if (columnIndex == 2) {
+		int newCredits = (int) val;
+		tmpCourse.setCredits(newCredits);
+	} else if (columnIndex == 3) {
+		String newCycle = val.toString();
+		tmpCourse.setCycle(newCycle);
+		
+	}	
+		this.fireTableCellUpdated(rowIndex, columnIndex);
+	}
+
+	@Override
+public boolean isCellEditable(int rowIndex, int columnIndex) {
+		
+		return true;
 	}
 
 }

@@ -41,7 +41,7 @@ public class Department {
 	public void setTeacher(ArrayList<Teacher> teacher) {
 		this.teachers = teacher;
 
-	}
+	}  
 
 	
 
