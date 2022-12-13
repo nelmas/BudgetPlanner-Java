@@ -48,5 +48,36 @@ public class TeacherTableModel extends AbstractTableModel {
 
 		return null;
 	}
+	
+	@Override
+	public void setValueAt(Object val, int rowIndex, int columnIndex) {
+		Teacher tmpTeacher = teachers.get(rowIndex);
+		if(columnIndex == 0) {
+			String newName = val.toString();
+			tmpTeacher.setName(newName);
+		} else if (columnIndex == 1) {
+			String newEmployeeId = val.toString();
+			tmpTeacher.setEmployeeId(newEmployeeId);
+		}	 else if (columnIndex == 2) {
+			String newTitle = val.toString();
+			tmpTeacher.setTitle(newTitle);
+		}  else if (columnIndex == 3) {
+			String newAddress = val.toString();
+			tmpTeacher.setAddress(newAddress);
+		}  else if (columnIndex == 4) {
+			int newSalary = (int) val;
+			tmpTeacher.setHourlySalary(newSalary);
+		}
+		
+	
+		
+		this.fireTableCellUpdated(rowIndex, columnIndex);
+	}
+
+	@Override
+public boolean isCellEditable(int rowIndex, int columnIndex) {
+		
+		return true;
+	}
 
 }

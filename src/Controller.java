@@ -68,10 +68,28 @@ view.getCourseTableModel().addCourse(tmpCourse);
 							view.getTextFieldCourseCode().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
 							view.getTextFieldAddCredits().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
 							view.getTextFieldCycle().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 3).toString());
+	
+					
+						}
+;					}
+				
+				}
+		);
+		
+				view.getTeacherTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+					
+					public void valueChanged(ListSelectionEvent event) {
+						//för att den inte ska printa allt två gånger 
+		
+						if(!event.getValueIsAdjusting()) {
+							
+							
+						view.getTextFieldAddTeacherName().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
+						view.getTextFieldAddTeacherEmployeeID().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
+						view.getTextFieldAddTeacherTitle().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
+						view.getTextFieldAddTeacherAddress().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
+						view.getTextFieldAddTeacherHourlySalary().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
 
-							
-							
-							
 						}
 ;					}
 				
@@ -128,9 +146,7 @@ view.getCourseTableModel().addCourse(tmpCourse);
 				view.getTeacherTableModel().addTeacher(tmpTeacher);
 				}catch (NumberFormatException exception) {
 					view.getTextFieldErrorMessage().setText("Please only enter numbers");
-				}
-
-				
+				}	
 				
 //				Teacher tmpTeacher = new Teacher();
 //				tmpTeacher.setAddress(teacherAddress);
@@ -145,9 +161,7 @@ view.getCourseTableModel().addCourse(tmpCourse);
 //								
 //				teacherTableModel.addTeacher(tmpTeacher);
 				
-			
-			
-
+	
 			}
 		});
 
