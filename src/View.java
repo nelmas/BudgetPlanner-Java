@@ -69,6 +69,7 @@ public class View extends JFrame {
 	private JScrollBar scrollBar;
 
 	private JTable table;
+	private JTextField textFieldErrorMessage;
 
 	public View() {
 
@@ -271,6 +272,11 @@ public class View extends JFrame {
 
 	//	scrollPane.add(teacherTable);
 		teacherTable.setModel(teacherTableModel);
+		
+		textFieldErrorMessage = new JTextField();
+		textFieldErrorMessage.setBounds(498, 390, 301, 80);
+		panelAddTeacher.add(textFieldErrorMessage);
+		textFieldErrorMessage.setColumns(10);
 
 		
 		//panel.add(teacherTable);
@@ -537,6 +543,14 @@ public class View extends JFrame {
 
 	public JScrollBar getScrollBar() {
 		return scrollBar;
+	}
+
+	public JTextField getTextFieldErrorMessage() {
+		return textFieldErrorMessage;
+	}
+
+	public void setTextFieldErrorMessage(JTextField textFieldErrorMessage) {
+		this.textFieldErrorMessage = textFieldErrorMessage;
 	}
 
 }
