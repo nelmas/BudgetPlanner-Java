@@ -27,8 +27,8 @@ public class View extends JFrame {
 
 	// JPanels
 	private JPanel contentPane;
-	private JPanel panel;
-	private JPanel panel_1 = new JPanel();
+	private JPanel panelAddTeacher;
+	private JPanel panelAddCourses = new JPanel();
 	private JPanel panelAddDepartment;
 
 	// JTextFields
@@ -132,114 +132,110 @@ public class View extends JFrame {
 		lblNewLabel_2.setBounds(111, 48, 428, 16);
 		panelAddDepartment.add(lblNewLabel_2);
 
-		panel = new JPanel();
-		tabbedPane.addTab("Teacher", null, panel, null);
-		panel.setLayout(null);
+		panelAddTeacher = new JPanel();
+		tabbedPane.addTab("Teacher", null, panelAddTeacher, null);
+		panelAddTeacher.setLayout(null);
 
 		JLabel lblFullName = new JLabel("Full Name");
 		lblFullName.setBounds(232, 11, 63, 16);
-		panel.add(lblFullName);
+		panelAddTeacher.add(lblFullName);
 
 		textFieldAddTeacherName = new JTextField();
 		textFieldAddTeacherName.setBounds(319, 6, 130, 26);
 		textFieldAddTeacherName.setColumns(10);
-		panel.add(textFieldAddTeacherName);
+		panelAddTeacher.add(textFieldAddTeacherName);
 
 		textFieldAddTeacherEmployeeID = new JTextField();
 		textFieldAddTeacherEmployeeID.setBounds(319, 74, 130, 26);
-		panel.add(textFieldAddTeacherEmployeeID);
+		panelAddTeacher.add(textFieldAddTeacherEmployeeID);
 		textFieldAddTeacherEmployeeID.setColumns(10);
 
 		JLabel lblEmployeeID = new JLabel("EmployeeID");
 		lblEmployeeID.setBounds(232, 79, 75, 16);
-		panel.add(lblEmployeeID);
+		panelAddTeacher.add(lblEmployeeID);
 
 		textFieldAddTeacherTitle = new JTextField();
 		textFieldAddTeacherTitle.setBounds(319, 150, 130, 26);
-		panel.add(textFieldAddTeacherTitle);
+		panelAddTeacher.add(textFieldAddTeacherTitle);
 		textFieldAddTeacherTitle.setColumns(10);
 
 		JLabel lblTitle = new JLabel("Title");
 		lblTitle.setBounds(234, 155, 61, 16);
-		panel.add(lblTitle);
+		panelAddTeacher.add(lblTitle);
 
 		textFieldAddTeacherAddress = new JTextField();
 		textFieldAddTeacherAddress.setBounds(319, 229, 130, 26);
-		panel.add(textFieldAddTeacherAddress);
+		panelAddTeacher.add(textFieldAddTeacherAddress);
 		textFieldAddTeacherAddress.setColumns(10);
 
 		JLabel lblAddress = new JLabel("Address");
 		lblAddress.setBounds(234, 234, 61, 16);
-		panel.add(lblAddress);
+		panelAddTeacher.add(lblAddress);
 
 		textFieldAddTeacherHourlySalary = new JTextField();
 		textFieldAddTeacherHourlySalary.setBounds(319, 305, 130, 26);
-		panel.add(textFieldAddTeacherHourlySalary);
+		panelAddTeacher.add(textFieldAddTeacherHourlySalary);
 		textFieldAddTeacherHourlySalary.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Hourly Salary");
 		lblNewLabel.setBounds(232, 310, 86, 16);
-		panel.add(lblNewLabel);
+		panelAddTeacher.add(lblNewLabel);
 
 		btnAddTeacher = new JButton("Add");
 		btnAddTeacher.setBounds(320, 359, 117, 29);
-		panel.add(btnAddTeacher);
+		panelAddTeacher.add(btnAddTeacher);
 
 		btnRemoveTeacher = new JButton("remove");
 		btnRemoveTeacher.setBounds(475, 74, 117, 29);
-		panel.add(btnRemoveTeacher);
+		panelAddTeacher.add(btnRemoveTeacher);
 
-		JLabel lblNewLabel_1 = new JLabel(
+		JLabel lblRemoveTeacher = new JLabel(
 				"If you wish to remove a teacher from the system, only enter EmployeeID and press remove");
-		lblNewLabel_1.setBounds(120, 46, 577, 16);
-		panel.add(lblNewLabel_1);
+		lblRemoveTeacher.setBounds(120, 46, 577, 16);
+		panelAddTeacher.add(lblRemoveTeacher);
 
 
-		tabbedPane.addTab("Courses", null, panel_1, null);
-		panel_1.setLayout(null);
+		tabbedPane.addTab("Courses", null, panelAddCourses, null);
+		panelAddCourses.setLayout(null);
 
 		textFieldAddCourseName = new JTextField();
 		textFieldAddCourseName.setBounds(329, 52, 130, 26);
-		panel_1.add(textFieldAddCourseName);
+		panelAddCourses.add(textFieldAddCourseName);
 		textFieldAddCourseName.setColumns(10);
 
 		lblCourseName = new JLabel("Name");
 		lblCourseName.setBounds(230, 57, 80, 16);
-		panel_1.add(lblCourseName);
+		panelAddCourses.add(lblCourseName);
 
 		textFieldAddCredits = new JTextField();
 		textFieldAddCredits.setBounds(329, 111, 130, 26);
-		panel_1.add(textFieldAddCredits);
+		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 
 		JLabel lblCourseCredits = new JLabel("Credits");
 		lblCourseCredits.setBounds(230, 116, 61, 16);
-		panel_1.add(lblCourseCredits);
+		panelAddCourses.add(lblCourseCredits);
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 187, 130, 26);
-		panel_1.add(textFieldCourseCode);
+		panelAddCourses.add(textFieldCourseCode);
 		textFieldCourseCode.setColumns(10);
 
 		lblCourseCode = new JLabel("CourseCode");
 		lblCourseCode.setBounds(230, 192, 80, 16);
-		panel_1.add(lblCourseCode);
+		panelAddCourses.add(lblCourseCode);
 
 		lblNewLabel_3 = new JLabel("If you wish to remove a Course, only enter the CourseCode and press remove");
 		lblNewLabel_3.setBounds(140, 159, 485, 16);
-		panel_1.add(lblNewLabel_3);
-
-		btnAddCourse = new JButton("Add");
-		btnAddCourse.setBounds(308, 236, 87, 29);
-		panel.add(btnAddCourse);
+		panelAddCourses.add(lblNewLabel_3);
 
 		btnRemoveCourse = new JButton("Remove");
 		btnRemoveCourse.setBounds(394, 236, 87, 29);
-		panel_1.add(btnRemoveCourse);
+		panelAddCourses.add(btnRemoveCourse);
 
 		scrollPaneCourse = new JScrollPane();
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
-		panel_1.add(scrollPaneCourse);
+		panelAddCourses.add(scrollPaneCourse);
 
 		courseTable = new JTable();
 		
@@ -253,7 +249,7 @@ public class View extends JFrame {
 
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(475, 150, 324, 228);
-		panel.add(scrollPane);
+		panelAddTeacher.add(scrollPane);
 
 		courseTable.setModel(courseTableModel);
 
@@ -282,38 +278,38 @@ public class View extends JFrame {
 		//panel.add(teacherTable);
 		textFieldAddCourseName = new JTextField();
 		textFieldAddCourseName.setBounds(329, 52, 130, 26);
-		panel_1.add(textFieldAddCourseName);
+		panelAddCourses.add(textFieldAddCourseName);
 		textFieldAddCourseName.setColumns(10);
 
 		lblCourseName = new JLabel("Name");
 		lblCourseName.setBounds(230, 57, 80, 16);
-		panel_1.add(lblCourseName);
+		panelAddCourses.add(lblCourseName);
 
 		textFieldAddCredits = new JTextField();
 		textFieldAddCredits.setBounds(329, 111, 130, 26);
-		panel_1.add(textFieldAddCredits);
+		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 187, 130, 26);
-		panel_1.add(textFieldCourseCode);
+		panelAddCourses.add(textFieldCourseCode);
 		textFieldCourseCode.setColumns(10);
 
 		lblCourseCode = new JLabel("CourseCode");
 		lblCourseCode.setBounds(230, 192, 80, 16);
-		panel_1.add(lblCourseCode);
+		panelAddCourses.add(lblCourseCode);
 
 		lblNewLabel_3 = new JLabel("If you wish to remove a Course, only enter the CourseCode and press remove");
 		lblNewLabel_3.setBounds(140, 159, 485, 16);
-		panel_1.add(lblNewLabel_3);
+		panelAddCourses.add(lblNewLabel_3);
 
 		btnAddCourse = new JButton("Add");
 		btnAddCourse.setBounds(308, 236, 87, 29);
-		panel_1.add(btnAddCourse);
+		panelAddCourses.add(btnAddCourse);
 
 		btnRemoveCourse = new JButton("Remove");
 		btnRemoveCourse.setBounds(394, 236, 87, 29);
-		panel_1.add(btnRemoveCourse);
+		panelAddCourses.add(btnRemoveCourse);
 
 		menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);
@@ -440,7 +436,7 @@ public class View extends JFrame {
 	}
 
 	public JPanel getPanel() {
-		return panel;
+		return panelAddTeacher;
 	}
 
 	public JPanel getPanelAddDepartment() {
@@ -535,7 +531,7 @@ public class View extends JFrame {
 
 
 	public JPanel getPanel_1() {
-		return panel_1;
+		return panelAddCourses;
 	}
 
 	public JScrollPane getScrollPaneCourse() {
