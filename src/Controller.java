@@ -53,7 +53,6 @@ view.getCourseTableModel().addCourse(tmpCourse);
 		
 		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
 				
 			}
 			});
