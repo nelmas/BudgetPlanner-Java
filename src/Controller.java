@@ -59,7 +59,20 @@ view.getCourseTableModel().addCourse(tmpCourse);
 				view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 				
 					public void valueChanged(ListSelectionEvent event) {
-						
+						//för att den inte ska printa allt två gånger 
+		
+						if(!event.getValueIsAdjusting()) {
+							
+							
+							view.getTextFieldAddCourseName().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
+							view.getTextFieldCourseCode().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
+							view.getTextFieldAddCredits().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
+							view.getTextFieldCycle().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 3).toString());
+
+							
+							
+							
+						}
 ;					}
 				
 				}
