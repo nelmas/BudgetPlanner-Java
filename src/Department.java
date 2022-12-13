@@ -9,7 +9,7 @@ public class Department {
 	private String address;
 	private int budget;
 	private ArrayList<Teacher> teacher;
-	private ArrayList<Department> department;
+	
 
 	// constructors
 
@@ -21,7 +21,7 @@ public class Department {
 		this.budget = budget;
 		this.name = name;
 		this.teacher = new ArrayList<Teacher>();
-		this.department = new ArrayList<Department>();
+		
 	}
 
 	// getters and setters
@@ -43,23 +43,11 @@ public class Department {
 
 	}
 
-	public ArrayList<Department> getDepartment() {
-		return department;
-	}
+	
 
-	public Department findDepartment(String name) {
-		for (Department department : department) {
-			if (department.findDepartment(name) != null) {
-				if (department.findDepartment(name).getName().equals(name))
-					return department.findDepartment(name);
-			}
-		}
-		return null;
-	}
+	
 
-	public void setDepartment(ArrayList<Department> department) {
-		this.department = department;
-	}
+	
 
 	public String getName() {
 		return name;
@@ -96,14 +84,7 @@ public class Department {
 
 	}
 
-	// add department
-	public void addDepartment(Department department) {
-		this.department.add(department);
-	}
-
-	// remove department
-	public void removeDepartment(Department department) {
-		this.department.remove(department);
-	}
+	
+	
 
 }
