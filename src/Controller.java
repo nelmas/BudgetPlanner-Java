@@ -103,13 +103,13 @@ public class Controller implements ActionListener {
 					Department tmpDepartment = new Department(departmentName, departmentAddress, departmentBudget);
 
 					if (departmentBudget < 0) {
-						view.getTextFieldErrorMessageDepartment().setText("Budget can't be a negative value");
+						view.getTextFieldErrorMessageDepartment().setText("Budget can't have a negative value");
 					} else {
 
 						view.getDepartmentTableModel().addDepartment(tmpDepartment);
 					}
 				} catch (NumberFormatException e2) {
-					view.getTextFieldErrorMessageDepartment().setText("Please enter numbers for budget");
+					view.getTextFieldErrorMessageDepartment().setText("Budget must be entered in numbers");
 
 				}
 
@@ -148,7 +148,7 @@ public class Controller implements ActionListener {
 					int teacherSalary = Integer.parseInt(strTeacherSalary);
 
 					if (teacherSalary < 0) {
-						view.getTextFieldErrorMessage().setText("Hourly salary can't be a negative value");
+						view.getTextFieldErrorMessage().setText("Hourly salary can't have a negative value");
 					} else {
 
 						Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress,
@@ -157,7 +157,7 @@ public class Controller implements ActionListener {
 						view.getTeacherTableModel().addTeacher(tmpTeacher);
 					}
 				} catch (NumberFormatException exception) {
-					view.getTextFieldErrorMessage().setText("Please only enter numbers");
+					view.getTextFieldErrorMessage().setText("Hourly salary must be entered in numbers");
 				}
 
 //				Teacher tmpTeacher = new Teacher();
