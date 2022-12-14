@@ -83,6 +83,7 @@ public class View extends JFrame {
 	private JScrollBar scrollBarTeacher;
 	private JScrollBar scrollBarDepartment;
 	private JTextField textFieldErrorMessageDepartment;
+	private JTextField textFieldErrorMessageCourses;
 
 	
 	
@@ -290,7 +291,7 @@ public class View extends JFrame {
 		panelAddCourses.setLayout(null);
 
 		textFieldAddCourseName = new JTextField();
-		textFieldAddCourseName.setBounds(351, 52, 130, 26);
+		textFieldAddCourseName.setBounds(329, 52, 130, 26);
 		panelAddCourses.add(textFieldAddCourseName);
 		textFieldAddCourseName.setColumns(10);
 
@@ -302,6 +303,11 @@ public class View extends JFrame {
 		textFieldAddCredits.setBounds(329, 111, 130, 26);
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
+		
+		textFieldErrorMessageCourses = new JTextField();
+		textFieldErrorMessageCourses.setBounds(154, 444, 523, 26);
+		panelAddCourses.add(textFieldErrorMessageCourses);
+		textFieldErrorMessageCourses.setColumns(10);
 
 		JLabel lblCourseCredits = new JLabel("Credits");
 		lblCourseCredits.setBounds(230, 116, 61, 16);
@@ -366,6 +372,8 @@ public class View extends JFrame {
 		scrollBarCourse = new JScrollBar();
 		
 		scrollPaneCourse.setRowHeaderView(scrollBarCourse);
+		
+		
 
 		
 
@@ -557,9 +565,11 @@ public class View extends JFrame {
 	public JTextField getTextFieldErrorMessageDepartment() {
 		return textFieldErrorMessageDepartment;
 	}
+	public JTextField getTextFieldErrorMessageCourses() {
+		return textFieldErrorMessageCourses;
+	}
 	
 	//LabelGetters
-
 	
 
 	
