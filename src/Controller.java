@@ -42,36 +42,25 @@ public class Controller implements ActionListener {
 
 					String strCourseCredit = view.getTextFieldAddCredits().getText();
 
-					int courseCredit = Integer.parseInt(strCourseCredit.trim());
+				int courseCredit = Integer.parseInt(strCourseCredit.trim());
 
-					Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
+				Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
 
-					if (courseCredit < 0) {
-						view.getTextFieldErrorMessageCourses().setText("Credits can't have a negative value");
+				if (courseCredit < 0) {
+					view.getTextFieldErrorMessageCourses().setText("Credits can't have a negative value");
 					} else {
-
 				
 				view.getCourseTableModel().addCourse(tmpCourse);
 				teacher.addTaught(tmpCourse);
-				
-						//view.getCourseTableModel().addCourse(tmpCourse);
-					}
-				} catch (NumberFormatException e3) {
-					view.getTextFieldErrorMessageCourses().setText("Credits must be entered in numbers");
-
 				}
-
+			} catch (NumberFormatException e3) {
+				view.getTextFieldErrorMessageCourses().setText("Credits must be entered in numbers");
+				}
 			}
 		});
-//		
 		
 		
-		
-		
-		
-		
-		
-		
+			
 		
 //		
 //		
@@ -120,14 +109,31 @@ public class Controller implements ActionListener {
 
 							
 							
+							
+							
+							
+							
+							
+							
 							view.getBtnRemoveCourse().addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent e) {
 							try {
 								
 
-								//CourseTableModel tblModel = view.getCourseTableModel();
-									view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+							//CourseTableModel tblModel = view.getCourseTableModel();
+								String courseName = view.getTextFieldAddCourseName().getText();
+								String courseCode = view.getTextFieldCourseCode().getText();
+								String cycle = view.getTextFieldCycle().getText();
 
+								String strCourseCredit = view.getTextFieldAddCredits().getText();
+
+							int courseCredit = Integer.parseInt(strCourseCredit.trim());
+
+							Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
+							teacher.removeTaught(tmpCourse);
+							
+									view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+									
 							} catch (IndexOutOfBoundsException exeption) {
 								System.out.println(" ");
 								
