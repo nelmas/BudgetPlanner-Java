@@ -56,7 +56,6 @@ public class View extends JFrame {
 
 	// JLabels
 	private JLabel lblCourseName;
-	private JLabel lblCourseName_1;
 	private JLabel lblCourseCode;
 	private JLabel lblCourseCode_1;
 	private JLabel lblNewLabel_3;
@@ -84,6 +83,8 @@ public class View extends JFrame {
 	private JScrollBar scrollBarDepartment;
 	private JTextField textFieldErrorMessageDepartment;
 	private JTextField textFieldErrorMessageCourses;
+	private JTextField textFieldResponsibleTeacher;
+	private JLabel lblResponsibleTeacher;
 
 	
 	
@@ -291,16 +292,16 @@ public class View extends JFrame {
 		panelAddCourses.setLayout(null);
 
 		textFieldAddCourseName = new JTextField();
-		textFieldAddCourseName.setBounds(329, 52, 130, 26);
+		textFieldAddCourseName.setBounds(329, 83, 130, 26);
 		panelAddCourses.add(textFieldAddCourseName);
 		textFieldAddCourseName.setColumns(10);
 
 		lblCourseName = new JLabel("Name");
-		lblCourseName.setBounds(230, 57, 80, 16);
+		lblCourseName.setBounds(230, 88, 80, 16);
 		panelAddCourses.add(lblCourseName);
 
 		textFieldAddCredits = new JTextField();
-		textFieldAddCredits.setBounds(329, 111, 130, 26);
+		textFieldAddCredits.setBounds(329, 121, 130, 26);
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 		
@@ -308,14 +309,24 @@ public class View extends JFrame {
 		textFieldErrorMessageCourses.setBounds(154, 444, 523, 26);
 		panelAddCourses.add(textFieldErrorMessageCourses);
 		textFieldErrorMessageCourses.setColumns(10);
+		
+		textFieldResponsibleTeacher = new JTextField();
+		textFieldResponsibleTeacher.setBounds(329, 38, 130, 26);
+		panelAddCourses.add(textFieldResponsibleTeacher);
+		textFieldResponsibleTeacher.setColumns(10);
 
 		JLabel lblCourseCredits = new JLabel("Credits");
-		lblCourseCredits.setBounds(230, 116, 61, 16);
+		lblCourseCredits.setBounds(230, 126, 61, 16);
 		panelAddCourses.add(lblCourseCredits);
 		
 		JLabel lblNewCycle = new JLabel("Cycle");
 		lblNewCycle.setBounds(575, 57, 61, 16);
 		panelAddCourses.add(lblNewCycle);
+		
+
+		lblResponsibleTeacher = new JLabel("Responsible Teacher(EmployeeID)");
+		lblResponsibleTeacher.setBounds(66, 43, 225, 16);
+		panelAddCourses.add(lblResponsibleTeacher);
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 187, 130, 26);
@@ -344,11 +355,6 @@ public class View extends JFrame {
 		panelAddCourses.add(textFieldCycle);
 		textFieldCycle.setColumns(10);
 
-		
-		lblCourseName_1 = new JLabel("Name");
-		lblCourseName_1.setBounds(230, 57, 80, 16);
-		panelAddCourses.add(lblCourseName_1);
-
 		lblCourseCode_1 = new JLabel("CourseCode");
 		lblCourseCode_1.setBounds(230, 192, 80, 16);
 		panelAddCourses.add(lblCourseCode_1);
@@ -372,6 +378,9 @@ public class View extends JFrame {
 		scrollBarCourse = new JScrollBar();
 		
 		scrollPaneCourse.setRowHeaderView(scrollBarCourse);
+		
+		
+		
 		
 		
 
@@ -567,6 +576,10 @@ public class View extends JFrame {
 	}
 	public JTextField getTextFieldErrorMessageCourses() {
 		return textFieldErrorMessageCourses;
+
+	}
+	public JTextField getTextFieldResponsibleTeacher() {
+		return textFieldResponsibleTeacher;
 	}
 	
 	//LabelGetters
@@ -574,9 +587,11 @@ public class View extends JFrame {
 
 	
 
-	public JLabel getLblCourseName() {
-		return lblCourseName_1;
-	}
+	
+
+	
+
+	
 
 	public JLabel getLblCourseCode() {
 		return lblCourseCode_1;

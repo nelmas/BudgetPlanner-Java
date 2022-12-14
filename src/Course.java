@@ -116,9 +116,9 @@ public class Course {
 //	
 //}
 
-	public void addCourseTeacher(Teacher teacher) {
-		this.teaches.add(teacher);
-	}
+	//public void addCourseTeacher(Teacher teacher) {
+		//this.teaches.add(teacher);
+	//}
 
 	public void removeCourseTeacher(Teacher teacher) {
 		this.teaches.remove(teacher);
