@@ -23,6 +23,7 @@ public class CourseTableModel extends AbstractTableModel {
 	
 
 
+
 	@Override
 	public int getRowCount() {
 		return courses.size();

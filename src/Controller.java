@@ -53,6 +53,7 @@ public class Controller implements ActionListener {
 				
 				view.getCourseTableModel().addCourse(tmpCourse);
 				teacher.addTaught(tmpCourse);
+				
 						//view.getCourseTableModel().addCourse(tmpCourse);
 					}
 				} catch (NumberFormatException e3) {
@@ -62,18 +63,35 @@ public class Controller implements ActionListener {
 
 			}
 		});
+//		
 		
 		
-		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 		
-			CourseTableModel tblModel = view.getCourseTableModel();
-				view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
-
-	
-			}
-
-		});
+		
+		
+		
+		
+		
+		
+//		
+//		
+//		
+//		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//		try {
+//			
+//
+//			//CourseTableModel tblModel = view.getCourseTableModel();
+//				view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+//
+//		} catch (IndexOutOfBoundsException exeption) {
+//			System.out.println(" ");
+//			
+//		}
+//	
+//			}
+//
+//		});
 
 		
 		
@@ -92,12 +110,37 @@ public class Controller implements ActionListener {
 						if(!event.getValueIsAdjusting()) {
 							
 							
+							
 							view.getTextFieldAddCourseName().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
 							view.getTextFieldCourseCode().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
 							view.getTextFieldAddCredits().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
 							view.getTextFieldCycle().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 3).toString());
 	
 					
+
+							
+							
+							view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+								public void actionPerformed(ActionEvent e) {
+							try {
+								
+
+								//CourseTableModel tblModel = view.getCourseTableModel();
+									view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+
+							} catch (IndexOutOfBoundsException exeption) {
+								System.out.println(" ");
+								
+							}
+						
+								}
+
+							});
+							
+							
+							
+							
+							
 						}
 ;					}
 				
