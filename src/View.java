@@ -76,6 +76,7 @@ public class View extends JFrame {
 
 	private JTable table;
 	private JTextField textFieldCycle;
+	private JComboBox comboBox;
 	
 	
 
@@ -316,7 +317,8 @@ public class View extends JFrame {
 		JLabel lblNewCycle = new JLabel("Cycle");
 		lblNewCycle.setBounds(575, 57, 61, 16);
 		panelAddCourses.add(lblNewCycle);
-
+		
+		
 		menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);
 		departmentMenu = new JMenu("Department");

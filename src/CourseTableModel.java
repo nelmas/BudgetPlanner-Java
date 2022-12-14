@@ -13,6 +13,14 @@ public class CourseTableModel extends AbstractTableModel {
 		// defined in superclass
 		this.fireTableDataChanged();
 	}
+	
+	public void removeRow(int rowIndex) {
+		courses.remove(rowIndex);
+ 		//fireTableRowsDeleted(rowIndex,rowIndex);
+		this.fireTableDataChanged();
+		
+		}
+		
 
 	@Override
 	public int getRowCount() {
@@ -31,6 +39,7 @@ public class CourseTableModel extends AbstractTableModel {
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
+
 		Course tmpCourse = courses.get(rowIndex);
 
 		switch (columnIndex) {
@@ -49,6 +58,7 @@ public class CourseTableModel extends AbstractTableModel {
 
 		}
 		return null;
+
 	}
 	
 	@Override
@@ -76,5 +86,6 @@ public boolean isCellEditable(int rowIndex, int columnIndex) {
 		
 		return true;
 	}
+	
 
 }

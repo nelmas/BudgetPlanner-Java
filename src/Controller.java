@@ -48,11 +48,53 @@ public class Controller implements ActionListener {
 
 
 				
-			//CourseTableModel courseTableModel = new CourseTableModel();
-view.getCourseTableModel().addCourse(tmpCourse);		
+				view.getCourseTableModel().addCourse(tmpCourse);
+				teacher.addTaught(tmpCourse);
 
 			}
 		});
+		
+		
+		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+
+			
+			
+			int i = view.getCourseTable().getSelectedRow();
+					
+				
+			view.getCourseTableModel().removeRow(i);
+//
+//			CourseTableModel tblModel = view.getCourseTableModel();
+//				
+//				if(view.getCourseTable().getSelectedRowCount() == 1) {
+//					
+////	
+//					tblModel.removeRow(view.getCourseTable().getSelectedRow());
+//					
+//
+//			}  if (view.getCourseTable().getSelectedRowCount() < 1) {
+//				System.out.println("hallå du måste välja en person mannen ");
+//			}
+////			
+//				
+//				   int row = view.getCourseTable().getSelectedRow();
+//				
+	//view.getCourseTableModel().removeRow(i);
+	
+
+			}
+
+		});
+
+		
+		
+		
+		
+		
+		
 		
 //		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -90,18 +132,17 @@ view.getCourseTableModel().addCourse(tmpCourse);
 						view.getTextFieldAddTeacherAddress().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 3).toString());
 						view.getTextFieldAddTeacherHourlySalary().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 4).toString());
 
+						
 						}
 ;					}
 				
 				}
 		);
 		
-		
-		
-		
-		
-		
+	
 
+				
+	
 		view.getAddDepartmentItem().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
