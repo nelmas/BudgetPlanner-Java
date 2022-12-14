@@ -21,6 +21,10 @@ public class CourseTableModel extends AbstractTableModel {
 		
 		}
 		
+	public void removeCourse(Course course) {
+		courses.remove(course);
+	    this.fireTableDataChanged();
+	}
 
 	@Override
 	public int getRowCount() {

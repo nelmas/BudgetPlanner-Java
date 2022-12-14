@@ -4,6 +4,10 @@ import javax.swing.table.AbstractTableModel;
 
 public class TeacherTableModel extends AbstractTableModel {
 	private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+
+
+	
+
 	private String[] columns = { "Name", "EmployeeID", "Title", "Address", "Hourly Salary" };
 
 	public void addTeacher(Teacher teacher) {
@@ -11,6 +15,7 @@ public class TeacherTableModel extends AbstractTableModel {
 		this.fireTableDataChanged();
 	}
 
+	
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
@@ -72,6 +77,8 @@ public class TeacherTableModel extends AbstractTableModel {
 	
 		
 		this.fireTableCellUpdated(rowIndex, columnIndex);
+	}	public ArrayList<Teacher> getTeachers() {
+		return teachers;
 	}
 
 	@Override
