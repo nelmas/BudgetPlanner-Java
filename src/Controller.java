@@ -53,7 +53,7 @@ public class Controller implements ActionListener {
 				
 				view.getCourseTableModel().addCourse(tmpCourse);
 				teacher.addTaught(tmpCourse);
-						view.getCourseTableModel().addCourse(tmpCourse);
+						//view.getCourseTableModel().addCourse(tmpCourse);
 					}
 				} catch (NumberFormatException e3) {
 					view.getTextFieldErrorMessageCourses().setText("Credits must be entered in numbers");
@@ -66,34 +66,11 @@ public class Controller implements ActionListener {
 		
 		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+		
+			CourseTableModel tblModel = view.getCourseTableModel();
+				view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
 
-			
-			
-			int i = view.getCourseTable().getSelectedRow();
-					
-				
-			view.getCourseTableModel().removeRow(i);
-//
-//			CourseTableModel tblModel = view.getCourseTableModel();
-//				
-//				if(view.getCourseTable().getSelectedRowCount() == 1) {
-//					
-////	
-//					tblModel.removeRow(view.getCourseTable().getSelectedRow());
-//					
-//
-//			}  if (view.getCourseTable().getSelectedRowCount() < 1) {
-//				System.out.println("hallå du måste välja en person mannen ");
-//			}
-////			
-//				
-//				   int row = view.getCourseTable().getSelectedRow();
-//				
-	//view.getCourseTableModel().removeRow(i);
 	
-
 			}
 
 		});
@@ -220,44 +197,55 @@ public class Controller implements ActionListener {
 
 					System.out.println(tmpTeacher.getName());
 				} catch (NumberFormatException e1) {
-					view.getTextFieldErrorMessage().setText("Person does not exist");
+					view.getTextFieldErrorMessageTeacher().setText("Person does not exist");
 				}
 			}
 		});
-		
+	
+	}
          //AddTeacher
-		view.getBtnAddTeacher().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					String teacherName = view.getTextFieldAddTeacherName().getText();
-					String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
-					String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
-					String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
-					// String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-					String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-
-					int teacherSalary = Integer.parseInt(strTeacherSalary);
-
-				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
-				
-				view.getTeacherTableModel().addTeacher(tmpTeacher);
-				}catch (NumberFormatException exception) {
-					view.getTextFieldErrorMessage().setText("Please only enter numbers");
-				}	
-				
-					if (teacherSalary < 0) {
-						view.getTextFieldErrorMessage().setText("Hourly salary can't have a negative value");
-					} else {
-
-						Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress,
-								teacherSalary);
-
-						view.getTeacherTableModel().addTeacher(tmpTeacher);
-					}
-				} catch (NumberFormatException exception) {
-					view.getTextFieldErrorMessage().setText("Hourly salary must be entered in numbers");
-				}
-
+//		view.getBtnAddTeacher().addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					String teacherName = view.getTextFieldAddTeacherName().getText();
+//					String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
+//					
+//					String TeacherID = 
+//					
+//					
+//					
+//					String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
+//					String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
+//					// String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+//					String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+//
+//					int teacherSalary = Integer.parseInt(strTeacherSalary);
+//
+//				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
+//				
+//				view.getTeacherTableModel().addTeacher(tmpTeacher);
+//				
+//				
+//				
+//				
+//				
+//				}catch (NumberFormatException exception) {
+//					view.getTextFieldErrorMessage().setText("Please only enter numbers");
+//				}	
+//				
+//					if (teacherSalary < 0) {
+//						view.getTextFieldErrorMessage().setText("Hourly salary can't have a negative value");
+//					} else {
+//
+//						Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress,
+//								teacherSalary);
+//
+//						view.getTeacherTableModel().addTeacher(tmpTeacher);
+//					}
+//				} catch (NumberFormatException exception) {
+//					view.getTextFieldErrorMessage().setText("Hourly salary must be entered in numbers");
+//				}
+//
 //				Teacher tmpTeacher = new Teacher();
 //				tmpTeacher.setAddress(teacherAddress);
 //				tmpTeacher.setCourse(null);
@@ -270,13 +258,13 @@ public class Controller implements ActionListener {
 //	TeacherTableModel teacherTableModel = new TeacherTableModel();
 //								
 //				teacherTableModel.addTeacher(tmpTeacher);
-				
-	
-
-			}
-		});
-
-	}
+//				
+//	
+//
+//			}
+//		});
+//
+//}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

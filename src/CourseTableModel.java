@@ -13,18 +13,15 @@ public class CourseTableModel extends AbstractTableModel {
 		// defined in superclass
 		this.fireTableDataChanged();
 	}
-	
 	public void removeRow(int rowIndex) {
 		courses.remove(rowIndex);
  		//fireTableRowsDeleted(rowIndex,rowIndex);
 		this.fireTableDataChanged();
 		
-		}
 		
-	public void removeCourse(Course course) {
-		courses.remove(course);
-	    this.fireTableDataChanged();
-	}
+		}
+	
+
 
 	@Override
 	public int getRowCount() {

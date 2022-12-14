@@ -44,7 +44,6 @@ public class View extends JFrame {
 	private JTextField textFieldAddTeacherAddress;
 	private JTextField textFieldAddTeacherHourlySalary;
 	private JTextField textFieldErrorMessageTeacher;
-	private JTextField textFieldCycle;
 	// JButtons
 	private JButton btnAddTeacher;
 	private JButton btnRemoveTeacher;
@@ -63,7 +62,6 @@ public class View extends JFrame {
 	private JLabel lblNewLabel_3_1;
 
     //JTables
-	private JTable table;
 	private JTable teacherTable;
 	private JTable courseTable;
 	private JTable departmentTable;
@@ -90,8 +88,6 @@ public class View extends JFrame {
 	private JComboBox comboBox;
 
 	
-	
-
 	public View() {
 
 		//MainPane
@@ -314,9 +310,6 @@ public class View extends JFrame {
 		lblCourseCredits.setBounds(230, 116, 61, 16);
 		panelAddCourses.add(lblCourseCredits);
 		
-		JLabel lblNewCycle = new JLabel("Cycle");
-		lblNewCycle.setBounds(575, 57, 61, 16);
-		panelAddCourses.add(lblNewCycle);
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 187, 130, 26);
@@ -565,15 +558,17 @@ public class View extends JFrame {
 	}
 	
 
-	public JTextField getTextFieldErrorMessage() {
-		return textFieldErrorMessageTeacher;
-	}
 	public JTextField getTextFieldErrorMessageDepartment() {
 		return textFieldErrorMessageDepartment;
 	}
 	public JTextField getTextFieldErrorMessageCourses() {
 		return textFieldErrorMessageCourses;
 	}
+	public JTextField getTextFieldErrorMessageTeacher() {
+		return textFieldErrorMessageTeacher;
+	}
+	
+	
 	
 	//LabelGetters
 	
@@ -643,26 +638,11 @@ public class View extends JFrame {
 	}
 
 
-	public JTextField getTextFieldAddCredits() {
-		return textFieldAddCredits;
-	}
-		
-	public JButton getBtnFindTeacher() {
-		return btnFindTeacher;
-	}
-
-
-
-	public JTextField getTextFieldErrorMessage() {
-		return textFieldErrorMessage;
-	}
-
-	public JButton getBtnRemoveCourse() {
-		return btnRemoveCourse;
 	
+	public void setTextFieldAddTeacherEmployeeID(JTextField textFieldAddTeacherEmployeeID) {
+		this.textFieldAddTeacherEmployeeID = textFieldAddTeacherEmployeeID;
+	}
 
-
-	
 	public JTabbedPane getTabbedPane() {
 		return tabbedPane;
 	}
