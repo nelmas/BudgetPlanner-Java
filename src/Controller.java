@@ -29,7 +29,8 @@ public class Controller implements ActionListener {
 		declareListeners();
 
 	}
-
+	
+	//AddCourse
 	private void declareListeners() {
 		view.getBtnAddCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -58,6 +59,8 @@ public class Controller implements ActionListener {
 
 			}
 		});
+		
+		//ChangeCourseTable
 
 		view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
@@ -88,6 +91,7 @@ public class Controller implements ActionListener {
 
 		});
 
+		//AddDepartment
 		view.getBtnAddDepartment().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -112,6 +116,7 @@ public class Controller implements ActionListener {
 			}
 		});
 
+		//FindTeacher
 		view.getBtnFindTeacher().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -128,7 +133,8 @@ public class Controller implements ActionListener {
 				}
 			}
 		});
-
+		
+         //AddTeacher
 		view.getBtnAddTeacher().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
