@@ -120,7 +120,8 @@ public class Controller implements ActionListener {
 							try {
 								
 
-							//CourseTableModel tblModel = view.getCourseTableModel();
+							//för att ta bort från arraylist taught (), borde gå att använda find metod
+							
 								String courseName = view.getTextFieldAddCourseName().getText();
 								String courseCode = view.getTextFieldCourseCode().getText();
 								String cycle = view.getTextFieldCycle().getText();
@@ -132,10 +133,14 @@ public class Controller implements ActionListener {
 							Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
 							teacher.removeTaught(tmpCourse);
 							
+							// för att ta bort ut table
 									view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
 									
 							} catch (IndexOutOfBoundsException exeption) {
+								//för att buggen inte ska vara så extrem
+								
 								System.out.println(" ");
+								
 								
 							}
 						
