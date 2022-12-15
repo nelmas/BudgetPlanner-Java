@@ -49,14 +49,14 @@ public class Controller implements ActionListener {
 				Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
 
 				if (courseCredit < 0) {
-					view.getTextFieldErrorMessageCourses().setText("Credits can't have a negative value");
+					view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
 					} else {
 				
 				view.getCourseTableModel().addCourse(tmpCourse);
 				teacher.addTaught(tmpCourse);
 				}
 			} catch (NumberFormatException e3) {
-				view.getTextFieldErrorMessageCourses().setText("Credits must be entered in numbers");
+				view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
 				}
 			}
 		});
@@ -188,13 +188,13 @@ public class Controller implements ActionListener {
 					Department tmpDepartment = new Department(departmentName, departmentAddress, departmentBudget);
 
 					if (departmentBudget < 0) {
-						view.getTextFieldErrorMessageDepartment().setText("Budget can't have a negative value");
+						view.getTextAreaErrorMessageDepartment().setText("Budget can't have a negative value");
 					} else {
 
 						view.getDepartmentTableModel().addDepartment(tmpDepartment);
 					}
 				} catch (NumberFormatException e2) {
-					view.getTextFieldErrorMessageDepartment().setText("Budget must be entered in numbers");
+					view.getTextAreaErrorMessageDepartment().setText("Budget must be entered in numbers");
 
 				}
 
@@ -214,7 +214,7 @@ public class Controller implements ActionListener {
 
 					System.out.println(tmpTeacher.getName());
 				} catch (NumberFormatException e1) {
-					view.getTextFieldErrorMessageTeacher().setText("Person does not exist");
+					view.getTextAreaErrorMessageTeacher().setText("Person does not exist");
 				}
 			}
 		});
@@ -261,7 +261,7 @@ public class Controller implements ActionListener {
 		
 		int teacherSalary = Integer.parseInt(strTeacherSalary);
 		if (teacherSalary < 0) {
-		view.getTextFieldErrorMessageTeacher().setText("Hourly salary can't have a negative value");
+		view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
 	} else {
 		
 		Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress, teacherSalary);
@@ -269,7 +269,7 @@ public class Controller implements ActionListener {
 	}
 	    
 	}catch (NumberFormatException exception) {
-		view.getTextFieldErrorMessageTeacher().setText("Please only enter numbers");
+		view.getTextAreaErrorMessageTeacher().setText("Please only enter numbers");
  }	
 	}
 	});
