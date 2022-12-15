@@ -14,12 +14,12 @@ public class Course {
 
 	}
 
-	public Course(String name, String courseCode, int credits, String cycle ){
+	public Course(String name, String courseCode, int credits, String cycle){
 		this.name = name;
 		this.courseCode = courseCode;
 		this.credits = credits;
 		this.cycle = cycle;
-		this.responsible = responsible;
+		
 		this.teaches = new ArrayList<Teacher>();
 
 	}
@@ -77,16 +77,6 @@ public class Course {
 		this.teaches = teaches;
 	}
 
-	public Course findCourse(String courseCode) {
-		Teacher teacher = new Teacher();
-		for (Course course : teacher.getTaught()) {
-			if (course.findCourse(courseCode) != null) {
-				if (course.findCourse(courseCode).getCourseCode().equals(course))
-					return course.findCourse(courseCode);
-			}
-		}
-		return null;
-	}
 //Methods
 
 //public void createCorse(){

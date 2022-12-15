@@ -23,8 +23,12 @@ public class View extends JFrame {
 	private JMenuItem setHoursItem;
 	private JMenuItem displayTeachers;
 
+	
 	private JTabbedPane tabbedPane;
 
+	
+	
+	private JList listTeacherTitles;
 	// JPanels
 	private JPanel contentPane;
 	private JPanel panelAddTeacher;
@@ -54,7 +58,6 @@ public class View extends JFrame {
 
 	// JLabels
 	private JLabel lblCourseName;
-	private JLabel lblCourseName_1;
 	private JLabel lblCourseCode;
 	private JLabel lblCourseCode_1;
 	private JLabel lblNewLabel_3;
@@ -86,6 +89,8 @@ public class View extends JFrame {
 	private JTextArea textAreaErrorMessageDepartment;
 	private JTextArea textAreaErrorMessageTeacher;
 	private JTextArea textAreaErrorMessageCourses;
+	private JTextField textFieldResponsibleTeacher;
+	private JLabel lblResponsibleTeacher;
 
 	public View() {
 
@@ -216,7 +221,7 @@ public class View extends JFrame {
 		textFieldAddTeacherEmployeeID.setColumns(10);
 
 		textFieldAddTeacherTitle = new JTextField();
-		textFieldAddTeacherTitle.setBounds(319, 150, 130, 26);
+		textFieldAddTeacherTitle.setBounds(319, 112, 130, 26);
 		panelAddTeacher.add(textFieldAddTeacherTitle);
 		textFieldAddTeacherTitle.setColumns(10);
 
@@ -263,18 +268,37 @@ public class View extends JFrame {
 		textAreaErrorMessageTeacher.setEditable(false);
 		textAreaErrorMessageTeacher.setBounds(475, 399, 288, 57);
 		panelAddTeacher.add(textAreaErrorMessageTeacher);
+		
+		listTeacherTitles = new JList(new AbstractListModel() {
+			String[] values = new String[] {"o Lecturer", "o Assistant Professor ", "o Associate Professor ", "o Professor"};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		listTeacherTitles.setBounds(329, 150, 134, 67);
+		panelAddTeacher.add(listTeacherTitles);
+		
+		
+		listTeacherTitles.setSelectedIndex(2);
+		panelAddTeacher.add(listTeacherTitles);
+		
+		contentPane.show();
+		
 
 		// Courses
 		tabbedPane.addTab("Courses", null, panelAddCourses, null);
 		panelAddCourses.setLayout(null);
 
 		textFieldAddCourseName = new JTextField();
-		textFieldAddCourseName.setBounds(329, 52, 130, 26);
+		textFieldAddCourseName.setBounds(329, 73, 130, 26);
 		panelAddCourses.add(textFieldAddCourseName);
 		textFieldAddCourseName.setColumns(10);
 
 		lblCourseName = new JLabel("Name");
-		lblCourseName.setBounds(230, 57, 80, 16);
+		lblCourseName.setBounds(230, 78, 80, 16);
 		panelAddCourses.add(lblCourseName);
 
 		textFieldAddCredits = new JTextField();
@@ -312,10 +336,6 @@ public class View extends JFrame {
 		panelAddCourses.add(textFieldCycle);
 		textFieldCycle.setColumns(10);
 
-		lblCourseName_1 = new JLabel("Name");
-		lblCourseName_1.setBounds(230, 57, 80, 16);
-		panelAddCourses.add(lblCourseName_1);
-
 		lblCourseCode_1 = new JLabel("CourseCode");
 		lblCourseCode_1.setBounds(230, 192, 80, 16);
 		panelAddCourses.add(lblCourseCode_1);
@@ -349,6 +369,15 @@ public class View extends JFrame {
 		textAreaErrorMessageCourses.setEditable(false);
 		textAreaErrorMessageCourses.setBounds(152, 468, 523, 45);
 		panelAddCourses.add(textAreaErrorMessageCourses);
+		
+		textFieldResponsibleTeacher = new JTextField();
+		textFieldResponsibleTeacher.setBounds(329, 33, 130, 26);
+		panelAddCourses.add(textFieldResponsibleTeacher);
+		textFieldResponsibleTeacher.setColumns(10);
+		
+		lblResponsibleTeacher = new JLabel("Responsible Teacher(EmployeeID)");
+		lblResponsibleTeacher.setBounds(70, 38, 221, 16);
+		panelAddCourses.add(lblResponsibleTeacher);
 
 		// MenuBar
 		menuBar = new JMenuBar();
@@ -521,12 +550,17 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
 	}
+	public JTextField getTextFieldResponsibleTeacher() {
+		return textFieldResponsibleTeacher;
+	}
 
 	// LabelGetters
 
-	public JLabel getLblCourseName() {
-		return lblCourseName_1;
-	}
+	
+
+	
+
+	
 
 	public JLabel getLblCourseCode() {
 		return lblCourseCode_1;
@@ -612,4 +646,10 @@ public class View extends JFrame {
 	public JTextArea getTextAreaErrorMessageCourses() {
 		return textAreaErrorMessageCourses;
 	}
+
+	public JList getListTeacherTitles() {
+		return listTeacherTitles;
+	}
+
+	
 }
