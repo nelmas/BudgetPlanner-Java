@@ -236,22 +236,32 @@ public class Controller implements ActionListener {
 		String firstLetters = firstName.substring(0, 2);
 		String lastLetters = lastName.substring(0, 2);
 
+	
 		Random rnd = new Random();
 	    int number = rnd.nextInt(99999);
 	    
-	    String teacherId = firstLetters + number + lastLetters; 
-	    		
-	    	view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
+//     String.format("%05d", number) innebär att den ändrar formateringen så att den alltid visar fem siffror, kan börja på nolla
+	    
+	   
+	  
+	    String teacherId = firstLetters + String.format("%05d", number) + lastLetters; 
+	    
+	   		
+	 view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
+	    
 		
 		String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
 		String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
 		String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
 		
 		int teacherSalary = Integer.parseInt(strTeacherSalary);
+	
+		
 		
 		Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress, teacherSalary);
-//		
-		view.getTeacherTableModel().addTeacher(tmpTeacher);
+		view.getTeacherTableModel().addTeacher(tmpTeacher); 
+	    
+
 	}
 	});
 	}
