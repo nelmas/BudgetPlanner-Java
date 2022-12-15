@@ -40,7 +40,7 @@ public class Controller implements ActionListener {
 
 					String courseName = view.getTextFieldAddCourseName().getText();
 					String courseCode = view.getTextFieldCourseCode().getText();
-					String cycle = view.getTextFieldCycle().getText();
+					String cycle = view.getListCoursesCycles().getSelectedValue().toString();
 
 					String strCourseCredit = view.getTextFieldAddCredits().getText();
 
@@ -256,9 +256,10 @@ public class Controller implements ActionListener {
 	    view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
 	    
 		
-		String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
+		
 		String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
 		String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+		String teacherTitle = view.getListTeacherTitles().getSelectedValue().toString();
 		
 		int teacherSalary = Integer.parseInt(strTeacherSalary);
 		if (teacherSalary < 0) {
