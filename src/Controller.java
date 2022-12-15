@@ -240,6 +240,7 @@ public class Controller implements ActionListener {
 	
 		String firstLetters = firstName.substring(0, 2);
 		String lastLetters = lastName.substring(0, 2);
+	
 
 	
 		Random rnd = new Random();
