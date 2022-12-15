@@ -76,7 +76,7 @@ public class Controller implements ActionListener {
 							view.getTextFieldAddCourseName().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
 							view.getTextFieldCourseCode().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
 							view.getTextFieldAddCredits().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
-							view.getTextFieldCycle().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 3).toString());
+						
 	
 					
 							
