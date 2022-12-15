@@ -43,7 +43,6 @@ public class View extends JFrame {
 	private JTextField textFieldAddTeacherTitle;
 	private JTextField textFieldAddTeacherAddress;
 	private JTextField textFieldAddTeacherHourlySalary;
-	private JTextField textFieldErrorMessageTeacher;
 	// JButtons
 	private JButton btnAddTeacher;
 	private JButton btnRemoveTeacher;
@@ -61,36 +60,36 @@ public class View extends JFrame {
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_3_1;
 
-    //JTables
+	// JTables
 	private JTable teacherTable;
 	private JTable courseTable;
 	private JTable departmentTable;
-	
-	//instantiate classes
+
+	// instantiate classes
 	private TeacherTableModel teacherTableModel;
 	private CourseTableModel courseTableModel;
 	private DepartmentTableModel departmentTableModel;
-    
-	//JScrollPanes
+
+	// JScrollPanes
 	private JScrollPane scrollPaneTeacher;
 	private JScrollPane scrollPaneDepartment;
 	private JScrollPane scrollPaneCourse;
-	
-    //JScrollBars
+
+	// JScrollBars
 	private JScrollBar scrollBarCourse;
 	private JScrollBar scrollBarTeacher;
 	private JScrollBar scrollBarDepartment;
-	private JTextField textFieldErrorMessageDepartment;
-	private JTextField textFieldErrorMessageCourses;
 
 	private JTable table;
 	private JTextField textFieldCycle;
 	private JComboBox comboBox;
+	private JTextArea textAreaErrorMessageDepartment;
+	private JTextArea textAreaErrorMessageTeacher;
+	private JTextArea textAreaErrorMessageCourses;
 
-	
 	public View() {
 
-		//MainPane
+		// MainPane
 		setTitle("Contoso University");
 		setBackground(SystemColor.control);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,11 +102,9 @@ public class View extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		
-		
-		//Department
+		// Department
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(6, 6, 851, 522);
+		tabbedPane.setBounds(6, 6, 851, 606);
 		contentPane.add(tabbedPane);
 
 		panelAddDepartment = new JPanel();
@@ -128,16 +125,10 @@ public class View extends JFrame {
 		textFieldAddDepartmentAddress.setColumns(10);
 		textFieldAddDepartmentAddress.setBounds(218, 196, 130, 26);
 		panelAddDepartment.add(textFieldAddDepartmentAddress);
-		
-		textFieldErrorMessageDepartment = new JTextField();
-		textFieldErrorMessageDepartment.setBounds(425, 308, 308, 64);
-		panelAddDepartment.add(textFieldErrorMessageDepartment);
-		textFieldErrorMessageDepartment.setColumns(10);
-		
+
 		JLabel lbldepartmentName = new JLabel("Name");
 		lbldepartmentName.setBounds(111, 78, 61, 16);
 		panelAddDepartment.add(lbldepartmentName);
-
 
 		JLabel lblDepartmentBudget = new JLabel("Budget");
 		lblDepartmentBudget.setBounds(111, 142, 61, 16);
@@ -146,48 +137,45 @@ public class View extends JFrame {
 		JLabel lblDepartmentAddress = new JLabel("Address");
 		lblDepartmentAddress.setBounds(111, 201, 61, 16);
 		panelAddDepartment.add(lblDepartmentAddress);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("If you wish to remove a department, enter name and press remove");
 		lblNewLabel_2.setBounds(111, 48, 428, 16);
 		panelAddDepartment.add(lblNewLabel_2);
 
 		btnAddDepartment = new JButton("Add");
-		btnAddDepartment.setBounds(208, 251, 70, 26);
+		btnAddDepartment.setBounds(188, 251, 81, 27);
 		panelAddDepartment.add(btnAddDepartment);
 
 		btnRemoveDepartment = new JButton("Remove");
 		btnRemoveDepartment.setBounds(276, 251, 93, 27);
 		panelAddDepartment.add(btnRemoveDepartment);
 
-		
-		
 		scrollPaneDepartment = new JScrollPane();
 		scrollPaneDepartment.setBounds(415, 78, 326, 218);
 		panelAddDepartment.add(scrollPaneDepartment);
-		
+
 		scrollBarDepartment = new JScrollBar();
 		scrollPaneDepartment.setRowHeaderView(scrollBarDepartment);
-		
-		
-        departmentTableModel = new DepartmentTableModel();
-		
+
+		departmentTableModel = new DepartmentTableModel();
+
 		departmentTable = new JTable();
-		
+
 		departmentTable.setModel(departmentTableModel);
-		
+
 		scrollPaneDepartment.setViewportView(departmentTable);
-		
+
 		scrollPaneDepartment.setRowHeaderView(scrollBarDepartment);
 		
-		
-		
-		
+		textAreaErrorMessageDepartment = new JTextArea();
+		textAreaErrorMessageDepartment.setBackground(SystemColor.control);
+		textAreaErrorMessageDepartment.setEditable(false);
+		textAreaErrorMessageDepartment.setBounds(415, 321, 326, 64);
+		panelAddDepartment.add(textAreaErrorMessageDepartment);
+
 		scrollBarDepartment = new JScrollBar();
-		
-		
-		
-		
-		//Teacher
+
+		// Teacher
 		panelAddTeacher = new JPanel();
 		tabbedPane.addTab("Teacher", null, panelAddTeacher, null);
 		panelAddTeacher.setLayout(null);
@@ -195,28 +183,27 @@ public class View extends JFrame {
 		JLabel lblFullName = new JLabel("Full Name");
 		lblFullName.setBounds(232, 11, 63, 16);
 		panelAddTeacher.add(lblFullName);
-		
+
 		JLabel lblTitle = new JLabel("Title");
 		lblTitle.setBounds(234, 155, 61, 16);
 		panelAddTeacher.add(lblTitle);
-		
+
 		JLabel lblEmployeeID = new JLabel("EmployeeID");
 		lblEmployeeID.setBounds(232, 79, 75, 16);
 		panelAddTeacher.add(lblEmployeeID);
-		
+
 		JLabel lblAddress = new JLabel("Address");
 		lblAddress.setBounds(234, 234, 61, 16);
 		panelAddTeacher.add(lblAddress);
-		
+
 		JLabel lblNewLabel = new JLabel("Hourly Salary");
 		lblNewLabel.setBounds(232, 310, 86, 16);
 		panelAddTeacher.add(lblNewLabel);
-		
+
 		JLabel lblRemoveTeacher = new JLabel(
 				"If you wish to remove a teacher from the system, only enter EmployeeID and press remove");
 		lblRemoveTeacher.setBounds(120, 46, 577, 16);
 		panelAddTeacher.add(lblRemoveTeacher);
-		
 
 		textFieldAddTeacherName = new JTextField();
 		textFieldAddTeacherName.setBounds(319, 6, 130, 26);
@@ -243,8 +230,6 @@ public class View extends JFrame {
 		panelAddTeacher.add(textFieldAddTeacherHourlySalary);
 		textFieldAddTeacherHourlySalary.setColumns(10);
 
-
-
 		btnAddTeacher = new JButton("Add");
 		btnAddTeacher.setBounds(320, 359, 117, 29);
 		panelAddTeacher.add(btnAddTeacher);
@@ -253,37 +238,33 @@ public class View extends JFrame {
 		btnRemoveTeacher.setBounds(475, 74, 117, 29);
 		panelAddTeacher.add(btnRemoveTeacher);
 
-		
-		
-		
 		scrollPaneTeacher = new JScrollPane();
 		scrollPaneTeacher.setBounds(475, 150, 324, 228);
 		panelAddTeacher.add(scrollPaneTeacher);
-		
-		textFieldErrorMessageTeacher = new JTextField();
-		textFieldErrorMessageTeacher.setBounds(485, 390, 288, 57);
-		panelAddTeacher.add(textFieldErrorMessageTeacher);
-		textFieldErrorMessageTeacher.setColumns(10);
-		
+
 		btnFindTeacher = new JButton("Find");
 		btnFindTeacher.setBounds(593, 74, 117, 29);
 		panelAddTeacher.add(btnFindTeacher);
-		
-		
+
 		teacherTable = new JTable();
 
 		scrollPaneTeacher.setViewportView(teacherTable);
-		
+
 		teacherTableModel = new TeacherTableModel();
-		
+
 		scrollBarTeacher = new JScrollBar();
-		
+
 		scrollPaneTeacher.setRowHeaderView(scrollBarTeacher);
 
 		teacherTable.setModel(teacherTableModel);
 		
-		
-		//Courses
+		textAreaErrorMessageTeacher = new JTextArea();
+		textAreaErrorMessageTeacher.setBackground(SystemColor.control);
+		textAreaErrorMessageTeacher.setEditable(false);
+		textAreaErrorMessageTeacher.setBounds(475, 399, 288, 57);
+		panelAddTeacher.add(textAreaErrorMessageTeacher);
+
+		// Courses
 		tabbedPane.addTab("Courses", null, panelAddCourses, null);
 		panelAddCourses.setLayout(null);
 
@@ -300,16 +281,10 @@ public class View extends JFrame {
 		textFieldAddCredits.setBounds(329, 111, 130, 26);
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
-		
-		textFieldErrorMessageCourses = new JTextField();
-		textFieldErrorMessageCourses.setBounds(154, 444, 523, 26);
-		panelAddCourses.add(textFieldErrorMessageCourses);
-		textFieldErrorMessageCourses.setColumns(10);
 
 		JLabel lblCourseCredits = new JLabel("Credits");
 		lblCourseCredits.setBounds(230, 116, 61, 16);
 		panelAddCourses.add(lblCourseCredits);
-		
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 187, 130, 26);
@@ -331,14 +306,12 @@ public class View extends JFrame {
 		scrollPaneCourse = new JScrollPane();
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
 		panelAddCourses.add(scrollPaneCourse);
-		
-		
+
 		textFieldCycle = new JTextField();
 		textFieldCycle.setBounds(661, 52, 130, 26);
 		panelAddCourses.add(textFieldCycle);
 		textFieldCycle.setColumns(10);
 
-		
 		lblCourseName_1 = new JLabel("Name");
 		lblCourseName_1.setBounds(230, 57, 80, 16);
 		panelAddCourses.add(lblCourseName_1);
@@ -354,37 +327,35 @@ public class View extends JFrame {
 		btnAddCourse = new JButton("Add");
 		btnAddCourse.setBounds(308, 236, 87, 29);
 		panelAddCourses.add(btnAddCourse);
-		
-        courseTable = new JTable();
-		
+
+		courseTable = new JTable();
+
 		JLabel lblNewCycle = new JLabel("Cycle");
 		lblNewCycle.setBounds(575, 57, 61, 16);
 		panelAddCourses.add(lblNewCycle);
-		
-		
+
 		scrollPaneCourse.setViewportView(courseTable);
 
-	    courseTableModel = new CourseTableModel();
-	    
+		courseTableModel = new CourseTableModel();
+
 		courseTable.setModel(courseTableModel);
 
 		scrollBarCourse = new JScrollBar();
-		
+
 		scrollPaneCourse.setRowHeaderView(scrollBarCourse);
 		
-		
+		textAreaErrorMessageCourses = new JTextArea();
+		textAreaErrorMessageCourses.setBackground(SystemColor.control);
+		textAreaErrorMessageCourses.setEditable(false);
+		textAreaErrorMessageCourses.setBounds(152, 468, 523, 45);
+		panelAddCourses.add(textAreaErrorMessageCourses);
 
-		
-
-		
-		
-		//MenuBar
+		// MenuBar
 		menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);
 		departmentMenu = new JMenu("Department");
 		courseMenu = new JMenu("Course");
 		teacherMenu = new JMenu("Teacher");
-		
 
 		// Department menu files
 		menuBar.add(departmentMenu);
@@ -394,7 +365,6 @@ public class View extends JFrame {
 		departmentMenu.add(addDepartmentItem);
 		departmentMenu.add(removeDepartmentItem);
 
-		
 		// Course menu files
 		menuBar.add(courseMenu);
 		getCourseInfoItem = new JMenuItem("Get Course Info");
@@ -403,7 +373,6 @@ public class View extends JFrame {
 		courseMenu.add(getCourseInfoItem);
 		courseMenu.add(editCourseItem);
 
-		
 		// Teacher menu files
 		menuBar.add(teacherMenu);
 		editTeacherItem = new JMenuItem("Edit Teacher Info");
@@ -416,8 +385,8 @@ public class View extends JFrame {
 
 		this.setVisible(true);
 	}
-	
-	//Getters
+
+	// Getters
 
 	public JTable getDepartmentTable() {
 		return departmentTable;
@@ -430,7 +399,6 @@ public class View extends JFrame {
 	public JPanel getContentPane() {
 		return contentPane;
 	}
-
 
 	public JMenu getDepartmentMenu() {
 		return departmentMenu;
@@ -472,10 +440,7 @@ public class View extends JFrame {
 		return displayTeachers;
 	}
 
-
-	
-
-	//ButtonGetters
+	// ButtonGetters
 	public JButton getBtnAddTeacher() {
 		return btnAddTeacher;
 	}
@@ -495,6 +460,7 @@ public class View extends JFrame {
 	public JButton getBtnAddCourse() {
 		return btnAddCourse;
 	}
+
 	public JButton getBtnFindTeacher() {
 		return btnFindTeacher;
 	}
@@ -503,10 +469,7 @@ public class View extends JFrame {
 		return btnRemoveCourse;
 	}
 
-
-
-	
-	//TextFieldGetters
+	// TextFieldGetters
 	public JTextField getTextFieldAddTeacherEmployeeID() {
 		return textFieldAddTeacherEmployeeID;
 	}
@@ -514,6 +477,7 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddTeacherName() {
 		return textFieldAddTeacherName;
 	}
+
 	public JTextField getTextFieldAddDepartmentName() {
 		return textFieldAddDepartmentName;
 	}
@@ -549,6 +513,7 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddTeacherHourlySalary() {
 		return textFieldAddTeacherHourlySalary;
 	}
+
 	public JTextField getTextFieldCycle() {
 		return textFieldCycle;
 	}
@@ -556,24 +521,8 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
 	}
-	
 
-	public JTextField getTextFieldErrorMessageDepartment() {
-		return textFieldErrorMessageDepartment;
-	}
-	public JTextField getTextFieldErrorMessageCourses() {
-		return textFieldErrorMessageCourses;
-	}
-	public JTextField getTextFieldErrorMessageTeacher() {
-		return textFieldErrorMessageTeacher;
-	}
-	
-	
-	
-	//LabelGetters
-	
-
-	
+	// LabelGetters
 
 	public JLabel getLblCourseName() {
 		return lblCourseName_1;
@@ -606,7 +555,6 @@ public class View extends JFrame {
 	public TeacherTableModel getTeacherTableModel() {
 		return teacherTableModel;
 	}
-  
 
 	public CourseTableModel getCourseTableModel() {
 		return courseTableModel;
@@ -622,7 +570,7 @@ public class View extends JFrame {
 
 	public JScrollPane getScrollPaneCourse() {
 		return scrollPaneCourse;
-	
+
 	}
 
 	public JScrollPane getScrollPaneDepartment() {
@@ -637,8 +585,6 @@ public class View extends JFrame {
 		return scrollBarCourse;
 	}
 
-
-	
 	public void setTextFieldAddTeacherEmployeeID(JTextField textFieldAddTeacherEmployeeID) {
 		this.textFieldAddTeacherEmployeeID = textFieldAddTeacherEmployeeID;
 	}
@@ -654,5 +600,16 @@ public class View extends JFrame {
 	public JPanel getPanelAddDepartment() {
 		return panelAddDepartment;
 	}
-}
 
+	public JTextArea getTextAreaErrorMessageDepartment() {
+		return textAreaErrorMessageDepartment;
+	}
+
+	public JTextArea getTextAreaErrorMessageTeacher() {
+		return textAreaErrorMessageTeacher;
+	}
+
+	public JTextArea getTextAreaErrorMessageCourses() {
+		return textAreaErrorMessageCourses;
+	}
+}
