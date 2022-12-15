@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-import assignment4.New.BankAccount;
-import assignment4.New.Person;
-
 
 public class Teacher {
 
