@@ -271,6 +271,12 @@ public class Controller implements ActionListener {
 	}catch (NumberFormatException exception) {
 		view.getTextAreaErrorMessageTeacher().setText("Please only enter numbers");
  }	
+	
+	catch (IndexOutOfBoundsException exception){
+		view.getTextAreaErrorMessageTeacher().setText("Please enter a first and a lastname");
+
+		
+	}
 	}
 	});
 	}
