@@ -77,6 +77,16 @@ public class Course {
 		this.teaches = teaches;
 	}
 
+	public Course findCourse(String courseCode) {
+		Teacher teacher = new Teacher();
+		for (Course course : teacher.getTaught()) {
+			if (course.findCourse(courseCode) != null) {
+				if (course.findCourse(courseCode).getCourseCode().equals(course))
+					return course.findCourse(courseCode);
+			}
+		}
+		return null;
+	}
 //Methods
 
 //public void createCorse(){

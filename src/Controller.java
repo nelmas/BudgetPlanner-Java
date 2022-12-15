@@ -122,16 +122,13 @@ public class Controller implements ActionListener {
 
 							//för att ta bort från arraylist taught (), borde gå att använda find metod
 							
-								String courseName = view.getTextFieldAddCourseName().getText();
 								String courseCode = view.getTextFieldCourseCode().getText();
-								String cycle = view.getTextFieldCycle().getText();
-
-								String strCourseCredit = view.getTextFieldAddCredits().getText();
-
-							int courseCredit = Integer.parseInt(strCourseCredit.trim());
-
-							Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
-							teacher.removeTaught(tmpCourse);
+								
+								Course tmpCourse = course.findCourse(courseCode);
+					
+							
+								teacher.removeTaught(tmpCourse);
+				
 							
 							// för att ta bort ut table
 									view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
