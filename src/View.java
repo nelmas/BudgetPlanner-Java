@@ -29,6 +29,7 @@ public class View extends JFrame {
 	
 	
 	private JList listTeacherTitles;
+	private JList listCoursesCycles;
 	// JPanels
 	private JPanel contentPane;
 	private JPanel panelAddTeacher;
@@ -44,7 +45,6 @@ public class View extends JFrame {
 	private JTextField textFieldCourseCode;
 	private JTextField textFieldAddCourseName;
 	private JTextField textFieldAddTeacherName;
-	private JTextField textFieldAddTeacherTitle;
 	private JTextField textFieldAddTeacherAddress;
 	private JTextField textFieldAddTeacherHourlySalary;
 	// JButtons
@@ -84,13 +84,13 @@ public class View extends JFrame {
 	private JScrollBar scrollBarDepartment;
 
 	private JTable table;
-	private JTextField textFieldCycle;
 	private JComboBox comboBox;
 	private JTextArea textAreaErrorMessageDepartment;
 	private JTextArea textAreaErrorMessageTeacher;
 	private JTextArea textAreaErrorMessageCourses;
 	private JTextField textFieldResponsibleTeacher;
 	private JLabel lblResponsibleTeacher;
+	
 
 	public View() {
 
@@ -220,11 +220,6 @@ public class View extends JFrame {
 		panelAddTeacher.add(textFieldAddTeacherEmployeeID);
 		textFieldAddTeacherEmployeeID.setColumns(10);
 
-		textFieldAddTeacherTitle = new JTextField();
-		textFieldAddTeacherTitle.setBounds(319, 112, 130, 26);
-		panelAddTeacher.add(textFieldAddTeacherTitle);
-		textFieldAddTeacherTitle.setColumns(10);
-
 		textFieldAddTeacherAddress = new JTextField();
 		textFieldAddTeacherAddress.setBounds(319, 229, 130, 26);
 		panelAddTeacher.add(textFieldAddTeacherAddress);
@@ -278,10 +273,14 @@ public class View extends JFrame {
 				return values[index];
 			}
 		});
-		listTeacherTitles.setBounds(329, 150, 134, 67);
+		listTeacherTitles.setBounds(319, 129, 134, 67);
 		panelAddTeacher.add(listTeacherTitles);
 		
+		//visible list for cycles
+
 		
+		
+		//visible list for titles
 		listTeacherTitles.setSelectedIndex(2);
 		panelAddTeacher.add(listTeacherTitles);
 		
@@ -331,11 +330,6 @@ public class View extends JFrame {
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
 		panelAddCourses.add(scrollPaneCourse);
 
-		textFieldCycle = new JTextField();
-		textFieldCycle.setBounds(661, 52, 130, 26);
-		panelAddCourses.add(textFieldCycle);
-		textFieldCycle.setColumns(10);
-
 		lblCourseCode_1 = new JLabel("CourseCode");
 		lblCourseCode_1.setBounds(230, 192, 80, 16);
 		panelAddCourses.add(lblCourseCode_1);
@@ -378,6 +372,27 @@ public class View extends JFrame {
 		lblResponsibleTeacher = new JLabel("Responsible Teacher(EmployeeID)");
 		lblResponsibleTeacher.setBounds(70, 38, 221, 16);
 		panelAddCourses.add(lblResponsibleTeacher);
+		
+
+		listCoursesCycles = new JList(new AbstractListModel() {
+			String[] values = new String[] {"o First Cycle", "o Second Cycle", "o Third Cycle"};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		listCoursesCycles.setSelectedIndex(3);
+		panelAddCourses.add(listCoursesCycles);
+		
+		
+		contentPane.show();
+		listCoursesCycles.setBounds(659, 38, 141, 51);
+		panelAddCourses.add(listCoursesCycles);
+		
+		
+		
 
 		// MenuBar
 		menuBar = new JMenuBar();
@@ -531,9 +546,7 @@ public class View extends JFrame {
 		this.textFieldAddCourseName = textFieldAddCourseName;
 	}
 
-	public JTextField getTextFieldAddTeacherTitle() {
-		return textFieldAddTeacherTitle;
-	}
+
 
 	public JTextField getTextFieldAddTeacherAddress() {
 		return textFieldAddTeacherAddress;
@@ -542,10 +555,7 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddTeacherHourlySalary() {
 		return textFieldAddTeacherHourlySalary;
 	}
-
-	public JTextField getTextFieldCycle() {
-		return textFieldCycle;
-	}
+	
 
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
@@ -650,6 +660,11 @@ public class View extends JFrame {
 	public JList getListTeacherTitles() {
 		return listTeacherTitles;
 	}
+
+	public JList getListCoursesCycles() {
+		return listCoursesCycles;
+	}
+
 
 	
 
