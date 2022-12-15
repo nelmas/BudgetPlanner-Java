@@ -225,6 +225,11 @@ public class Controller implements ActionListener {
 	
 	view.getBtnAddTeacher().addActionListener(new ActionListener() {	
 	public void actionPerformed(ActionEvent e) {
+	
+		
+	try{
+		
+		
 		String teacherName = view.getTextFieldAddTeacherName().getText();
 		
 		String[] names = teacherName.split(" ");
@@ -247,7 +252,7 @@ public class Controller implements ActionListener {
 	    String teacherId = firstLetters + String.format("%05d", number) + lastLetters; 
 	    
 	   		
-	 view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
+	    view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
 	    
 		
 		String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
@@ -255,13 +260,17 @@ public class Controller implements ActionListener {
 		String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
 		
 		int teacherSalary = Integer.parseInt(strTeacherSalary);
-	
-		
+		if (teacherSalary < 0) {
+		view.getTextFieldErrorMessageTeacher().setText("Hourly salary can't have a negative value");
+	} else {
 		
 		Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress, teacherSalary);
 		view.getTeacherTableModel().addTeacher(tmpTeacher); 
+	}
 	    
-
+	}catch (NumberFormatException exception) {
+		view.getTextFieldErrorMessageTeacher().setText("Please only enter numbers");
+ }	
 	}
 	});
 	}
