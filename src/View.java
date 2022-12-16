@@ -1,12 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.*;
+
 
 public class View extends JFrame {
 
@@ -98,8 +94,8 @@ public class View extends JFrame {
 		setTitle("Contoso University");
 		setBackground(SystemColor.control);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 863, 681);
-
+		setBounds(100, 100, 942, 806);
+		
 		contentPane = new JPanel();
 
 		contentPane.setBackground(SystemColor.control);
@@ -175,8 +171,14 @@ public class View extends JFrame {
 		textAreaErrorMessageDepartment = new JTextArea();
 		textAreaErrorMessageDepartment.setBackground(SystemColor.control);
 		textAreaErrorMessageDepartment.setEditable(false);
-		textAreaErrorMessageDepartment.setBounds(415, 321, 326, 64);
+		textAreaErrorMessageDepartment.setBounds(415, 321, 326, 51);
 		panelAddDepartment.add(textAreaErrorMessageDepartment);
+		
+		JLabel lblNewLabel_1 = new JLabel();
+		ImageIcon img = new ImageIcon(this.getClass().getResource("/cantoso.png"));
+		lblNewLabel_1.setIcon(img);
+		lblNewLabel_1.setBounds(10, 288, 359, 281);
+		panelAddDepartment.add(lblNewLabel_1);
 
 		scrollBarDepartment = new JScrollBar();
 
@@ -390,6 +392,7 @@ public class View extends JFrame {
 		contentPane.show();
 		listCoursesCycles.setBounds(659, 38, 141, 51);
 		panelAddCourses.add(listCoursesCycles);
+		
 		
 		
 		
@@ -664,9 +667,4 @@ public class View extends JFrame {
 	public JList getListCoursesCycles() {
 		return listCoursesCycles;
 	}
-
-
-	
-
-	
 }

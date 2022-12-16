@@ -30,13 +30,12 @@ public class Controller implements ActionListener {
 		declareListeners();
 
 	}
-	
-	//AddCourse
+
+	// AddCourse
 	private void declareListeners() {
 		view.getBtnAddCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-	
 
 					String courseName = view.getTextFieldAddCourseName().getText();
 					String courseCode = view.getTextFieldCourseCode().getText();
@@ -44,97 +43,22 @@ public class Controller implements ActionListener {
 
 					String strCourseCredit = view.getTextFieldAddCredits().getText();
 
-				int courseCredit = Integer.parseInt(strCourseCredit.trim());
+					int courseCredit = Integer.parseInt(strCourseCredit.trim());
 
-				Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
+					Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
 
-				if (courseCredit < 0) {
-					view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
+					if (courseCredit < 0) {
+						view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
 					} else {
-				
-				view.getCourseTableModel().addCourse(tmpCourse);
-				teacher.addTaught(tmpCourse);
-				}
-			} catch (NumberFormatException e3) {
-				view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
+
+						view.getCourseTableModel().addCourse(tmpCourse);
+						teacher.addTaught(tmpCourse);
+					}
+				} catch (NumberFormatException e3) {
+					view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
 				}
 			}
 		});
-		
-		
-
-
-				view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-				
-					public void valueChanged(ListSelectionEvent event) {
-						//för att den inte ska printa allt två gånger 
-		
-						if(!event.getValueIsAdjusting()) {
-							
-							
-							
-							view.getTextFieldAddCourseName().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
-							view.getTextFieldCourseCode().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
-							view.getTextFieldAddCredits().setText(view.getCourseTableModel().getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
-						
-	
-					
-							
-							
-							view.getBtnRemoveCourse().addActionListener(new ActionListener() {
-								public void actionPerformed(ActionEvent e) {
-							try {
-								
-
-							//för att ta bort från arraylist taught (), borde gå att använda find metod
-							
-								String courseCode = view.getTextFieldCourseCode().getText();
-								
-								Course tmpCourse = course.findCourse(courseCode);
-					
-							
-								teacher.removeTaught(tmpCourse);
-				
-							
-							// för att ta bort ut table
-									view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
-									
-							} catch (IndexOutOfBoundsException exeption) {
-								//för att buggen inte ska vara så extrem
-								
-//								System.out.println(" ");
-								
-								
-							}
-						
-								}
-
-							});
-							
-							
-							
-							
-							
-						}
-;					}
-				
-				}
-		);
-		
-				view.getTeacherTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-					
-					public void valueChanged(ListSelectionEvent event) {
-						//för att den inte ska printa allt två gånger 
-		
-						if(!event.getValueIsAdjusting()) {
-							
-							
-						view.getTextFieldAddTeacherName().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
-						view.getTextFieldAddTeacherEmployeeID().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 1).toString());
-						
-						view.getTextFieldAddTeacherAddress().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 3).toString());
-						view.getTextFieldAddTeacherHourlySalary().setText(view.getTeacherTableModel().getValueAt(view.getTeacherTable().getSelectedRow(), 4).toString());
-		//ChangeCourseTable
 
 		view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
@@ -149,24 +73,82 @@ public class Controller implements ActionListener {
 							.getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
 					view.getTextFieldAddCredits().setText(view.getCourseTableModel()
 							.getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
-				
+
+					view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							try {
+
+								// för att ta bort från arraylist taught (), borde gå att använda find metod
+
+								String courseCode = view.getTextFieldCourseCode().getText();
+
+								Course tmpCourse = course.findCourse(courseCode);
+
+								teacher.removeTaught(tmpCourse);
+
+								// för att ta bort ut table
+								view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+
+							} catch (IndexOutOfBoundsException exeption) {
+								// för att buggen inte ska vara så extrem
+
+//								System.out.println(" ");
+
+							}
+
+						}
+
+					});
 
 				}
+				;
 			}
 
 		});
 
-						
-						}
-;					}
-				
-				}
-		);
-		 
-	
+		view.getTeacherTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
-				
-	
+			public void valueChanged(ListSelectionEvent event) {
+				// för att den inte ska printa allt två gånger
+
+				if (!event.getValueIsAdjusting()) {
+
+					view.getTextFieldAddTeacherName().setText(view.getTeacherTableModel()
+							.getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
+					view.getTextFieldAddTeacherEmployeeID().setText(view.getTeacherTableModel()
+							.getValueAt(view.getTeacherTable().getSelectedRow(), 1).toString());
+
+					view.getTextFieldAddTeacherAddress().setText(view.getTeacherTableModel()
+							.getValueAt(view.getTeacherTable().getSelectedRow(), 3).toString());
+					view.getTextFieldAddTeacherHourlySalary().setText(view.getTeacherTableModel()
+							.getValueAt(view.getTeacherTable().getSelectedRow(), 4).toString());
+					// ChangeCourseTable
+
+					view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+						public void valueChanged(ListSelectionEvent event) {
+							// för att den inte ska printa allt två gånger
+
+							if (!event.getValueIsAdjusting()) {
+
+								view.getTextFieldAddCourseName().setText(view.getCourseTableModel()
+										.getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
+								view.getTextFieldCourseCode().setText(view.getCourseTableModel()
+										.getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
+								view.getTextFieldAddCredits().setText(view.getCourseTableModel()
+										.getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
+
+							}
+						}
+
+					});
+
+				}
+				;
+			}
+
+		});
+
 		view.getAddDepartmentItem().addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -175,7 +157,7 @@ public class Controller implements ActionListener {
 
 		});
 
-		//AddDepartment
+		// AddDepartment
 		view.getBtnAddDepartment().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -200,7 +182,7 @@ public class Controller implements ActionListener {
 			}
 		});
 
-		//FindTeacher
+		// FindTeacher
 		view.getBtnFindTeacher().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -217,78 +199,58 @@ public class Controller implements ActionListener {
 				}
 			}
 		});
-	
-	
-        // AddTeacher
-	
-	
-	view.getBtnAddTeacher().addActionListener(new ActionListener() {	
-	public void actionPerformed(ActionEvent e) {
-	
-		
-	try{
-		
-		
-		String teacherName = view.getTextFieldAddTeacherName().getText();
-		
-		String[] names = teacherName.split(" ");
-		String firstName = names[0];
-		String lastName = names[1];
-		
-		
-	
-		String firstLetters = firstName.substring(0, 2);
-		String lastLetters = lastName.substring(0, 2);
-	
 
-	
-		Random rnd = new Random();
-	    int number = rnd.nextInt(99999);
-	    
+		// AddTeacher
+
+		view.getBtnAddTeacher().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+
+					String teacherName = view.getTextFieldAddTeacherName().getText();
+
+					String[] names = teacherName.split(" ");
+					String firstName = names[0];
+					String lastName = names[1];
+
+					String firstLetters = firstName.substring(0, 2);
+					String lastLetters = lastName.substring(0, 2);
+
+					Random rnd = new Random();
+					int number = rnd.nextInt(99999);
+
 //     String.format("%05d", number) innebär att den ändrar formateringen så att den alltid visar fem siffror, kan börja på nolla
-	    
-	   
-	  
-	    String teacherId = firstLetters + String.format("%05d", number) + lastLetters; 
-	    
-	   		
-	    view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
-	    
-		
-		
-		String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
-		String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-		String teacherTitle = view.getListTeacherTitles().getSelectedValue().toString();
-		
-		int teacherSalary = Integer.parseInt(strTeacherSalary);
-		if (teacherSalary < 0) {
-		view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
-	} else {
-		
-		Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress, teacherSalary);
-		view.getTeacherTableModel().addTeacher(tmpTeacher); 
-	}
-	    
-	}catch (NumberFormatException exception) {
-		view.getTextAreaErrorMessageTeacher().setText("Please only enter numbers");
- }	
-	
-	catch (IndexOutOfBoundsException exception){
-		view.getTextAreaErrorMessageTeacher().setText("Please enter a first and a lastname");
 
-		
-	}
-	}
-	});
+					String teacherId = firstLetters + String.format("%05d", number) + lastLetters;
+
+					view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
+
+					String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
+					String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+					String teacherTitle = view.getListTeacherTitles().getSelectedValue().toString();
+
+					int teacherSalary = Integer.parseInt(strTeacherSalary);
+					if (teacherSalary < 0) {
+						view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
+					} else {
+
+						Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
+								teacherSalary);
+						view.getTeacherTableModel().addTeacher(tmpTeacher);
+					}
+
+				} catch (NumberFormatException exception) {
+					view.getTextAreaErrorMessageTeacher().setText("Please only enter numbers");
+				}
+
+				catch (IndexOutOfBoundsException exception) {
+					view.getTextAreaErrorMessageTeacher().setText("Please enter a first and a lastname");
+
+				}
+			}
+		});
 	}
 
-	
-	
-	
-	
-	
-	
-	
 //		view.getBtnAddTeacher().addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				try {
@@ -349,7 +311,6 @@ public class Controller implements ActionListener {
 //		});
 //
 //}
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
