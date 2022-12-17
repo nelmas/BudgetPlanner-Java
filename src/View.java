@@ -44,9 +44,7 @@ public class View extends JFrame {
 	private JTextField textFieldAddTeacherAddress;
 	private JTextField textFieldAddTeacherHourlySalary;
 	private JTextField textFieldErrorMessageDepartment;
-	private JTextField textFieldErrorMessageCourses;
 	private JTextField textFieldResponsibleTeacher1;
-	private JTextField textFieldCycle;
 	// JButtons
 	private JButton btnAddTeacher;
 	private JButton btnRemoveTeacher;
@@ -177,7 +175,7 @@ public class View extends JFrame {
 		scrollPaneDepartment.setRowHeaderView(scrollBarDepartment);
 		
 		textAreaErrorMessageDepartment = new JTextArea();
-		textAreaErrorMessageDepartment.setBackground(SystemColor.control);
+		textAreaErrorMessageDepartment.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageDepartment.setEditable(false);
 		textAreaErrorMessageDepartment.setBounds(415, 321, 326, 51);
 		panelAddDepartment.add(textAreaErrorMessageDepartment);
@@ -269,9 +267,9 @@ public class View extends JFrame {
 		teacherTable.setModel(teacherTableModel);
 		
 		textAreaErrorMessageTeacher = new JTextArea();
-		textAreaErrorMessageTeacher.setBackground(SystemColor.control);
+		textAreaErrorMessageTeacher.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageTeacher.setEditable(false);
-		textAreaErrorMessageTeacher.setBounds(475, 399, 288, 57);
+		textAreaErrorMessageTeacher.setBounds(499, 390, 288, 57);
 		panelAddTeacher.add(textAreaErrorMessageTeacher);
 		
 		listTeacherTitles = new JList(new AbstractListModel() {
@@ -322,16 +320,6 @@ public class View extends JFrame {
 		textFieldAddCredits.setBounds(329, 121, 130, 26);
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
-		
-		textFieldErrorMessageCourses = new JTextField();
-		textFieldErrorMessageCourses.setBounds(154, 444, 523, 26);
-		panelAddCourses.add(textFieldErrorMessageCourses);
-		textFieldErrorMessageCourses.setColumns(10);
-		
-		textFieldResponsibleTeacher1 = new JTextField();
-		textFieldResponsibleTeacher1.setBounds(329, 38, 130, 26);
-		panelAddCourses.add(textFieldResponsibleTeacher1);
-		textFieldResponsibleTeacher1.setColumns(10);
 
 
 		JLabel lblCourseCredits = new JLabel("Credits");
@@ -370,20 +358,10 @@ public class View extends JFrame {
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
 		panelAddCourses.add(scrollPaneCourse);
 
-		
-		
-		textFieldCycle = new JTextField();
-		textFieldCycle.setBounds(661, 52, 130, 26);
-		panelAddCourses.add(textFieldCycle);
-		textFieldCycle.setColumns(10);
-
 		lblCourseCode_1 = new JLabel("CourseCode");
 		lblCourseCode_1.setBounds(230, 192, 80, 16);
 		panelAddCourses.add(lblCourseCode_1);
 
-		lblNewLabel_3_1 = new JLabel("If you wish to remove a Course, only enter the CourseCode and press remove");
-		lblNewLabel_3_1.setBounds(140, 159, 485, 16);
-		panelAddCourses.add(lblNewLabel_3_1);
 
 		btnAddCourse = new JButton("Add");
 		btnAddCourse.setBounds(308, 236, 87, 29);
@@ -404,7 +382,7 @@ public class View extends JFrame {
 		scrollPaneCourse.setRowHeaderView(scrollBarCourse);
 		
 		textAreaErrorMessageCourses = new JTextArea();
-		textAreaErrorMessageCourses.setBackground(SystemColor.control);
+		textAreaErrorMessageCourses.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageCourses.setEditable(false);
 		textAreaErrorMessageCourses.setBounds(152, 468, 523, 45);
 		panelAddCourses.add(textAreaErrorMessageCourses);
@@ -413,10 +391,6 @@ public class View extends JFrame {
 		textFieldResponsibleTeacher1.setBounds(329, 33, 130, 26);
 		panelAddCourses.add(textFieldResponsibleTeacher1);
 		textFieldResponsibleTeacher1.setColumns(10);
-		
-		lblResponsibleTeacher1 = new JLabel("Responsible Teacher(EmployeeID)");
-		lblResponsibleTeacher1.setBounds(70, 38, 221, 16);
-		panelAddCourses.add(lblResponsibleTeacher1);
 		
 		
 		

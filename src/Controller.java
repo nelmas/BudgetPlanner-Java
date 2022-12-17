@@ -56,8 +56,10 @@ public class Controller implements ActionListener {
 					}
 				} catch (NumberFormatException e3) {
 					view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
+				} catch (NullPointerException n)  {
+					view.getTextAreaErrorMessageCourses().setText("Please enter cycle to continue");
 				}
-			}
+ 			}
 		});
 
 		view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
