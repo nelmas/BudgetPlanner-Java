@@ -14,12 +14,12 @@ public class Course {
 
 	}
 
-	public Course(String name, String courseCode, int credits, String cycle ){
+	public Course(String name, String courseCode, int credits, String cycle){
 		this.name = name;
 		this.courseCode = courseCode;
 		this.credits = credits;
 		this.cycle = cycle;
-		this.responsible = responsible;
+		
 		this.teaches = new ArrayList<Teacher>();
 
 	}
