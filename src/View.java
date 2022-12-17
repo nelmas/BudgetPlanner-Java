@@ -115,7 +115,7 @@ public class View extends JFrame {
 		contentPane.add(tabbedPane);
 
 		panelAddDepartment = new JPanel();
-		tabbedPane.addTab("Deparment", null, panelAddDepartment, null);
+		tabbedPane.addTab("Department", null, panelAddDepartment, null);
 		panelAddDepartment.setLayout(null);
 
 		textFieldAddDepartmentName = new JTextField();
@@ -422,7 +422,6 @@ public class View extends JFrame {
 		this.setJMenuBar(menuBar);
 		departmentMenu = new JMenu("Department");
 		courseMenu = new JMenu("Course");
-		teacherMenu = new JMenu("Teacher");
 
 		// Department menu files
 		menuBar.add(departmentMenu);
@@ -431,6 +430,17 @@ public class View extends JFrame {
 
 		departmentMenu.add(addDepartmentItem);
 		departmentMenu.add(removeDepartmentItem);
+		teacherMenu = new JMenu("Teacher");
+		
+				// Teacher menu files
+				menuBar.add(teacherMenu);
+				editTeacherItem = new JMenuItem("Edit Teacher Info");
+				setHoursItem = new JMenuItem("Set Hours for Teacher");
+				displayTeachers = new JMenuItem("Display Teachers");
+				
+						teacherMenu.add(editTeacherItem);
+						teacherMenu.add(setHoursItem);
+						teacherMenu.add(displayTeachers);
 
 		// Course menu files
 		menuBar.add(courseMenu);
@@ -439,16 +449,6 @@ public class View extends JFrame {
 
 		courseMenu.add(getCourseInfoItem);
 		courseMenu.add(editCourseItem);
-
-		// Teacher menu files
-		menuBar.add(teacherMenu);
-		editTeacherItem = new JMenuItem("Edit Teacher Info");
-		setHoursItem = new JMenuItem("Set Hours for Teacher");
-		displayTeachers = new JMenuItem("Display Teachers");
-
-		teacherMenu.add(editTeacherItem);
-		teacherMenu.add(setHoursItem);
-		teacherMenu.add(displayTeachers);
 
 		this.setVisible(true);
 	}
