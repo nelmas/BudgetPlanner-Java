@@ -42,7 +42,10 @@ public class DepartmentTableModel extends AbstractTableModel {
 
 		return null;
 	}
-	
+	public void removeRow(int rowIndex) {
+		departmentRegister.remove(rowIndex);
+		fireTableRowsDeleted(rowIndex, rowIndex);
+	}
 	
 
 }

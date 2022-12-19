@@ -24,10 +24,6 @@ public class Course {
 
 	}
 
-//instansiera andra klasser
-	Teacher teacher = new Teacher();
-	Department department = new Department();
-
 //Getters & Setters
 	public String getName() {
 		return name;
@@ -114,11 +110,12 @@ public class Course {
 //	responsible.getEmployeeId();
 //	responsible.getTitle();
 //	
-//}
+//
 
-	//public void addCourseTeacher(Teacher teacher) {
-		//this.teaches.add(teacher);
-	//}
+	public void addCourseTeacher(Teacher teacher) {
+		this.teaches.add(teacher);
+	}
+
 
 	public void removeCourseTeacher(Teacher teacher) {
 		this.teaches.remove(teacher);
