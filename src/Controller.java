@@ -14,9 +14,8 @@ public class Controller implements ActionListener {
 	private Department department;
 	private Course course;
 	private TeacherTableModel teacherTableModel;
-	// private CourseTableModel courseTableModel = new CourseTableModel();
-
 	private CourseTableModel courseTableModel = new CourseTableModel();
+
 
 	Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister,
 			TeacherTableModel teacherTableModel) {
@@ -84,9 +83,9 @@ public class Controller implements ActionListener {
 
 								String courseCode = view.getTextFieldCourseCode().getText();
 
-								Course tmpCourse = course.findCourse(courseCode);
+								/*Course tmpCourse = course.findCourse(courseCode);
 
-								teacher.removeTaught(tmpCourse);
+								teacher.removeTaught(tmpCourse);*/
 
 								// för att ta bort ut table
 								view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
@@ -179,6 +178,15 @@ public class Controller implements ActionListener {
 				} catch (NumberFormatException e2) {
 					view.getTextAreaErrorMessageDepartment().setText("Budget must be entered in numbers");
 
+				}
+
+			}
+		});
+		// Remove Department
+		view.getBtnRemoveDepartment().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (view.getDepartmentTable().getSelectedRow() != -1) {
+					view.getDepartmentTableModel().removeRow(view.getDepartmentTable().getSelectedRow());
 				}
 
 			}
