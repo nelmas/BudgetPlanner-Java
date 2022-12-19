@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 public class TeacherTableModel extends AbstractTableModel {
-	private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+	private ArrayList<Teacher> teachers = new ArrayList<>();
 
 
 	
