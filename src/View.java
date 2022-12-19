@@ -23,10 +23,6 @@ public class View extends JFrame {
 
 	
 	private JTabbedPane tabbedPane;
-
-	
-	
-	private JList listTeacherTitles;
 	private JList listCoursesCycles;
 	// JPanels
 	private JPanel contentPane;
@@ -38,7 +34,6 @@ public class View extends JFrame {
 	private JTextField textFieldAddDepartmentName;
 	private JTextField textFieldAddDepartmentBudget;
 	private JTextField textFieldAddDepartmentAddress;
-	private JTextField textFieldAddTeacherEmployeeID;
 	private JTextField textFieldAddCredits;
 	private JTextField textFieldCourseCode;
 	private JTextField textFieldAddCourseName;
@@ -54,7 +49,6 @@ public class View extends JFrame {
 	private JButton btnRemoveDepartment;
 	private JButton btnAddCourse;
 	private JButton btnRemoveCourse;
-	private JButton btnFindTeacher;
 
 	// JLabels
 	private JLabel lblCourseName;
@@ -94,7 +88,7 @@ public class View extends JFrame {
 	private JTextField textFieldResponsibleTeacher;
 	private JLabel lblResponsibleTeacher;
 	
-	private JComboBox comboBox_1;
+	private JComboBox comboBoxTeacherTitle;
 	private JTextArea textAreaErrorMessageDepartment;
 
 	public View() {
@@ -217,19 +211,15 @@ public class View extends JFrame {
 		panelAddTeacher.add(lblFullName);
 
 		JLabel lblTitle = new JLabel("Title");
-		lblTitle.setBounds(20, 156, 80, 16);
+		lblTitle.setBounds(20, 60, 80, 16);
 		panelAddTeacher.add(lblTitle);
 
-		JLabel lblEmployeeID = new JLabel("EmployeeID");
-		lblEmployeeID.setBounds(20, 79, 80, 16);
-		panelAddTeacher.add(lblEmployeeID);
-
 		JLabel lblAddress = new JLabel("Address");
-		lblAddress.setBounds(20, 234, 80, 16);
+		lblAddress.setBounds(20, 111, 80, 16);
 		panelAddTeacher.add(lblAddress);
 
 		JLabel lblNewLabel = new JLabel("Hourly Salary");
-		lblNewLabel.setBounds(20, 310, 80, 16);
+		lblNewLabel.setBounds(20, 161, 80, 16);
 		panelAddTeacher.add(lblNewLabel);
 
 		textFieldAddTeacherName = new JTextField();
@@ -237,40 +227,27 @@ public class View extends JFrame {
 		textFieldAddTeacherName.setColumns(10);
 		panelAddTeacher.add(textFieldAddTeacherName);
 
-		textFieldAddTeacherEmployeeID = new JTextField();
-		textFieldAddTeacherEmployeeID.setBounds(100, 74, 130, 26);
-		panelAddTeacher.add(textFieldAddTeacherEmployeeID);
-		textFieldAddTeacherEmployeeID.setColumns(10);
-
 		textFieldAddTeacherAddress = new JTextField();
-		textFieldAddTeacherAddress.setBounds(100, 229, 130, 26);
+		textFieldAddTeacherAddress.setBounds(100, 106, 130, 26);
 		panelAddTeacher.add(textFieldAddTeacherAddress);
 		textFieldAddTeacherAddress.setColumns(10);
 
 		textFieldAddTeacherHourlySalary = new JTextField();
-		textFieldAddTeacherHourlySalary.setBounds(100, 305, 130, 26);
+		textFieldAddTeacherHourlySalary.setBounds(100, 156, 130, 26);
 		panelAddTeacher.add(textFieldAddTeacherHourlySalary);
 		textFieldAddTeacherHourlySalary.setColumns(10);
 
 		btnAddTeacher = new JButton("Add");
-		btnAddTeacher.setBounds(20, 365, 100, 30);
+		btnAddTeacher.setBounds(20, 211, 100, 30);
 		panelAddTeacher.add(btnAddTeacher);
 
 		btnRemoveTeacher = new JButton("Remove");
-		btnRemoveTeacher.setBounds(147, 365, 100, 30);
+		btnRemoveTeacher.setBounds(140, 211, 100, 30);
 		panelAddTeacher.add(btnRemoveTeacher);
 
 		scrollPaneTeacher = new JScrollPane();
 		scrollPaneTeacher.setBounds(274, 11, 550, 530);
 		panelAddTeacher.add(scrollPaneTeacher);
-
-		btnFindTeacher = new JButton("Find");
-		btnFindTeacher.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnFindTeacher.setBounds(20, 420, 100, 30);
-		panelAddTeacher.add(btnFindTeacher);
 
 		teacherTable = new JTable();
 
@@ -290,33 +267,13 @@ public class View extends JFrame {
 		textAreaErrorMessageTeacher.setBounds(499, 390, 288, 57);
 		panelAddTeacher.add(textAreaErrorMessageTeacher);
 		
-		listTeacherTitles = new JList(new AbstractListModel() {
-			String[] values = new String[] {"o Lecturer", "o Assistant Professor ", "o Associate Professor ", "o Professor"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		listTeacherTitles.setBounds(100, 130, 134, 72);
-		panelAddTeacher.add(listTeacherTitles);
-		
-		//visible list for cycles
-
-		
-		
-		//visible list for titles
-		listTeacherTitles.setSelectedIndex(2);
-		panelAddTeacher.add(listTeacherTitles);
-		
 
 		
 		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor ",
 				"Professor"};
-		comboBox_1 = new JComboBox(teachers);
-		comboBox_1.setBounds(20, 480, 140, 30);
-		panelAddTeacher.add(comboBox_1);
+		comboBoxTeacherTitle = new JComboBox(teachers);
+		comboBoxTeacherTitle.setBounds(100, 53, 140, 30);
+		panelAddTeacher.add(comboBoxTeacherTitle);
 
 		contentPane.show();
 		
@@ -554,18 +511,10 @@ public class View extends JFrame {
 		return btnAddCourse;
 	}
 
-	public JButton getBtnFindTeacher() {
-		return btnFindTeacher;
-	}
-
 	public JButton getBtnRemoveCourse() {
 		return btnRemoveCourse;
 	}
 
-	// TextFieldGetters
-	public JTextField getTextFieldAddTeacherEmployeeID() {
-		return textFieldAddTeacherEmployeeID;
-	}
 
 	public JTextField getTextFieldAddTeacherName() {
 		return textFieldAddTeacherName;
@@ -689,10 +638,6 @@ public class View extends JFrame {
 		return scrollBarCourse;
 	}
 
-	public void setTextFieldAddTeacherEmployeeID(JTextField textFieldAddTeacherEmployeeID) {
-		this.textFieldAddTeacherEmployeeID = textFieldAddTeacherEmployeeID;
-	}
-
 	public JTabbedPane getTabbedPane() {
 		return tabbedPane;
 	}
@@ -717,11 +662,11 @@ public class View extends JFrame {
 		return textAreaErrorMessageCourses;
 	}
 
-	public JList getListTeacherTitles() {
-		return listTeacherTitles;
-	}
-
 	public JList getListCoursesCycles() {
 		return listCoursesCycles;
+	}
+
+	public JComboBox getComboBoxTeacherTitle() {
+		return comboBoxTeacherTitle;
 	}
 }

@@ -29,8 +29,8 @@ public class Controller implements ActionListener {
 
     }
 
-    // AddCourse
-    private void declareListeners() {
+        // AddCourse
+        private void declareListeners() {
         view.getBtnAddCourse().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -60,6 +60,7 @@ public class Controller implements ActionListener {
             }
         });
 
+        //Remove course
         view.getBtnRemoveCourse().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -150,12 +151,9 @@ public class Controller implements ActionListener {
 //     String.format("%05d", number) innebär att den ändrar formateringen så att den alltid visar fem siffror, kan börja på nolla
 
                     String teacherId = firstLetters + String.format("%05d", number) + lastLetters;
-
-                    view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
-
                     String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
                     String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-                    String teacherTitle = view.getListTeacherTitles().getSelectedValue().toString();
+                    String teacherTitle = view.getComboBoxTeacherTitle().getSelectedItem().toString();
 
                     int teacherSalary = Integer.parseInt(strTeacherSalary);
                     if (teacherSalary < 0) {
@@ -183,24 +181,6 @@ public class Controller implements ActionListener {
                     view.getTeacherTableModel().removeRow(view.getTeacherTable().getSelectedRow());
                 }
 
-            }
-        });
-
-        // Find Teacher
-        view.getBtnFindTeacher().addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-                try {
-
-                    String EmployeeID = view.getTextFieldAddTeacherEmployeeID().getText();
-                    Teacher tmpTeacher = department.findTeacher(EmployeeID);
-
-                    view.getTextFieldAddTeacherName().setText(tmpTeacher.getName());
-
-                    System.out.println(tmpTeacher.getName());
-                } catch (NumberFormatException e1) {
-                    view.getTextAreaErrorMessageTeacher().setText("Person does not exist");
-                }
             }
         });
     }
