@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class View extends JFrame {
@@ -87,13 +89,13 @@ public class View extends JFrame {
 
 	private JTable table;
 	private JComboBox comboBox;
-	private JTextArea textAreaErrorMessageDepartment;
 	private JTextArea textAreaErrorMessageTeacher;
 	private JTextArea textAreaErrorMessageCourses;
 	private JTextField textFieldResponsibleTeacher;
 	private JLabel lblResponsibleTeacher;
 	
 	private JComboBox comboBox_1;
+	private JTextArea textAreaErrorMessageDepartment;
 
 	public View() {
 
@@ -120,46 +122,50 @@ public class View extends JFrame {
 		panelAddDepartment.setLayout(null);
 
 		textFieldAddDepartmentName = new JTextField();
-		textFieldAddDepartmentName.setBounds(218, 73, 130, 26);
+		textFieldAddDepartmentName.setBounds(91, 25, 130, 26);
 		panelAddDepartment.add(textFieldAddDepartmentName);
 		textFieldAddDepartmentName.setColumns(10);
 
 		textFieldAddDepartmentBudget = new JTextField();
 		textFieldAddDepartmentBudget.setColumns(10);
-		textFieldAddDepartmentBudget.setBounds(218, 137, 130, 26);
+		textFieldAddDepartmentBudget.setBounds(91, 73, 130, 26);
 		panelAddDepartment.add(textFieldAddDepartmentBudget);
 
 		textFieldAddDepartmentAddress = new JTextField();
 		textFieldAddDepartmentAddress.setColumns(10);
-		textFieldAddDepartmentAddress.setBounds(218, 196, 130, 26);
+		textFieldAddDepartmentAddress.setBounds(91, 121, 130, 26);
 		panelAddDepartment.add(textFieldAddDepartmentAddress);
 
 		JLabel lbldepartmentName = new JLabel("Name");
-		lbldepartmentName.setBounds(111, 78, 61, 16);
+		lbldepartmentName.setBounds(20, 30, 61, 16);
 		panelAddDepartment.add(lbldepartmentName);
 
 		JLabel lblDepartmentBudget = new JLabel("Budget");
-		lblDepartmentBudget.setBounds(111, 142, 61, 16);
+		lblDepartmentBudget.setBounds(20, 78, 61, 16);
 		panelAddDepartment.add(lblDepartmentBudget);
 
 		JLabel lblDepartmentAddress = new JLabel("Address");
-		lblDepartmentAddress.setBounds(111, 201, 61, 16);
+		lblDepartmentAddress.setBounds(20, 126, 50, 16);
 		panelAddDepartment.add(lblDepartmentAddress);
 
-		JLabel lblNewLabel_2 = new JLabel("If you wish to remove a department, enter name and press remove");
-		lblNewLabel_2.setBounds(111, 48, 428, 16);
-		panelAddDepartment.add(lblNewLabel_2);
+		JLabel lblRemoveDepartment = new JLabel("If you wish to remove a department -");
+		lblRemoveDepartment.setBounds(10, 240, 211, 16);
+		panelAddDepartment.add(lblRemoveDepartment);
 
 		btnAddDepartment = new JButton("Add");
-		btnAddDepartment.setBounds(188, 251, 81, 27);
+		btnAddDepartment.setBounds(20, 180, 93, 27);
 		panelAddDepartment.add(btnAddDepartment);
 
 		btnRemoveDepartment = new JButton("Remove");
-		btnRemoveDepartment.setBounds(276, 251, 93, 27);
+		btnRemoveDepartment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRemoveDepartment.setBounds(128, 180, 93, 27);
 		panelAddDepartment.add(btnRemoveDepartment);
 
 		scrollPaneDepartment = new JScrollPane();
-		scrollPaneDepartment.setBounds(415, 78, 326, 218);
+		scrollPaneDepartment.setBounds(280, 30, 520, 480);
 		panelAddDepartment.add(scrollPaneDepartment);
 
 		scrollBarDepartment = new JScrollBar();
@@ -175,10 +181,14 @@ public class View extends JFrame {
 
 		scrollPaneDepartment.setRowHeaderView(scrollBarDepartment);
 		
+		JLabel lblRemoveDepartment2 = new JLabel("Select it and press remove");
+		lblRemoveDepartment2.setBounds(10, 267, 211, 16);
+		panelAddDepartment.add(lblRemoveDepartment2);
+		
 		textAreaErrorMessageDepartment = new JTextArea();
-		textAreaErrorMessageDepartment.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageDepartment.setEditable(false);
-		textAreaErrorMessageDepartment.setBounds(415, 321, 326, 51);
+		textAreaErrorMessageDepartment.setBackground(SystemColor.menu);
+		textAreaErrorMessageDepartment.setBounds(10, 322, 260, 80);
 		panelAddDepartment.add(textAreaErrorMessageDepartment);
 		
 		//JLabel lblNewLabel_1 = new JLabel();
@@ -203,64 +213,63 @@ public class View extends JFrame {
 		panelAddTeacher.setLayout(null);
 
 		JLabel lblFullName = new JLabel("Full Name");
-		lblFullName.setBounds(232, 11, 63, 16);
+		lblFullName.setBounds(20, 11, 80, 16);
 		panelAddTeacher.add(lblFullName);
 
 		JLabel lblTitle = new JLabel("Title");
-		lblTitle.setBounds(234, 155, 61, 16);
+		lblTitle.setBounds(20, 156, 80, 16);
 		panelAddTeacher.add(lblTitle);
 
 		JLabel lblEmployeeID = new JLabel("EmployeeID");
-		lblEmployeeID.setBounds(232, 79, 75, 16);
+		lblEmployeeID.setBounds(20, 79, 80, 16);
 		panelAddTeacher.add(lblEmployeeID);
 
 		JLabel lblAddress = new JLabel("Address");
-		lblAddress.setBounds(234, 234, 61, 16);
+		lblAddress.setBounds(20, 234, 80, 16);
 		panelAddTeacher.add(lblAddress);
 
 		JLabel lblNewLabel = new JLabel("Hourly Salary");
-		lblNewLabel.setBounds(232, 310, 86, 16);
+		lblNewLabel.setBounds(20, 310, 80, 16);
 		panelAddTeacher.add(lblNewLabel);
 
-		JLabel lblRemoveTeacher = new JLabel(
-				"If you wish to remove a teacher from the system, only enter EmployeeID and press remove");
-		lblRemoveTeacher.setBounds(120, 46, 577, 16);
-		panelAddTeacher.add(lblRemoveTeacher);
-
 		textFieldAddTeacherName = new JTextField();
-		textFieldAddTeacherName.setBounds(319, 6, 130, 26);
+		textFieldAddTeacherName.setBounds(100, 6, 130, 26);
 		textFieldAddTeacherName.setColumns(10);
 		panelAddTeacher.add(textFieldAddTeacherName);
 
 		textFieldAddTeacherEmployeeID = new JTextField();
-		textFieldAddTeacherEmployeeID.setBounds(319, 74, 130, 26);
+		textFieldAddTeacherEmployeeID.setBounds(100, 74, 130, 26);
 		panelAddTeacher.add(textFieldAddTeacherEmployeeID);
 		textFieldAddTeacherEmployeeID.setColumns(10);
 
 		textFieldAddTeacherAddress = new JTextField();
-		textFieldAddTeacherAddress.setBounds(319, 229, 130, 26);
+		textFieldAddTeacherAddress.setBounds(100, 229, 130, 26);
 		panelAddTeacher.add(textFieldAddTeacherAddress);
 		textFieldAddTeacherAddress.setColumns(10);
 
 		textFieldAddTeacherHourlySalary = new JTextField();
-		textFieldAddTeacherHourlySalary.setBounds(319, 305, 130, 26);
+		textFieldAddTeacherHourlySalary.setBounds(100, 305, 130, 26);
 		panelAddTeacher.add(textFieldAddTeacherHourlySalary);
 		textFieldAddTeacherHourlySalary.setColumns(10);
 
 		btnAddTeacher = new JButton("Add");
-		btnAddTeacher.setBounds(320, 359, 117, 29);
+		btnAddTeacher.setBounds(20, 365, 100, 30);
 		panelAddTeacher.add(btnAddTeacher);
 
 		btnRemoveTeacher = new JButton("Remove");
-		btnRemoveTeacher.setBounds(475, 74, 117, 29);
+		btnRemoveTeacher.setBounds(147, 365, 100, 30);
 		panelAddTeacher.add(btnRemoveTeacher);
 
 		scrollPaneTeacher = new JScrollPane();
-		scrollPaneTeacher.setBounds(475, 150, 324, 228);
+		scrollPaneTeacher.setBounds(274, 11, 550, 530);
 		panelAddTeacher.add(scrollPaneTeacher);
 
 		btnFindTeacher = new JButton("Find");
-		btnFindTeacher.setBounds(593, 74, 117, 29);
+		btnFindTeacher.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnFindTeacher.setBounds(20, 420, 100, 30);
 		panelAddTeacher.add(btnFindTeacher);
 
 		teacherTable = new JTable();
@@ -290,7 +299,7 @@ public class View extends JFrame {
 				return values[index];
 			}
 		});
-		listTeacherTitles.setBounds(319, 129, 134, 67);
+		listTeacherTitles.setBounds(100, 130, 134, 72);
 		panelAddTeacher.add(listTeacherTitles);
 		
 		//visible list for cycles
@@ -306,7 +315,7 @@ public class View extends JFrame {
 		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor ",
 				"Professor"};
 		comboBox_1 = new JComboBox(teachers);
-		comboBox_1.setBounds(20, 423, 134, 33);
+		comboBox_1.setBounds(20, 480, 140, 30);
 		panelAddTeacher.add(comboBox_1);
 
 		contentPane.show();
