@@ -93,6 +93,7 @@ public class View extends JFrame {
 	private JTextField textFieldResponsibleTeacher;
 	private JLabel lblResponsibleTeacher;
 	
+	private JComboBox comboBox_1;
 
 	public View() {
 
@@ -185,6 +186,14 @@ public class View extends JFrame {
 		//lblNewLabel_1.setIcon(img);
 	//	lblNewLabel_1.setBounds(10, 288, 359, 281);
 	//	panelAddDepartment.add(lblNewLabel_1);
+
+		
+		//Icon
+//		JLabel lblNewLabel_1 = new JLabel();
+//		ImageIcon img = new ImageIcon(this.getClass().getResource("/cantoso.png"));
+//		lblNewLabel_1.setIcon(img);
+//		lblNewLabel_1.setBounds(10, 288, 359, 281);
+//		panelAddDepartment.add(lblNewLabel_1);
 
 		scrollBarDepartment = new JScrollBar();
 
@@ -292,6 +301,14 @@ public class View extends JFrame {
 		listTeacherTitles.setSelectedIndex(2);
 		panelAddTeacher.add(listTeacherTitles);
 		
+
+		
+		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor ",
+				"Professor"};
+		comboBox_1 = new JComboBox(teachers);
+		comboBox_1.setBounds(20, 423, 134, 33);
+		panelAddTeacher.add(comboBox_1);
+
 		contentPane.show();
 		
 
