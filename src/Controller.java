@@ -8,264 +8,202 @@ import javax.swing.event.ListSelectionListener;
 
 public class Controller implements ActionListener {
 
-	private View view;
-	private DepartmentRegister departmentRegister;
-	private Teacher teacher;
-	private Department department;
-	private Course course;
-	private TeacherTableModel teacherTableModel;
-	private CourseTableModel courseTableModel = new CourseTableModel();
+    private View view;
+    private DepartmentRegister departmentRegister;
+    private Teacher teacher;
+    private Department department;
+    private Course course;
+    private TeacherTableModel teacherTableModel;
 
 
-	Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister,
-			TeacherTableModel teacherTableModel) {
+    Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister,
+               TeacherTableModel teacherTableModel) {
 
-		this.view = view;
-		this.teacher = teacher;
-		this.department = department;
-		this.course = course;
-		this.departmentRegister = departmentRegister;
-		this.teacherTableModel = teacherTableModel;
-		declareListeners();
+        this.view = view;
+        this.teacher = teacher;
+        this.department = department;
+        this.course = course;
+        this.departmentRegister = departmentRegister;
+        this.teacherTableModel = teacherTableModel;
+        declareListeners();
 
-	}
+    }
 
-	// AddCourse
-	private void declareListeners() {
-		view.getBtnAddCourse().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
+    // AddCourse
+    private void declareListeners() {
+        view.getBtnAddCourse().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
 
-					String courseName = view.getTextFieldAddCourseName().getText();
-					String courseCode = view.getTextFieldCourseCode().getText();
-					String cycle = view.getListCoursesCycles().getSelectedValue().toString();
+                    String courseName = view.getTextFieldAddCourseName().getText();
+                    String courseCode = view.getTextFieldCourseCode().getText();
+                    String cycle = view.getListCoursesCycles().getSelectedValue().toString();
 
-					String strCourseCredit = view.getTextFieldAddCredits().getText();
+                    String strCourseCredit = view.getTextFieldAddCredits().getText();
 
-					int courseCredit = Integer.parseInt(strCourseCredit.trim());
+                    int courseCredit = Integer.parseInt(strCourseCredit.trim());
 
-					Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
+                    Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
 
-					if (courseCredit < 0) {
-						view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
-					} else {
+                    if (courseCredit < 0) {
+                        view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
+                    } else {
 
-						view.getCourseTableModel().addCourse(tmpCourse);
-						teacher.addTaught(tmpCourse);
-					}
-				} catch (NumberFormatException e3) {
-					view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
-				} catch (NullPointerException n)  {
-					view.getTextAreaErrorMessageCourses().setText("Please enter cycle to continue");
-				}
- 			}
-		});
+                        view.getCourseTableModel().addCourse(tmpCourse);
+                        teacher.addTaught(tmpCourse);
+                    }
+                } catch (NumberFormatException e3) {
+                    view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
+                } catch (NullPointerException n) {
+                    view.getTextAreaErrorMessageCourses().setText("Please enter cycle to continue");
+                }
+            }
+        });
 
-		view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
 
-			public void valueChanged(ListSelectionEvent event) {
-				// för att den inte ska printa allt två gånger
+                    // för att ta bort från arraylist taught (), borde gå att använda find metod
 
-				if (!event.getValueIsAdjusting()) {
-
-					view.getTextFieldAddCourseName().setText(view.getCourseTableModel()
-							.getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
-					view.getTextFieldCourseCode().setText(view.getCourseTableModel()
-							.getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
-					view.getTextFieldAddCredits().setText(view.getCourseTableModel()
-							.getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
-
-					view.getBtnRemoveCourse().addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-							try {
-
-								// för att ta bort från arraylist taught (), borde gå att använda find metod
-
-								String courseCode = view.getTextFieldCourseCode().getText();
+                    String courseCode = view.getTextFieldCourseCode().getText();
 
 								/*Course tmpCourse = course.findCourse(courseCode);
 
 								teacher.removeTaught(tmpCourse);*/
 
-								// för att ta bort ut table
-								view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+                    // för att ta bort ut table
+                    view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
 
-							} catch (IndexOutOfBoundsException exeption) {
-								// för att buggen inte ska vara så extrem
+                } catch (IndexOutOfBoundsException exception) {
+                    // för att buggen inte ska vara så extrem
 
 //								System.out.println(" ");
 
-							}
+                }
 
-						}
+            }
 
-					});
+        });
 
-				}
-				;
-			}
+        // AddDepartment
+        view.getBtnAddDepartment().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String departmentName = view.getTextFieldAddDepartmentName().getText();
+                    String strDepartmentBudget = view.getTextFieldAddDepartmentBudget().getText();
+                    int departmentBudget = Integer.parseInt(strDepartmentBudget);
+                    String departmentAddress = view.getTextFieldAddDepartmentAddress().getText();
 
-		});
+                    Department tmpDepartment = new Department(departmentName, departmentAddress, departmentBudget);
 
-		view.getTeacherTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+                    if (departmentName.isBlank()) {
+                        view.getTextAreaErrorMessageDepartment().setText("Enter a name for your department!");
+                    }
+                    if (departmentBudget < 0) {
+                        view.getTextAreaErrorMessageDepartment().setText("Budget can't have a negative value");
+                    }
+                    if (departmentAddress.isBlank()) {
+                        view.getTextAreaErrorMessageDepartment().setText("Enter an address for your department!");
+                    }
+                    if (departmentName.isBlank() != true && departmentBudget > 0 && departmentAddress.isBlank() != true) {
+                        view.getDepartmentTableModel().addDepartment(tmpDepartment);
+                        view.getTextAreaErrorMessageDepartment().setText("");
+                    }
+                } catch (NumberFormatException numberFormatException) {
+                    view.getTextAreaErrorMessageDepartment().setText("Budget must be entered in numbers");
 
-			public void valueChanged(ListSelectionEvent event) {
-				// för att den inte ska printa allt två gånger
+                }
 
-				if (!event.getValueIsAdjusting()) {
+            }
+        });
+        // Remove Department
+        view.getBtnRemoveDepartment().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (view.getDepartmentTable().getSelectedRow() != -1) {
+                    view.getDepartmentTableModel().removeRow(view.getDepartmentTable().getSelectedRow());
+                }
 
-					view.getTextFieldAddTeacherName().setText(view.getTeacherTableModel()
-							.getValueAt(view.getTeacherTable().getSelectedRow(), 0).toString());
-					view.getTextFieldAddTeacherEmployeeID().setText(view.getTeacherTableModel()
-							.getValueAt(view.getTeacherTable().getSelectedRow(), 1).toString());
+            }
+        });
 
-					view.getTextFieldAddTeacherAddress().setText(view.getTeacherTableModel()
-							.getValueAt(view.getTeacherTable().getSelectedRow(), 3).toString());
-					view.getTextFieldAddTeacherHourlySalary().setText(view.getTeacherTableModel()
-							.getValueAt(view.getTeacherTable().getSelectedRow(), 4).toString());
-					// ChangeCourseTable
 
-					view.getCourseTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        // AddTeacher
 
-						public void valueChanged(ListSelectionEvent event) {
-							// för att den inte ska printa allt två gånger
+        view.getBtnAddTeacher().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
-							if (!event.getValueIsAdjusting()) {
+                try {
 
-								view.getTextFieldAddCourseName().setText(view.getCourseTableModel()
-										.getValueAt(view.getCourseTable().getSelectedRow(), 0).toString());
-								view.getTextFieldCourseCode().setText(view.getCourseTableModel()
-										.getValueAt(view.getCourseTable().getSelectedRow(), 1).toString());
-								view.getTextFieldAddCredits().setText(view.getCourseTableModel()
-										.getValueAt(view.getCourseTable().getSelectedRow(), 2).toString());
+                    String teacherName = view.getTextFieldAddTeacherName().getText();
 
-							}
-						}
+                    String[] names = teacherName.split(" ");
+                    String firstName = names[0];
+                    String lastName = names[1];
 
-					});
+                    String firstLetters = firstName.substring(0, 2);
+                    String lastLetters = lastName.substring(0, 2);
 
-				}
-				;
-			}
-
-		});
-
-		view.getAddDepartmentItem().addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-
-			}
-
-		});
-
-		// AddDepartment
-		view.getBtnAddDepartment().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					String departmentName = view.getTextFieldAddDepartmentName().getText();
-					String strDepartmentBudget = view.getTextFieldAddDepartmentBudget().getText();
-					int departmentBudget = Integer.parseInt(strDepartmentBudget);
-					String departmentAddress = view.getTextFieldAddDepartmentAddress().getText();
-
-					Department tmpDepartment = new Department(departmentName, departmentAddress, departmentBudget);
-
-					if (departmentName.isBlank()) {
-						view.getTextAreaErrorMessageDepartment().setText("Enter a name for your department!");
-					}
-					if (departmentBudget < 0) {
-						view.getTextAreaErrorMessageDepartment().setText("Budget can't have a negative value");
-					}
-					if (departmentAddress.isBlank()) {
-						view.getTextAreaErrorMessageDepartment().setText("Enter an address for your department!");
-					}
-					if (departmentName.isBlank() != true && departmentBudget > 0 && departmentAddress.isBlank() != true) {
-						view.getDepartmentTableModel().addDepartment(tmpDepartment);
-					}
-				} catch (NumberFormatException numberFormatException) {
-					view.getTextAreaErrorMessageDepartment().setText("Budget must be entered in numbers");
-
-				}
-
-			}
-		});
-		// Remove Department
-		view.getBtnRemoveDepartment().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (view.getDepartmentTable().getSelectedRow() != -1) {
-					view.getDepartmentTableModel().removeRow(view.getDepartmentTable().getSelectedRow());
-				}
-
-			}
-		});
-
-		// FindTeacher
-		view.getBtnFindTeacher().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				try {
-
-					String EmployeeID = view.getTextFieldAddTeacherEmployeeID().getText();
-					Teacher tmpTeacher = department.findTeacher(EmployeeID);
-
-					view.getTextFieldAddTeacherName().setText(tmpTeacher.getName());
-
-					System.out.println(tmpTeacher.getName());
-				} catch (NumberFormatException e1) {
-					view.getTextAreaErrorMessageTeacher().setText("Person does not exist");
-				}
-			}
-		});
-
-		// AddTeacher
-
-		view.getBtnAddTeacher().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				try {
-
-					String teacherName = view.getTextFieldAddTeacherName().getText();
-
-					String[] names = teacherName.split(" ");
-					String firstName = names[0];
-					String lastName = names[1];
-
-					String firstLetters = firstName.substring(0, 2);
-					String lastLetters = lastName.substring(0, 2);
-
-					Random rnd = new Random();
-					int number = rnd.nextInt(99999);
+                    Random rnd = new Random();
+                    int number = rnd.nextInt(99999);
 
 //     String.format("%05d", number) innebär att den ändrar formateringen så att den alltid visar fem siffror, kan börja på nolla
 
-					String teacherId = firstLetters + String.format("%05d", number) + lastLetters;
+                    String teacherId = firstLetters + String.format("%05d", number) + lastLetters;
 
-					view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
+                    view.getTextFieldAddTeacherEmployeeID().setText(teacherId);
 
-					String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
-					String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-					String teacherTitle = view.getListTeacherTitles().getSelectedValue().toString();
+                    String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
+                    String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
+                    String teacherTitle = view.getListTeacherTitles().getSelectedValue().toString();
 
-					int teacherSalary = Integer.parseInt(strTeacherSalary);
-					if (teacherSalary < 0) {
-						view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
-					} else {
+                    int teacherSalary = Integer.parseInt(strTeacherSalary);
+                    if (teacherSalary < 0) {
+                        view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
+                    } else {
 
-						Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
-								teacherSalary);
-						view.getTeacherTableModel().addTeacher(tmpTeacher);
-					}
+                        Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
+                                teacherSalary);
+                        view.getTeacherTableModel().addTeacher(tmpTeacher);
+                    }
 
-				} catch (NumberFormatException exception) {
-					view.getTextAreaErrorMessageTeacher().setText("Please only enter numbers");
-				}
+                } catch (NumberFormatException exception) {
+                    view.getTextAreaErrorMessageTeacher().setText("Please enter only numbers as a salary!");
+                } catch (IndexOutOfBoundsException exception) {
+                    view.getTextAreaErrorMessageTeacher().setText("Please enter a first and a last name");
 
-				catch (IndexOutOfBoundsException exception) {
-					view.getTextAreaErrorMessageTeacher().setText("Please enter a first and a lastname");
+                }
+            }
+        });
 
-				}
-			}
-		});
-	}
+        // Remove Teacher
+        view.getBtnRemoveTeacher().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (view.getTeacherTable().getSelectedRow() != -1) {
+                    view.getTeacherTableModel().removeRow(view.getTeacherTable().getSelectedRow());
+                }
+
+            }
+        });
+
+        // Find Teacher
+        view.getBtnFindTeacher().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                try {
+
+                    String EmployeeID = view.getTextFieldAddTeacherEmployeeID().getText();
+                    Teacher tmpTeacher = department.findTeacher(EmployeeID);
+
+                    view.getTextFieldAddTeacherName().setText(tmpTeacher.getName());
+
+                    System.out.println(tmpTeacher.getName());
+                } catch (NumberFormatException e1) {
+                    view.getTextAreaErrorMessageTeacher().setText("Person does not exist");
+                }
+            }
+        });
+    }
 
 //		view.getBtnAddTeacher().addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -328,10 +266,10 @@ public class Controller implements ActionListener {
 //
 //}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
 }

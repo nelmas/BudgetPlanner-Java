@@ -5,9 +5,6 @@ import javax.swing.table.AbstractTableModel;
 public class TeacherTableModel extends AbstractTableModel {
 	private ArrayList<Teacher> teachers = new ArrayList<>();
 
-
-	
-
 	private String[] columns = { "Name", "EmployeeID", "Title", "Address", "Hourly Salary" };
 
 	public void addTeacher(Teacher teacher) {
@@ -15,7 +12,6 @@ public class TeacherTableModel extends AbstractTableModel {
 		this.fireTableDataChanged();
 	}
 
-	
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
@@ -85,6 +81,11 @@ public class TeacherTableModel extends AbstractTableModel {
 public boolean isCellEditable(int rowIndex, int columnIndex) {
 		
 		return true;
+	}
+
+	public void removeRow(int rowIndex) {
+		teachers.remove(rowIndex);
+		fireTableRowsDeleted(rowIndex, rowIndex);
 	}
 
 }

@@ -9,7 +9,6 @@ public class DepartmentTableModel extends AbstractTableModel {
 	
 	public void addDepartment(Department department) {
 		departmentRegister.add(department);
-		// defined in superclass
 		this.fireTableDataChanged();
 	}
 	@Override
