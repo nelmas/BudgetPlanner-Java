@@ -169,13 +169,19 @@ public class Controller implements ActionListener {
 
 					Department tmpDepartment = new Department(departmentName, departmentAddress, departmentBudget);
 
+					if (departmentName.isBlank()) {
+						view.getTextAreaErrorMessageDepartment().setText("Enter a name for your department!");
+					}
 					if (departmentBudget < 0) {
 						view.getTextAreaErrorMessageDepartment().setText("Budget can't have a negative value");
-					} else {
-
+					}
+					if (departmentAddress.isBlank()) {
+						view.getTextAreaErrorMessageDepartment().setText("Enter an address for your department!");
+					}
+					if (departmentName.isBlank() != true && departmentBudget > 0 && departmentAddress.isBlank() != true) {
 						view.getDepartmentTableModel().addDepartment(tmpDepartment);
 					}
-				} catch (NumberFormatException e2) {
+				} catch (NumberFormatException numberFormatException) {
 					view.getTextAreaErrorMessageDepartment().setText("Budget must be entered in numbers");
 
 				}
