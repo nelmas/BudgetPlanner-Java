@@ -181,7 +181,7 @@ public class View extends JFrame {
 		
 		textAreaErrorMessageDepartment = new JTextArea();
 		textAreaErrorMessageDepartment.setEditable(false);
-		textAreaErrorMessageDepartment.setBackground(SystemColor.menu);
+		textAreaErrorMessageDepartment.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageDepartment.setBounds(10, 322, 260, 80);
 		panelAddDepartment.add(textAreaErrorMessageDepartment);
 		
@@ -246,7 +246,7 @@ public class View extends JFrame {
 		panelAddTeacher.add(btnRemoveTeacher);
 
 		scrollPaneTeacher = new JScrollPane();
-		scrollPaneTeacher.setBounds(274, 11, 550, 530);
+		scrollPaneTeacher.setBounds(274, 11, 550, 526);
 		panelAddTeacher.add(scrollPaneTeacher);
 
 		teacherTable = new JTable();
@@ -264,7 +264,7 @@ public class View extends JFrame {
 		textAreaErrorMessageTeacher = new JTextArea();
 		textAreaErrorMessageTeacher.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageTeacher.setEditable(false);
-		textAreaErrorMessageTeacher.setBounds(499, 390, 288, 57);
+		textAreaErrorMessageTeacher.setBounds(20, 253, 242, 57);
 		panelAddTeacher.add(textAreaErrorMessageTeacher);
 		
 
