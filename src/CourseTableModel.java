@@ -15,10 +15,7 @@ public class CourseTableModel extends AbstractTableModel {
 	}
 	public void removeRow(int rowIndex) {
 		courses.remove(rowIndex);
- 		//fireTableRowsDeleted(rowIndex,rowIndex);
-		this.fireTableDataChanged();
-		
-		
+		fireTableRowsDeleted(rowIndex, rowIndex);
 		}
 	
 
