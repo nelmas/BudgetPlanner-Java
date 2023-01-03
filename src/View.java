@@ -23,7 +23,6 @@ public class View extends JFrame {
 
 	
 	private JTabbedPane tabbedPane;
-	private JList listCoursesCycles;
 	// JPanels
 	private JPanel contentPane;
 	private JPanel panelAddTeacher;
@@ -41,7 +40,7 @@ public class View extends JFrame {
 	private JTextField textFieldAddTeacherAddress;
 	private JTextField textFieldAddTeacherHourlySalary;
 	private JTextField textFieldErrorMessageDepartment;
-	private JTextField textFieldResponsibleTeacher1;
+	private JTextField textFieldResponsibleTeacher;
 	// JButtons
 	private JButton btnAddTeacher;
 	private JButton btnRemoveTeacher;
@@ -53,8 +52,6 @@ public class View extends JFrame {
 	// JLabels
 	private JLabel lblCourseName;
 	private JLabel lblCourseCode;
-	private JLabel lblCourseCode_1;
-	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_3_1;
 
 	// JTables
@@ -78,18 +75,17 @@ public class View extends JFrame {
 	private JScrollBar scrollBarDepartment;
 
 	
-	private JLabel lblResponsibleTeacher1;
+	private JLabel lblResponsibleTeacher;
 
 
 	private JTable table;
-	private JComboBox comboBox;
 	private JTextArea textAreaErrorMessageTeacher;
 	private JTextArea textAreaErrorMessageCourses;
-	private JTextField textFieldResponsibleTeacher;
-	private JLabel lblResponsibleTeacher;
 	
 	private JComboBox comboBoxTeacherTitle;
+	
 	private JTextArea textAreaErrorMessageDepartment;
+	private JComboBox comboBoxCoursesCycle;
 
 	public View() {
 
@@ -291,7 +287,7 @@ public class View extends JFrame {
 		panelAddCourses.add(textFieldAddCourseName);
 		textFieldAddCourseName.setColumns(10);
 
-		lblCourseName = new JLabel("Name");
+		lblCourseName = new JLabel("Course Name");
 
 		lblCourseName.setBounds(230, 88, 80, 16);
 
@@ -300,13 +296,13 @@ public class View extends JFrame {
 		panelAddCourses.add(lblCourseName);
 
 		textFieldAddCredits = new JTextField();
-		textFieldAddCredits.setBounds(329, 121, 130, 26);
+		textFieldAddCredits.setBounds(329, 187, 130, 26);
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 
 
 		JLabel lblCourseCredits = new JLabel("Credits");
-		lblCourseCredits.setBounds(230, 126, 61, 16);
+		lblCourseCredits.setBounds(230, 192, 80, 16);
 		panelAddCourses.add(lblCourseCredits);
 
 		
@@ -315,23 +311,19 @@ public class View extends JFrame {
 		panelAddCourses.add(lblNewCycle);
 		
 
-		lblResponsibleTeacher1 = new JLabel("Responsible Teacher(EmployeeID)");
-		lblResponsibleTeacher1.setBounds(66, 43, 225, 16);
-		panelAddCourses.add(lblResponsibleTeacher1);
+		lblResponsibleTeacher = new JLabel("Responsible Teacher(EmployeeID)");
+		lblResponsibleTeacher.setBounds(94, 38, 216, 16);
+		panelAddCourses.add(lblResponsibleTeacher);
 
 
 		textFieldCourseCode = new JTextField();
-		textFieldCourseCode.setBounds(329, 187, 130, 26);
+		textFieldCourseCode.setBounds(329, 121, 130, 26);
 		panelAddCourses.add(textFieldCourseCode);
 		textFieldCourseCode.setColumns(10);
 
-		lblCourseCode = new JLabel("CourseCode");
-		lblCourseCode.setBounds(230, 192, 80, 16);
+		lblCourseCode = new JLabel("Course Code");
+		lblCourseCode.setBounds(230, 126, 80, 16);
 		panelAddCourses.add(lblCourseCode);
-
-		lblNewLabel_3 = new JLabel("If you wish to remove a Course, only enter the CourseCode and press remove");
-		lblNewLabel_3.setBounds(140, 159, 485, 16);
-		panelAddCourses.add(lblNewLabel_3);
 
 		btnRemoveCourse = new JButton("Remove");
 		btnRemoveCourse.setBounds(394, 236, 87, 29);
@@ -340,10 +332,6 @@ public class View extends JFrame {
 		scrollPaneCourse = new JScrollPane();
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
 		panelAddCourses.add(scrollPaneCourse);
-
-		lblCourseCode_1 = new JLabel("CourseCode");
-		lblCourseCode_1.setBounds(230, 192, 80, 16);
-		panelAddCourses.add(lblCourseCode_1);
 
 
 		btnAddCourse = new JButton("Add");
@@ -370,31 +358,18 @@ public class View extends JFrame {
 		textAreaErrorMessageCourses.setBounds(152, 468, 523, 45);
 		panelAddCourses.add(textAreaErrorMessageCourses);
 		
-		textFieldResponsibleTeacher1 = new JTextField();
-		textFieldResponsibleTeacher1.setBounds(329, 33, 130, 26);
-		panelAddCourses.add(textFieldResponsibleTeacher1);
-		textFieldResponsibleTeacher1.setColumns(10);
+		textFieldResponsibleTeacher = new JTextField();
+		textFieldResponsibleTeacher.setBounds(329, 33, 130, 26);
+		panelAddCourses.add(textFieldResponsibleTeacher);
+		textFieldResponsibleTeacher.setColumns(10);
 		
-		
-		
-		
-
-		listCoursesCycles = new JList(new AbstractListModel() {
-			String[] values = new String[] {"o First Cycle", "o Second Cycle", "o Third Cycle"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		listCoursesCycles.setSelectedIndex(3);
-		panelAddCourses.add(listCoursesCycles);
+		comboBoxCoursesCycle = new JComboBox();
+		comboBoxCoursesCycle.setModel(new DefaultComboBoxModel(new String[] {"First Cycle", "Second Cycle", "Third Cycle"}));
+		comboBoxCoursesCycle.setBounds(646, 50, 140, 30);
+		panelAddCourses.add(comboBoxCoursesCycle);
 		
 		
 		contentPane.show();
-		listCoursesCycles.setBounds(659, 38, 141, 51);
-		panelAddCourses.add(listCoursesCycles);
 		
 		
 		
@@ -558,9 +533,6 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
 	}
-	public JTextField getTextFieldResponsibleTeacher1() {
-		return textFieldResponsibleTeacher1;
-	}
 
 	// LabelGetters
 
@@ -575,15 +547,10 @@ public class View extends JFrame {
 
 	}
 	public JTextField getTextFieldResponsibleTeacher() {
-		return textFieldResponsibleTeacher1;
+		return textFieldResponsibleTeacher;
 	}
 	
 	//LabelGetters
-
-
-	public JLabel getLblCourseCode() {
-		return lblCourseCode_1;
-	}
 
 	public JLabel getLblNewLabel_3() {
 		return lblNewLabel_3_1;
@@ -661,12 +628,11 @@ public class View extends JFrame {
 	public JTextArea getTextAreaErrorMessageCourses() {
 		return textAreaErrorMessageCourses;
 	}
-
-	public JList getListCoursesCycles() {
-		return listCoursesCycles;
-	}
-
 	public JComboBox getComboBoxTeacherTitle() {
 		return comboBoxTeacherTitle;
+	}
+
+	public JComboBox getComboBoxCoursesCycle() {
+		return comboBoxCoursesCycle;
 	}
 }

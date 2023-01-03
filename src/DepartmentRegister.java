@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
 
-
-
 public class DepartmentRegister {
 private ArrayList<Department> departmentRegister = new ArrayList<Department>();
 	public ArrayList<Department> getDepartmentRegister() {

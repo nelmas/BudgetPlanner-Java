@@ -20,7 +20,7 @@ public class Department {
 		this.address = address;
 		this.budget = budget;
 		this.name = name;
-		this.teachers = new ArrayList<Teacher>();
+		this.teachers = new ArrayList<>();
 		
 	}
 

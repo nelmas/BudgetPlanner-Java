@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 public class DepartmentTableModel extends AbstractTableModel {
 	
 	private ArrayList<Department> departmentRegister = new ArrayList<Department>();
-	private String[] columns = { "Name", "Budget", "Address" };
+	private String[] columns = { "Name", "Budget", "Address"};
 	
 	public void addDepartment(Department department) {
 		departmentRegister.add(department);
@@ -36,7 +36,6 @@ public class DepartmentTableModel extends AbstractTableModel {
 			return tmpDepartment.getBudget();
 		case 2:
 			return tmpDepartment.getAddress();
-		
 		}
 
 		return null;

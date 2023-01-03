@@ -34,10 +34,10 @@ public class Controller implements ActionListener {
         view.getBtnAddCourse().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-
+                    String courseResponsible = view.getTextFieldResponsibleTeacher().getText();
                     String courseName = view.getTextFieldAddCourseName().getText();
                     String courseCode = view.getTextFieldCourseCode().getText();
-                    String cycle = view.getListCoursesCycles().getSelectedValue().toString();
+                    String cycle = view.getComboBoxCoursesCycle().getSelectedItem().toString();
 
                     String strCourseCredit = view.getTextFieldAddCredits().getText();
 
