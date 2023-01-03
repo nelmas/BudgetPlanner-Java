@@ -5,7 +5,7 @@ public class Course {
 	private String courseCode;
 	private int credits;
 	private String cycle;
-	private Teacher responsible;
+	private String responsible;
 	private ArrayList<Teacher> teaches;
 
 //constructors
@@ -14,11 +14,12 @@ public class Course {
 
 	}
 
-	public Course(String name, String courseCode, int credits, String cycle){
+	public Course(String name, String courseCode, int credits, String cycle, String responsible){
 		this.name = name;
 		this.courseCode = courseCode;
 		this.credits = credits;
 		this.cycle = cycle;
+		this.responsible = responsible;
 		this.teaches = new ArrayList<Teacher>();
 
 	}
@@ -56,12 +57,12 @@ public class Course {
 		this.cycle = cycle;
 	}
 
-	public Teacher getResponsible() {
+	public String getResponsible() {
 		return responsible;
 	}
 
-	public void setResponsible(Teacher responisble) {
-		this.responsible = responisble;
+	public void setResponsible(String responsible) {
+		this.responsible = responsible;
 	}
 
 	public ArrayList<Teacher> getTeaches() {

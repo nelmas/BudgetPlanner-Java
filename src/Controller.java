@@ -43,12 +43,22 @@ public class Controller implements ActionListener {
 
                     int courseCredit = Integer.parseInt(strCourseCredit.trim());
 
-                    Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle);
+                    Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle, courseResponsible);
 
                     if (courseCredit < 0) {
                         view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
-                    } else {
+                    }
+                    if (courseCredit > 30) {
+                        view.getTextAreaErrorMessageCourses().setText("Credits can't be more than 30");
+                    }
 
+                    if (view.getTeacherTableModel().findTeacherID(courseResponsible) == false) {
+                        view.getTextAreaErrorMessageCourses().setText("Check the ID for the responsible teacher!");
+                    }
+                    if (view.getCourseTableModel().findCourseCode(courseCode) == true) {
+                        view.getTextAreaErrorMessageCourses().setText("Course code already exists!");
+                    }
+                    if (view.getTeacherTableModel().findTeacherID(courseResponsible) == true && view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0 && courseCredit <= 30) {
                         view.getCourseTableModel().addCourse(tmpCourse);
                         teacher.addTaught(tmpCourse);
                     }
@@ -107,14 +117,14 @@ public class Controller implements ActionListener {
                     if (departmentAddress.isBlank()) {
                         view.getTextAreaErrorMessageDepartment().setText("Enter an address for your department!");
                     }
-
-                    if (departmentName.isBlank() != true && departmentBudget > 0 && departmentAddress.isBlank() != true && view.getDepartmentTableModel().findDepartment(departmentName) == null) {
+                    if (view.getDepartmentTableModel().findDepartment(departmentName) == true) {
+                        view.getTextAreaErrorMessageDepartment().setText("Departments cannot have duplicate names!");
+                    }
+                    if (departmentName.isBlank() != true && departmentBudget > 0 && departmentAddress.isBlank() != true && view.getDepartmentTableModel().findDepartment(departmentName) == false) {
                         view.getDepartmentTableModel().addDepartment(tmpDepartment);
                         view.getTextAreaErrorMessageDepartment().setText("");
                     }
-                    else {
-                        view.getTextAreaErrorMessageDepartment().setText("Departments cannot have duplicate names!");
-                    }
+
                 } catch (NumberFormatException numberFormatException) {
                     view.getTextAreaErrorMessageDepartment().setText("Budget must be entered in numbers");
                 }

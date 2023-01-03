@@ -51,7 +51,7 @@ public class DepartmentTableModel extends AbstractTableModel {
 				return true;
 			}
 		}
-		return null;
+		return false;
 	}
 
 	public ArrayList<Department> getDepartmentRegister() {

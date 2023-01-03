@@ -93,4 +93,12 @@ public class TeacherTableModel extends AbstractTableModel {
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
 
+    public Boolean findTeacherID(String identificationNumber) {
+        for (Teacher teacher : teachers) {
+            if (teacher.getEmployeeId().equals(identificationNumber)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
