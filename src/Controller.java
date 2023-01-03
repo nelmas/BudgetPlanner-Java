@@ -107,14 +107,18 @@ public class Controller implements ActionListener {
                     if (departmentAddress.isBlank()) {
                         view.getTextAreaErrorMessageDepartment().setText("Enter an address for your department!");
                     }
-                    if (departmentName.isBlank() != true && departmentBudget > 0 && departmentAddress.isBlank() != true) {
+
+                    if (departmentName.isBlank() != true && departmentBudget > 0 && departmentAddress.isBlank() != true && view.getDepartmentTableModel().findDepartment(departmentName) == null) {
                         view.getDepartmentTableModel().addDepartment(tmpDepartment);
                         view.getTextAreaErrorMessageDepartment().setText("");
                     }
+                    else {
+                        view.getTextAreaErrorMessageDepartment().setText("Departments cannot have duplicate names!");
+                    }
                 } catch (NumberFormatException numberFormatException) {
                     view.getTextAreaErrorMessageDepartment().setText("Budget must be entered in numbers");
-
                 }
+
 
             }
         });
