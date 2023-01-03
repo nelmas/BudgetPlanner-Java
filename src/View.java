@@ -86,6 +86,8 @@ public class View extends JFrame {
 	
 	private JTextArea textAreaErrorMessageDepartment;
 	private JComboBox comboBoxCoursesCycle;
+	private JLabel lblTeacherDepartment;
+	private JTextField textFieldTeacherDepartment;
 
 	public View() {
 
@@ -177,8 +179,12 @@ public class View extends JFrame {
 		
 		textAreaErrorMessageDepartment = new JTextArea();
 		textAreaErrorMessageDepartment.setEditable(false);
+
 		textAreaErrorMessageDepartment.setBackground(UIManager.getColor("Button.background"));
-		textAreaErrorMessageDepartment.setBounds(10, 322, 260, 80);
+
+		textAreaErrorMessageDepartment.setBackground(SystemColor.menu);
+		textAreaErrorMessageDepartment.setBounds(10, 430, 260, 80);
+
 		panelAddDepartment.add(textAreaErrorMessageDepartment);
 		
 		//JLabel lblNewLabel_1 = new JLabel();
@@ -214,9 +220,9 @@ public class View extends JFrame {
 		lblAddress.setBounds(20, 111, 80, 16);
 		panelAddTeacher.add(lblAddress);
 
-		JLabel lblNewLabel = new JLabel("Hourly Salary");
-		lblNewLabel.setBounds(20, 161, 80, 16);
-		panelAddTeacher.add(lblNewLabel);
+		JLabel lblHourlySalary = new JLabel("Hourly Salary");
+		lblHourlySalary.setBounds(20, 161, 80, 16);
+		panelAddTeacher.add(lblHourlySalary);
 
 		textFieldAddTeacherName = new JTextField();
 		textFieldAddTeacherName.setBounds(100, 6, 130, 26);
@@ -234,11 +240,11 @@ public class View extends JFrame {
 		textFieldAddTeacherHourlySalary.setColumns(10);
 
 		btnAddTeacher = new JButton("Add");
-		btnAddTeacher.setBounds(20, 211, 100, 30);
+		btnAddTeacher.setBounds(20, 260, 100, 30);
 		panelAddTeacher.add(btnAddTeacher);
 
 		btnRemoveTeacher = new JButton("Remove");
-		btnRemoveTeacher.setBounds(140, 211, 100, 30);
+		btnRemoveTeacher.setBounds(140, 260, 100, 30);
 		panelAddTeacher.add(btnRemoveTeacher);
 
 		scrollPaneTeacher = new JScrollPane();
@@ -260,7 +266,8 @@ public class View extends JFrame {
 		textAreaErrorMessageTeacher = new JTextArea();
 		textAreaErrorMessageTeacher.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageTeacher.setEditable(false);
-		textAreaErrorMessageTeacher.setBounds(20, 253, 242, 57);
+
+		textAreaErrorMessageTeacher.setBounds(10, 326, 254, 80);
 		panelAddTeacher.add(textAreaErrorMessageTeacher);
 		
 
@@ -270,6 +277,15 @@ public class View extends JFrame {
 		comboBoxTeacherTitle = new JComboBox(teachers);
 		comboBoxTeacherTitle.setBounds(100, 53, 140, 30);
 		panelAddTeacher.add(comboBoxTeacherTitle);
+		
+		lblTeacherDepartment = new JLabel("Department");
+		lblTeacherDepartment.setBounds(20, 215, 80, 14);
+		panelAddTeacher.add(lblTeacherDepartment);
+		
+		textFieldTeacherDepartment = new JTextField();
+		textFieldTeacherDepartment.setBounds(99, 209, 131, 26);
+		panelAddTeacher.add(textFieldTeacherDepartment);
+		textFieldTeacherDepartment.setColumns(10);
 
 		contentPane.show();
 		
@@ -634,5 +650,8 @@ public class View extends JFrame {
 
 	public JComboBox getComboBoxCoursesCycle() {
 		return comboBoxCoursesCycle;
+	}
+	public JTextField getTextFieldTeacherDepartment() {
+		return textFieldTeacherDepartment;
 	}
 }

@@ -8,6 +8,8 @@ public class Teacher {
 	private String title;
 	private String address;
 	private int hourlySalary;
+
+	private String teacherDepartment;
 	// course can be taught by several teachers
 	private ArrayList<Course> taught;
 
@@ -16,12 +18,13 @@ public class Teacher {
 
 	// Constructors
 
-	public Teacher( String name,String employeeId, String title, String address, int hourlySalary) {
+	public Teacher( String name,String employeeId, String title, String address, int hourlySalary, String teacherDepartment) {
 		this.name = name;
 		this.employeeId = employeeId;
 		this.title = title;
 		this.address = address;
 		this.hourlySalary = hourlySalary;
+		this.teacherDepartment = teacherDepartment;
 		this.taught = new ArrayList<Course>();
 		this.course = new ArrayList<Teacher>();
 
@@ -125,4 +128,11 @@ public class Teacher {
 
 	}
 
+	public String getTeacherDepartment() {
+		return teacherDepartment;
+	}
+
+	public void setTeacherDepartment(String teacherDepartment) {
+		this.teacherDepartment = teacherDepartment;
+	}
 }

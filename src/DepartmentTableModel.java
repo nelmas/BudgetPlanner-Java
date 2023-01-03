@@ -44,6 +44,17 @@ public class DepartmentTableModel extends AbstractTableModel {
 		departmentRegister.remove(rowIndex);
 		fireTableRowsDeleted(rowIndex, rowIndex);
 	}
-	
 
+	public Boolean findDepartment(String name) {
+		for (Department department : departmentRegister) {
+			if (department.getName().equals(name)) {
+				return true;
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<Department> getDepartmentRegister() {
+		return departmentRegister;
+	}
 }
