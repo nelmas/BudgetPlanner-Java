@@ -36,7 +36,17 @@ public class Controller implements ActionListener {
                 try {
                     String courseResponsible = view.getTextFieldResponsibleTeacher().getText();
                     String courseName = view.getTextFieldAddCourseName().getText();
-                    String courseCode = view.getTextFieldCourseCode().getText();
+                    
+                    
+                    
+                    String firstLetters = courseName.substring(0, 2);
+
+                    Random rnd = new Random();
+                    int number = rnd.nextInt(99999);
+                    String courseCode = firstLetters + String.format("%05d", number);
+
+                    
+                    
                     String cycle = view.getComboBoxCoursesCycle().getSelectedItem().toString();
 
                     String strCourseCredit = view.getTextFieldAddCredits().getText();
