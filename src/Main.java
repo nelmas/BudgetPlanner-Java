@@ -7,9 +7,8 @@ public class Main {
 		Department department = new Department();
 		Teacher teacher = new Teacher();
 		Course course = new Course();
-		DepartmentRegister departmentRegister = new DepartmentRegister();
 		TeacherTableModel teacherTableModel = new TeacherTableModel();
-		Controller controller = new Controller(view, teacher, department, course, departmentRegister, teacherTableModel);
+		Controller controller = new Controller(view, teacher, department, course, teacherTableModel);
 
 	}  
 }

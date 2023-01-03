@@ -9,21 +9,21 @@ import javax.swing.event.ListSelectionListener;
 public class Controller implements ActionListener {
 
     private View view;
-    private DepartmentRegister departmentRegister;
     private Teacher teacher;
     private Department department;
     private Course course;
     private TeacherTableModel teacherTableModel;
 
 
-    Controller(View view, Teacher teacher, Department department, Course course, DepartmentRegister departmentRegister,
+
+
+    Controller(View view, Teacher teacher, Department department, Course course,
                TeacherTableModel teacherTableModel) {
 
         this.view = view;
         this.teacher = teacher;
         this.department = department;
         this.course = course;
-        this.departmentRegister = departmentRegister;
         this.teacherTableModel = teacherTableModel;
         declareListeners();
 
@@ -154,22 +154,29 @@ public class Controller implements ActionListener {
                     String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
                     String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
                     String teacherTitle = view.getComboBoxTeacherTitle().getSelectedItem().toString();
+                    String teacherDepartment = view.getTextFieldTeacherDepartment().getText();
+
 
                     int teacherSalary = Integer.parseInt(strTeacherSalary);
                     if (teacherSalary < 0) {
                         view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
+                    }
+                    if ((!view.getDepartmentTableModel().findDepartment(teacherDepartment))) {
+                        view.getTextAreaErrorMessageTeacher().setText("Department does not exist");
                     } else {
 
                         Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
-                                teacherSalary);
+                                teacherSalary, teacherDepartment);
                         view.getTeacherTableModel().addTeacher(tmpTeacher);
                     }
-
-                } catch (NumberFormatException exception) {
+                }
+                 catch (NumberFormatException exception) {
                     view.getTextAreaErrorMessageTeacher().setText("Please enter only numbers as a salary!");
                 } catch (IndexOutOfBoundsException exception) {
                     view.getTextAreaErrorMessageTeacher().setText("Please enter a first and a last name");
-
+                }
+                catch (NullPointerException exception) {
+                    view.getTextAreaErrorMessageTeacher().setText("Please enter a valid department");
                 }
             }
         });
