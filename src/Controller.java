@@ -74,34 +74,65 @@ public class Controller implements ActionListener {
 			}
 		});
 
-		// Remove course
-		view.getBtnRemoveCourse().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
+        //Remove course
+        view.getBtnRemoveCourse().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (view.getCourseTable().getSelectedRow() != -1) {
+                    view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+                }
+            }
+        });
 
-					// för att ta bort från arraylist taught (), borde gå att använda find metod
+        //Add teacher to course
+        view.getBtnAddCourseTeacher().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String employeeId = view.getTextFieldResponsibleTeacher().getText();
+                String courseCode = view.getTextFieldCourseCode().getText();
+                String strHoursTaught = view.getTextFieldHours().getText();
+                int hoursTaught = Integer.parseInt(strHoursTaught.trim());
 
-					String courseCode = view.getTextFieldCourseCode().getText();
 
-					/*
-					 * Course tmpCourse = course.findCourse(courseCode);
-					 * 
-					 * teacher.removeTaught(tmpCourse);
-					 */
+                TeacherHours teacherHours = new TeacherHours(employeeId, courseCode, hoursTaught);
 
-					// för att ta bort ut table
-					view.getCourseTableModel().removeRow(view.getCourseTable().getSelectedRow());
+                if (view.getTeacherTableModel().findTeacherID(employeeId) == false) {
+                    view.getTextAreaErrorMessageCourses().setText("Check that the Employee ID is valid!");
+                }
+                if (view.getCourseTableModel().findCourseCode(courseCode) == false) {
+                    view.getTextAreaErrorMessageCourses().setText("Check that Course Code is valid!");
+                }
+                if (view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught > 3600) {
+                    view.getTextAreaErrorMessageCourses().setText("Total working hours for employee exceeded 3600!");
+                }
+                if (hoursTaught <= 0) {
+                    view.getTextAreaErrorMessageCourses().setText("Working hours cannot be zero or negative!");
+                }
+                if (hoursTaught > 3600) {
+                    view.getTextAreaErrorMessageCourses().setText("Working hours cannot exceed 3600!");
+                }
+                if (view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == true) {
+                    view.getTextAreaErrorMessageCourses().setText("Teacher is already teaching the selected course!");
+                }
+                if (view.getTeacherTableModel().findTeacherID(employeeId) == true && view.getCourseTableModel().findCourseCode(courseCode) == true
+                        && view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught <= 3600 && hoursTaught > 0 && hoursTaught < 3600
+                        && view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == false) {
+                    view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
+                }
+            }
+        });
 
-				} catch (IndexOutOfBoundsException exception) {
-					// för att buggen inte ska vara så extrem
-
-//								System.out.println(" ");
+        // Remove teacher from course
+            view.getBtnRemoveCourseTeacher().addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if (view.getCourseTeacherTable().getSelectedRow() != -1) {
+                        view.getCourseTeacherTableModel().removeRow(view.getCourseTeacherTable().getSelectedRow());
+                    }
 
 				}
 
 			}
 
-		});
+		);
+
 
 		// AddDepartment
 		view.getBtnAddDepartment().addActionListener(new ActionListener() {

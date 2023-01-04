@@ -35,13 +35,6 @@ public class Teacher {
 
 	}
 
-	// Titles
-	enum Titles {
-		LECTURER, ASSISTANTPROFESSOR, ASSOCIATEPROFESSOR, PROFESSOR,
-
-		// Titles title = Titles.ASSISTANTPROFESSOR;
-		// System.out.println(title);
-	}
 
 	// Getters & Setters
 	public ArrayList<Course> getTaught() {
