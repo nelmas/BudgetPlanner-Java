@@ -66,9 +66,12 @@ public class Controller implements ActionListener {
 						view.getCourseTableModel().addCourse(tmpCourse);
 						teacher.addTaught(tmpCourse);
 					}
-				} catch (NumberFormatException e3) {
+
+				} catch (NumberFormatException numberFormatException) {
 					view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
-				} catch (NullPointerException n) {
+				} catch (StringIndexOutOfBoundsException stringIndexOutOfBoundsException) {
+					view.getTextAreaErrorMessageCourses().setText("Do not leave Course Name field as blank!");
+				} catch (NullPointerException nullPointerException) {
 					view.getTextAreaErrorMessageCourses().setText("Please enter cycle to continue");
 				}
 			}
@@ -86,39 +89,43 @@ public class Controller implements ActionListener {
         //Add teacher to course
         view.getBtnAddCourseTeacher().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String employeeId = view.getTextFieldResponsibleTeacher().getText();
-                String courseCode = view.getTextFieldCourseCode().getText();
-                String strHoursTaught = view.getTextFieldHours().getText();
-                int hoursTaught = Integer.parseInt(strHoursTaught.trim());
+				try {
+					String employeeId = view.getTextFieldResponsibleTeacher().getText();
+					String courseCode = view.getTextFieldCourseCode().getText();
+					String strHoursTaught = view.getTextFieldHours().getText();
+					int hoursTaught = Integer.parseInt(strHoursTaught.trim());
+					
 
+					TeacherHours teacherHours = new TeacherHours(employeeId, courseCode, hoursTaught);
 
-                TeacherHours teacherHours = new TeacherHours(employeeId, courseCode, hoursTaught);
-
-                if (view.getTeacherTableModel().findTeacherID(employeeId) == false) {
-                    view.getTextAreaErrorMessageCourses().setText("Check that the Employee ID is valid!");
-                }
-                if (view.getCourseTableModel().findCourseCode(courseCode) == false) {
-                    view.getTextAreaErrorMessageCourses().setText("Check that Course Code is valid!");
-                }
-                if (view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught > 3600) {
-                    view.getTextAreaErrorMessageCourses().setText("Total working hours for employee exceeded 3600!");
-                }
-                if (hoursTaught <= 0) {
-                    view.getTextAreaErrorMessageCourses().setText("Working hours cannot be zero or negative!");
-                }
-                if (hoursTaught > 3600) {
-                    view.getTextAreaErrorMessageCourses().setText("Working hours cannot exceed 3600!");
-                }
-                if (view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == true) {
-                    view.getTextAreaErrorMessageCourses().setText("Teacher is already teaching the selected course!");
-                }
-                if (view.getTeacherTableModel().findTeacherID(employeeId) == true && view.getCourseTableModel().findCourseCode(courseCode) == true
-                        && view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught <= 3600 && hoursTaught > 0 && hoursTaught < 3600
-                        && view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == false) {
-                    view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
-                }
-            }
-        });
+					if (view.getTeacherTableModel().findTeacherID(employeeId) == false) {
+						view.getTextAreaErrorMessageCourses().setText("Check that the Employee ID is valid!");
+					}
+					if (view.getCourseTableModel().findCourseCode(courseCode) == false) {
+						view.getTextAreaErrorMessageCourses().setText("Check that Course Code is valid!");
+					}
+					if (view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught > 3600) {
+						view.getTextAreaErrorMessageCourses().setText("Total working hours for employee exceeded 3600!");
+					}
+					if (hoursTaught <= 0) {
+						view.getTextAreaErrorMessageCourses().setText("Working hours cannot be zero or negative!");
+					}
+					if (hoursTaught > 3600) {
+						view.getTextAreaErrorMessageCourses().setText("Working hours cannot exceed 3600!");
+					}
+					if (view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == true) {
+						view.getTextAreaErrorMessageCourses().setText("Teacher is already teaching the selected course!");
+					}
+					if (view.getTeacherTableModel().findTeacherID(employeeId) == true && view.getCourseTableModel().findCourseCode(courseCode) == true
+							&& view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught <= 3600 && hoursTaught > 0 && hoursTaught < 3600
+							&& view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == false) {
+						view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
+					}
+				}
+				catch (NumberFormatException numberFormatException) {
+					view.getTextAreaErrorMessageCourses().setText("Do not leave ID number and Course Code as blank!");
+				}
+        }});
 
         // Remove teacher from course
             view.getBtnRemoveCourseTeacher().addActionListener(new ActionListener() {
@@ -244,11 +251,11 @@ public class Controller implements ActionListener {
 //				try {
 //					String teacherName = view.getTextFieldAddTeacherName().getText();
 //					String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
-//					
+//
 //					String TeacherID = "jdjdjd"
 //					;
-//					
-//					
+//
+//
 //					String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
 //					String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
 //					 String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
@@ -257,16 +264,16 @@ public class Controller implements ActionListener {
 //					int teacherSalary = Integer.parseInt(strTeacherSalary);
 //
 //				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
-//				
+//
 //				view.getTeacherTableModel().addTeacher(tmpTeacher);
-//				
-//				
-//			
-//				
+//
+//
+//
+//
 //				}catch (NumberFormatException exception) {
 //					view.getTextFieldErrorMessageTeacher().setText("Please only enter numbers");
-//				}	
-//				
+//				}
+//
 //					if (teacherSalary < 0) {
 //						view.getTextFieldErrorMessageTeacher().setText("Hourly salary can't have a negative value");
 //					} else {
@@ -288,12 +295,12 @@ public class Controller implements ActionListener {
 //				tmpTeacher.setName(teacherName);
 //				tmpTeacher.setTitle(teacherTitle);
 //				tmpTeacher.setTaught(null);
-//				
+//
 //	TeacherTableModel teacherTableModel = new TeacherTableModel();
-//								
+//
 //				teacherTableModel.addTeacher(tmpTeacher);
-//				
-//	
+//
+//
 //
 //			}
 //		});
