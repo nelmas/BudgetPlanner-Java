@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class View extends JFrame {
 
 	// JMenuItems
@@ -21,7 +20,6 @@ public class View extends JFrame {
 	private JMenuItem setHoursItem;
 	private JMenuItem displayTeachers;
 
-	
 	private JTabbedPane tabbedPane;
 	// JPanels
 	private JPanel contentPane;
@@ -74,16 +72,14 @@ public class View extends JFrame {
 	private JScrollBar scrollBarTeacher;
 	private JScrollBar scrollBarDepartment;
 
-	
 	private JLabel lblResponsibleTeacher;
-
 
 	private JTable table;
 	private JTextArea textAreaErrorMessageTeacher;
 	private JTextArea textAreaErrorMessageCourses;
-	
+
 	private JComboBox comboBoxTeacherTitle;
-	
+
 	private JTextArea textAreaErrorMessageDepartment;
 	private JComboBox comboBoxCoursesCycle;
 	private JLabel lblTeacherDepartment;
@@ -96,7 +92,7 @@ public class View extends JFrame {
 		setBackground(SystemColor.control);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 942, 806);
-		
+
 		contentPane = new JPanel();
 
 		contentPane.setBackground(SystemColor.control);
@@ -172,11 +168,11 @@ public class View extends JFrame {
 		scrollPaneDepartment.setViewportView(departmentTable);
 
 		scrollPaneDepartment.setRowHeaderView(scrollBarDepartment);
-		
+
 		JLabel lblRemoveDepartment2 = new JLabel("Select it and press remove");
 		lblRemoveDepartment2.setBounds(10, 267, 211, 16);
 		panelAddDepartment.add(lblRemoveDepartment2);
-		
+
 		textAreaErrorMessageDepartment = new JTextArea();
 		textAreaErrorMessageDepartment.setEditable(false);
 
@@ -186,15 +182,14 @@ public class View extends JFrame {
 		textAreaErrorMessageDepartment.setBounds(10, 430, 260, 80);
 
 		panelAddDepartment.add(textAreaErrorMessageDepartment);
-		
-		//JLabel lblNewLabel_1 = new JLabel();
-		//ImageIcon img = new ImageIcon(this.getClass().getResource("/cantoso.png"));
-		//lblNewLabel_1.setIcon(img);
-	//	lblNewLabel_1.setBounds(10, 288, 359, 281);
-	//	panelAddDepartment.add(lblNewLabel_1);
 
-		
-		//Icon
+		// JLabel lblNewLabel_1 = new JLabel();
+		// ImageIcon img = new ImageIcon(this.getClass().getResource("/cantoso.png"));
+		// lblNewLabel_1.setIcon(img);
+		// lblNewLabel_1.setBounds(10, 288, 359, 281);
+		// panelAddDepartment.add(lblNewLabel_1);
+
+		// Icon
 //		JLabel lblNewLabel_1 = new JLabel();
 //		ImageIcon img = new ImageIcon(this.getClass().getResource("/cantoso.png"));
 //		lblNewLabel_1.setIcon(img);
@@ -262,33 +257,29 @@ public class View extends JFrame {
 		scrollPaneTeacher.setRowHeaderView(scrollBarTeacher);
 
 		teacherTable.setModel(teacherTableModel);
-		
+
 		textAreaErrorMessageTeacher = new JTextArea();
 		textAreaErrorMessageTeacher.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageTeacher.setEditable(false);
 
 		textAreaErrorMessageTeacher.setBounds(10, 326, 254, 80);
 		panelAddTeacher.add(textAreaErrorMessageTeacher);
-		
 
-		
-		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor ",
-				"Professor"};
+		String[] teachers = { "Lecturer", "Assistant Professor ", "Associate Professor ", "Professor" };
 		comboBoxTeacherTitle = new JComboBox(teachers);
 		comboBoxTeacherTitle.setBounds(100, 53, 140, 30);
 		panelAddTeacher.add(comboBoxTeacherTitle);
-		
+
 		lblTeacherDepartment = new JLabel("Department");
 		lblTeacherDepartment.setBounds(20, 215, 80, 14);
 		panelAddTeacher.add(lblTeacherDepartment);
-		
+
 		textFieldTeacherDepartment = new JTextField();
 		textFieldTeacherDepartment.setBounds(99, 209, 131, 26);
 		panelAddTeacher.add(textFieldTeacherDepartment);
 		textFieldTeacherDepartment.setColumns(10);
 
 		contentPane.show();
-		
 
 		// Courses
 		tabbedPane.addTab("Courses", null, panelAddCourses, null);
@@ -316,21 +307,17 @@ public class View extends JFrame {
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 
-
 		JLabel lblCourseCredits = new JLabel("Credits");
 		lblCourseCredits.setBounds(230, 192, 80, 16);
 		panelAddCourses.add(lblCourseCredits);
 
-		
 		JLabel lblNewCycle = new JLabel("Cycle");
 		lblNewCycle.setBounds(575, 57, 61, 16);
 		panelAddCourses.add(lblNewCycle);
-		
 
 		lblResponsibleTeacher = new JLabel("Responsible Teacher(EmployeeID)");
 		lblResponsibleTeacher.setBounds(94, 38, 216, 16);
 		panelAddCourses.add(lblResponsibleTeacher);
-
 
 		textFieldCourseCode = new JTextField();
 		textFieldCourseCode.setBounds(329, 121, 130, 26);
@@ -349,14 +336,11 @@ public class View extends JFrame {
 		scrollPaneCourse.setBounds(66, 278, 675, 171);
 		panelAddCourses.add(scrollPaneCourse);
 
-
 		btnAddCourse = new JButton("Add");
 		btnAddCourse.setBounds(308, 236, 87, 29);
 		panelAddCourses.add(btnAddCourse);
 
 		courseTable = new JTable();
-
-		
 
 		scrollPaneCourse.setViewportView(courseTable);
 
@@ -367,29 +351,25 @@ public class View extends JFrame {
 		scrollBarCourse = new JScrollBar();
 
 		scrollPaneCourse.setRowHeaderView(scrollBarCourse);
-		
+
 		textAreaErrorMessageCourses = new JTextArea();
 		textAreaErrorMessageCourses.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageCourses.setEditable(false);
 		textAreaErrorMessageCourses.setBounds(152, 468, 523, 45);
 		panelAddCourses.add(textAreaErrorMessageCourses);
-		
+
 		textFieldResponsibleTeacher = new JTextField();
 		textFieldResponsibleTeacher.setBounds(329, 33, 130, 26);
 		panelAddCourses.add(textFieldResponsibleTeacher);
 		textFieldResponsibleTeacher.setColumns(10);
-		
+
 		comboBoxCoursesCycle = new JComboBox();
-		comboBoxCoursesCycle.setModel(new DefaultComboBoxModel(new String[] {"First Cycle", "Second Cycle", "Third Cycle"}));
+		comboBoxCoursesCycle
+				.setModel(new DefaultComboBoxModel(new String[] { "First Cycle", "Second Cycle", "Third Cycle" }));
 		comboBoxCoursesCycle.setBounds(646, 50, 140, 30);
 		panelAddCourses.add(comboBoxCoursesCycle);
-		
-		
+
 		contentPane.show();
-		
-		
-		
-		
 
 		// MenuBar
 		menuBar = new JMenuBar();
@@ -405,16 +385,16 @@ public class View extends JFrame {
 		departmentMenu.add(addDepartmentItem);
 		departmentMenu.add(removeDepartmentItem);
 		teacherMenu = new JMenu("Teacher");
-		
-				// Teacher menu files
-				menuBar.add(teacherMenu);
-				editTeacherItem = new JMenuItem("Edit Teacher Info");
-				setHoursItem = new JMenuItem("Set Hours for Teacher");
-				displayTeachers = new JMenuItem("Display Teachers");
-				
-						teacherMenu.add(editTeacherItem);
-						teacherMenu.add(setHoursItem);
-						teacherMenu.add(displayTeachers);
+
+		// Teacher menu files
+		menuBar.add(teacherMenu);
+		editTeacherItem = new JMenuItem("Edit Teacher Info");
+		setHoursItem = new JMenuItem("Set Hours for Teacher");
+		displayTeachers = new JMenuItem("Display Teachers");
+
+		teacherMenu.add(editTeacherItem);
+		teacherMenu.add(setHoursItem);
+		teacherMenu.add(displayTeachers);
 
 		// Course menu files
 		menuBar.add(courseMenu);
@@ -506,7 +486,6 @@ public class View extends JFrame {
 		return btnRemoveCourse;
 	}
 
-
 	public JTextField getTextFieldAddTeacherName() {
 		return textFieldAddTeacherName;
 	}
@@ -535,8 +514,6 @@ public class View extends JFrame {
 		this.textFieldAddCourseName = textFieldAddCourseName;
 	}
 
-
-
 	public JTextField getTextFieldAddTeacherAddress() {
 		return textFieldAddTeacherAddress;
 	}
@@ -544,7 +521,6 @@ public class View extends JFrame {
 	public JTextField getTextFieldAddTeacherHourlySalary() {
 		return textFieldAddTeacherHourlySalary;
 	}
-	
 
 	public JTextField getTextFieldAddCredits() {
 		return textFieldAddCredits;
@@ -555,18 +531,21 @@ public class View extends JFrame {
 	public JTextArea getTextFieldErrorMessage() {
 		return textAreaErrorMessageTeacher;
 	}
+
 	public JTextArea getTextFieldErrorMessageDepartment() {
 		return textAreaErrorMessageDepartment;
 	}
+
 	public JTextArea getTextFieldErrorMessageCourses() {
 		return textAreaErrorMessageCourses;
 
 	}
+
 	public JTextField getTextFieldResponsibleTeacher() {
 		return textFieldResponsibleTeacher;
 	}
-	
-	//LabelGetters
+
+	// LabelGetters
 
 	public JLabel getLblNewLabel_3() {
 		return lblNewLabel_3_1;
@@ -644,6 +623,7 @@ public class View extends JFrame {
 	public JTextArea getTextAreaErrorMessageCourses() {
 		return textAreaErrorMessageCourses;
 	}
+
 	public JComboBox getComboBoxTeacherTitle() {
 		return comboBoxTeacherTitle;
 	}
@@ -651,6 +631,7 @@ public class View extends JFrame {
 	public JComboBox getComboBoxCoursesCycle() {
 		return comboBoxCoursesCycle;
 	}
+
 	public JTextField getTextFieldTeacherDepartment() {
 		return textFieldTeacherDepartment;
 	}
