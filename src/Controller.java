@@ -174,7 +174,7 @@ public class Controller implements ActionListener {
 
 //     String.format("%05d", number) innebär att den ändrar formateringen så att den alltid visar fem siffror, kan börja på nolla
 
-                    String teacherId = firstLetters + String.format("%05d", number) + lastLetters;
+                    String teacherId = firstLetters + String.format("%04d", number) + lastLetters;
                     String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
                     String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
                     String teacherTitle = view.getComboBoxTeacherTitle().getSelectedItem().toString();
