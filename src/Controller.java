@@ -70,7 +70,7 @@ public class Controller implements ActionListener {
 					view.getTextAreaErrorMessageCourses().setText("Credits must be entered in numbers");
 				} catch (StringIndexOutOfBoundsException stringIndexOutOfBoundsException) {
 					view.getTextAreaErrorMessageCourses().setText("Do not leave Course Name field as blank!");
-				} catch (NullPointerException n) {
+				} catch (NullPointerException nullPointerException) {
 					view.getTextAreaErrorMessageCourses().setText("Please enter cycle to continue");
 				}
 			}
