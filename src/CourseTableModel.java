@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class CourseTableModel extends AbstractTableModel {
     private ArrayList<Course> courses = new ArrayList<Course>();
-    private String[] columns = {"Name", "Course Code", "ECTS", "Cycle", "Responsible", "Teachers"};
+    private String[] columns = {"Name", "Course Code", "ECTS", "Cycle", "Responsible"};
 
 
     public void addCourse(Course course) {
@@ -51,9 +51,6 @@ public class CourseTableModel extends AbstractTableModel {
                 return tmpCourse.getCycle();
             case 4:
                 return tmpCourse.getResponsible();
-            case 5:
-                return tmpCourse.getTeaches();
-
         }
         return null;
 
@@ -74,7 +71,9 @@ public class CourseTableModel extends AbstractTableModel {
         } else if (columnIndex == 3) {
             String newCycle = val.toString();
             tmpCourse.setCycle(newCycle);
-
+        } else if (columnIndex == 4) {
+            String newResponsible = val.toString();
+            tmpCourse.setResponsible(newResponsible);
         }
         this.fireTableCellUpdated(rowIndex, columnIndex);
     }
@@ -86,7 +85,7 @@ public class CourseTableModel extends AbstractTableModel {
     }
 
     public Boolean findCourseCode(String courseCode) {
-        for (Course course: courses) {
+        for (Course course : courses) {
             if (course.getCourseCode().equals(courseCode)) {
                 return true;
             }
