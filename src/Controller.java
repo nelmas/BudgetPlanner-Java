@@ -53,6 +53,13 @@ public class Controller implements ActionListener {
 					if (courseCredit > 30) {
 						view.getTextAreaErrorMessageCourses().setText("Credits can't be more than 30");
 					}
+					if (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle") {
+						view.getTextAreaErrorMessageCourses().setText("Only Professors and Associate Professors can teach Third cycle courses");
+						
+					}
+					if (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Assistant Professor" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle") {
+						view.getTextAreaErrorMessageCourses().setText("Only Professors and Associate Professors can teach Third cycle courses");
+					}
 
 					if (view.getTeacherTableModel().findTeacherID(courseResponsible) == false) {
 						view.getTextAreaErrorMessageCourses().setText("Check the ID for the responsible teacher!");
@@ -181,7 +188,9 @@ public class Controller implements ActionListener {
 					}
 					if ((!view.getDepartmentTableModel().findDepartment(teacherDepartment))) {
 						view.getTextAreaErrorMessageTeacher().setText("Department does not exist");
-					} else {
+					} 
+					
+					else {
 
 						Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
 								teacherSalary, teacherDepartment);
