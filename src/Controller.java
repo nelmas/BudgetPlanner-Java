@@ -13,6 +13,7 @@ public class Controller implements ActionListener {
 	private Department department;
 	private Course course;
 	private TeacherTableModel teacherTableModel;
+	
 
 	Controller(View view, Teacher teacher, Department department, Course course, TeacherTableModel teacherTableModel) {
 
@@ -21,6 +22,7 @@ public class Controller implements ActionListener {
 		this.department = department;
 		this.course = course;
 		this.teacherTableModel = teacherTableModel;
+		
 		declareListeners();
 
 	}
@@ -53,14 +55,14 @@ public class Controller implements ActionListener {
 					if (courseCredit > 30) {
 						view.getTextAreaErrorMessageCourses().setText("Credits can't be more than 30");
 					}
-					if (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle") {
-						view.getTextAreaErrorMessageCourses().setText("Only Professors and Associate Professors can teach Third cycle courses");
+					
+					if (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle"))
+							
+							{
 						
-						
-					}
-					if (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Assistant Professor" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle") {
 						view.getTextAreaErrorMessageCourses().setText("Only Professors and Associate Professors can teach Third cycle courses");
 					}
+					
 
 					if (view.getTeacherTableModel().findTeacherID(courseResponsible) == false) {
 						view.getTextAreaErrorMessageCourses().setText("Check the ID for the responsible teacher!");
@@ -70,7 +72,8 @@ public class Controller implements ActionListener {
 					}
 					if (view.getTeacherTableModel().findTeacherID(courseResponsible) == true
 							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
-							&& courseCredit <= 30 && (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false))
+							&& courseCredit <= 30 && (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")) == false)
+							//(view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false))
 							//&& (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Assistant Professor" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false) )
 					{
 						view.getCourseTableModel().addCourse(tmpCourse);
@@ -114,14 +117,12 @@ public class Controller implements ActionListener {
 					if (view.getCourseTableModel().findCourseCode(courseCode) == false) {
 						view.getTextAreaErrorMessageCourses().setText("Check that Course Code is valid!");
 					}
-					if (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle") {
-						view.getTextAreaErrorMessageCourses().setText("Only Professors and Associate Professors can teach Third cycle courses");
+					if (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle"))
 						
-						
-					}
-					if (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Assistant Professor" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle") {
-						view.getTextAreaErrorMessageCourses().setText("Only Professors and Associate Professors can teach Third cycle courses");
-					}
+					{
+				view.getTextAreaErrorMessageCourses().setText("Only Professors and Associate Professors can teach Third cycle courses");
+			}
+					
 					if (view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught > 3600) {
 						view.getTextAreaErrorMessageCourses().setText("Total working hours for employee exceeded 3600!");
 					}
@@ -136,7 +137,7 @@ public class Controller implements ActionListener {
 					}
 					if (view.getTeacherTableModel().findTeacherID(employeeId) == true && view.getCourseTableModel().findCourseCode(courseCode) == true
 							&& view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught <= 3600 && hoursTaught > 0 && hoursTaught < 3600
-							&& view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == false && (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false)) {
+							&& view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == false && (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")) == false) {
 						view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
 					}
 				}

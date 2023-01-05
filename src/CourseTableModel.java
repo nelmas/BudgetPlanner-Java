@@ -8,7 +8,15 @@ public class CourseTableModel extends AbstractTableModel {
     private String[] columns = {"Name", "Course Code", "ECTS", "Cycle", "Responsible"};
 
 
-    public void addCourse(Course course) {
+    public String[] getColumns() {
+		return columns;
+	}
+
+	public void setColumns(String[] columns) {
+		this.columns = columns;
+	}
+
+	public void addCourse(Course course) {
         courses.add(course);
         // defined in superclass
         this.fireTableDataChanged();
