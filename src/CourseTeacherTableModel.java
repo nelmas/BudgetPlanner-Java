@@ -45,7 +45,7 @@ public class CourseTeacherTableModel extends AbstractTableModel {
             case 1:
                 return tmpHours.getCourseCode();
 
-           case 2:
+            case 2:
                 return tmpHours.getHoursTaught();
         }
         return null;
@@ -61,8 +61,11 @@ public class CourseTeacherTableModel extends AbstractTableModel {
             String newCourseCode = val.toString();
             tmpHours.setCourseCode(newCourseCode);
         } else if (columnIndex == 2) {
-            int newHoursTaught = (int) val;
-            tmpHours.setHoursTaught(newHoursTaught);
+            String strNewHoursTaught = val.toString();
+            int newHoursTaught = Integer.parseInt(strNewHoursTaught);
+            if (newHoursTaught > 0 && newHoursTaught <= 3600) {
+                tmpHours.setHoursTaught(newHoursTaught);
+            }
         }
         this.fireTableCellUpdated(rowIndex, columnIndex);
     }
@@ -74,7 +77,7 @@ public class CourseTeacherTableModel extends AbstractTableModel {
 
     public int calculateHours(String identificationNumber) {
         int totalHours = 0;
-        for (TeacherHours teacherHours: hours) {
+        for (TeacherHours teacherHours : hours) {
             if (teacherHours.getEmployeeId().equals(identificationNumber)) {
                 totalHours += teacherHours.getHoursTaught();
             }
@@ -91,4 +94,13 @@ public class CourseTeacherTableModel extends AbstractTableModel {
         return false;
     }
 
+    public int checkTeachingCourses(String identificationNumber) {
+        int count = 0;
+        for (TeacherHours teacherHours : hours) {
+            if (teacherHours.getEmployeeId().equals(identificationNumber)) {
+                count += 1;
+            }
+        }
+        return count;
+    }
 }

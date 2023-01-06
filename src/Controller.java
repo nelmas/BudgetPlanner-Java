@@ -31,6 +31,7 @@ public class Controller implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					String courseResponsible = view.getTextFieldResponsibleTeacher().getText();
+					String newCourseResponsible = view.getTextFieldResponsibleTeacher().getText() + " " + view.getTeacherTableModel().findTeacherName(courseResponsible);
 					String courseName = view.getTextFieldAddCourseName().getText();
 
 					String firstLetters = courseName.substring(0, 2);
@@ -45,7 +46,7 @@ public class Controller implements ActionListener {
 
 					int courseCredit = Integer.parseInt(strCourseCredit.trim());
 
-					Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle, courseResponsible);
+					Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle, newCourseResponsible);
 
 					if (courseCredit < 0) {
 						view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
@@ -60,9 +61,16 @@ public class Controller implements ActionListener {
 					if (view.getCourseTableModel().findCourseCode(courseCode) == true) {
 						view.getTextAreaErrorMessageCourses().setText("Course code already exists!");
 					}
+					if (view.getCourseTableModel().findTotalCredits(courseResponsible) + courseCredit > 30) {
+						view.getTextAreaErrorMessageCourses().setText("A teacher cannot be responsible for more than 30 ECTS!");
+					}
+					if (view.getCourseTableModel().checkResponsibleCourses(courseResponsible) == 3) {
+						view.getTextAreaErrorMessageCourses().setText("A teacher cannot be responsible for more than 3 courses!");
+					}
 					if (view.getTeacherTableModel().findTeacherID(courseResponsible) == true
 							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
-							&& courseCredit <= 30) {
+							&& courseCredit <= 30 && view.getCourseTableModel().findTotalCredits(courseResponsible) + courseCredit <= 30
+							&& view.getCourseTableModel().checkResponsibleCourses(courseResponsible) < 3) {
 						view.getCourseTableModel().addCourse(tmpCourse);
 						teacher.addTaught(tmpCourse);
 					}
@@ -85,7 +93,7 @@ public class Controller implements ActionListener {
             }
         });
 
-        //Add teacher to course
+        //Add teacher and hours to course
         view.getBtnAddCourseTeacher().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 				try {
@@ -114,6 +122,9 @@ public class Controller implements ActionListener {
 					}
 					if (view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == true) {
 						view.getTextAreaErrorMessageCourses().setText("Teacher is already teaching the selected course!");
+					}
+					if (view.getCourseTeacherTableModel().checkTeachingCourses(employeeId) == 3) {
+						view.getTextAreaErrorMessageCourses().setText("Maximum amount of 3 courses allowed");
 					}
 					if (view.getTeacherTableModel().findTeacherID(employeeId) == true && view.getCourseTableModel().findCourseCode(courseCode) == true
 							&& view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught <= 3600 && hoursTaught > 0 && hoursTaught < 3600
@@ -223,6 +234,7 @@ public class Controller implements ActionListener {
 						Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
 								teacherSalary, teacherDepartment);
 						view.getTeacherTableModel().addTeacher(tmpTeacher);
+						department.addTeacher(tmpTeacher);
 					}
 				} catch (NumberFormatException exception) {
 					view.getTextAreaErrorMessageTeacher().setText("Please enter only numbers as a salary!");
