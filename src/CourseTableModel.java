@@ -105,7 +105,7 @@ public class CourseTableModel extends AbstractTableModel {
 
     public int checkResponsibleCourses(String identificationNumber) {
         int count = 0;
-        for (Course course :courses) {
+        for (Course course : courses) {
             if (course.getResponsible().equals(identificationNumber)) {
                 count += 1;
             }
