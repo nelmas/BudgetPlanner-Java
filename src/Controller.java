@@ -73,6 +73,7 @@ public class Controller implements ActionListener {
 					if (view.getTeacherTableModel().findTeacherID(courseResponsible) == true
 							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
 							&& courseCredit <= 30 && (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")) == false)
+						
 							//(view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false))
 							//&& (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Assistant Professor" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false) )
 					{
@@ -139,6 +140,7 @@ public class Controller implements ActionListener {
 							&& view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught <= 3600 && hoursTaught > 0 && hoursTaught < 3600
 							&& view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == false && (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")) == false) {
 						view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
+						
 					}
 				}
 				catch (NumberFormatException numberFormatException) {
@@ -245,6 +247,7 @@ public class Controller implements ActionListener {
 						Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
 								teacherSalary, teacherDepartment);
 						view.getTeacherTableModel().addTeacher(tmpTeacher);
+						
 					}
 				} catch (NumberFormatException exception) {
 					view.getTextAreaErrorMessageTeacher().setText("Please enter only numbers as a salary!");

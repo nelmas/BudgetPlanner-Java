@@ -6,6 +6,7 @@ public class Course {
 	private int credits;
 	private String cycle;
 	private String responsible;
+	
 	private ArrayList<Teacher> teaches;
 
 //constructors
@@ -84,12 +85,6 @@ public class Course {
 
 	}
 
-	public void addResponsible() {
-
-	}
-
-	public void removeResponsible() {
-
-	}
+	
 
 }
