@@ -49,7 +49,9 @@ public class DepartmentTableModel extends AbstractTableModel {
 		} else if (columnIndex == 1) {
 			String strBudget = val.toString();
 			int newBudget = Integer.parseInt(strBudget.trim());
-			tmpDepartment.setBudget(newBudget);
+			if (newBudget > 0) {
+				tmpDepartment.setBudget(newBudget);
+			}
 		} else if (columnIndex == 2) {
 			String newAddress = val.toString();
 			tmpDepartment.setAddress(newAddress);
