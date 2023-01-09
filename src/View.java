@@ -8,19 +8,6 @@ import java.awt.event.ActionEvent;
 
 public class View extends JFrame {
 
-	// JMenuItems
-	private JMenuBar menuBar;
-	private JMenu departmentMenu;
-	private JMenu courseMenu;
-	private JMenu teacherMenu;
-	private JMenuItem addDepartmentItem;
-	private JMenuItem removeDepartmentItem;
-	private JMenuItem getCourseInfoItem;
-	private JMenuItem editCourseItem;
-	private JMenuItem editTeacherItem;
-	private JMenuItem setHoursItem;
-	private JMenuItem displayTeachers;
-
 	
 	private JTabbedPane tabbedPane;
 	// JPanels
@@ -275,7 +262,7 @@ public class View extends JFrame {
 
 
 
-		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor ",
+		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor",
 				"Professor"};
 		comboBoxTeacherTitle = new JComboBox(teachers);
 		comboBoxTeacherTitle.setBounds(100, 53, 140, 30);
@@ -415,43 +402,6 @@ public class View extends JFrame {
 
 		contentPane.show();
 
-
-
-
-
-		// MenuBar
-		menuBar = new JMenuBar();
-		this.setJMenuBar(menuBar);
-		departmentMenu = new JMenu("Department");
-		courseMenu = new JMenu("Course");
-
-		// Department menu files
-		menuBar.add(departmentMenu);
-		addDepartmentItem = new JMenuItem("Add Department");
-		removeDepartmentItem = new JMenuItem("Remove Department");
-
-		departmentMenu.add(addDepartmentItem);
-		departmentMenu.add(removeDepartmentItem);
-		teacherMenu = new JMenu("Teacher");
-
-				// Teacher menu files
-				menuBar.add(teacherMenu);
-				editTeacherItem = new JMenuItem("Edit Teacher Info");
-				setHoursItem = new JMenuItem("Set Hours for Teacher");
-				displayTeachers = new JMenuItem("Display Teachers");
-
-						teacherMenu.add(editTeacherItem);
-						teacherMenu.add(setHoursItem);
-						teacherMenu.add(displayTeachers);
-
-		// Course menu files
-		menuBar.add(courseMenu);
-		getCourseInfoItem = new JMenuItem("Get Course Info");
-		editCourseItem = new JMenuItem("Edit Course");
-
-		courseMenu.add(getCourseInfoItem);
-		courseMenu.add(editCourseItem);
-
 		this.setVisible(true);
 	}
 
@@ -467,46 +417,6 @@ public class View extends JFrame {
 
 	public JPanel getContentPane() {
 		return contentPane;
-	}
-
-	public JMenu getDepartmentMenu() {
-		return departmentMenu;
-	}
-
-	public JMenu getCourseMenu() {
-		return courseMenu;
-	}
-
-	public JMenu getTeacherMenu() {
-		return teacherMenu;
-	}
-
-	public JMenuItem getAddDepartmentItem() {
-		return addDepartmentItem;
-	}
-
-	public JMenuItem getRemoveDepartmentItem() {
-		return removeDepartmentItem;
-	}
-
-	public JMenuItem getGetCourseInfoItem() {
-		return getCourseInfoItem;
-	}
-
-	public JMenuItem getEditCourseItem() {
-		return editCourseItem;
-	}
-
-	public JMenuItem getEditTeacherItem() {
-		return editTeacherItem;
-	}
-
-	public JMenuItem getSetHoursItem() {
-		return setHoursItem;
-	}
-
-	public JMenuItem getDisplayTeachers() {
-		return displayTeachers;
 	}
 
 	// ButtonGetters
