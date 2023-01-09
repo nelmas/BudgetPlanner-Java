@@ -256,68 +256,6 @@ public class Controller implements ActionListener {
 			}
 		});
 	}
-
-//		view.getBtnAddTeacher().addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				try {
-//					String teacherName = view.getTextFieldAddTeacherName().getText();
-//					String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
-//
-//					String TeacherID = "jdjdjd"
-//					;
-//
-//
-//					String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
-//					String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
-//					 String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-//					String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-//
-//					int teacherSalary = Integer.parseInt(strTeacherSalary);
-//
-//				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
-//
-//				view.getTeacherTableModel().addTeacher(tmpTeacher);
-//
-//
-//
-//
-//				}catch (NumberFormatException exception) {
-//					view.getTextFieldErrorMessageTeacher().setText("Please only enter numbers");
-//				}
-//
-//					if (teacherSalary < 0) {
-//						view.getTextFieldErrorMessageTeacher().setText("Hourly salary can't have a negative value");
-//					} else {
-//
-//						Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress,
-//								teacherSalary);
-//
-//						view.getTeacherTableModel().addTeacher(tmpTeacher);
-//					}
-//				} catch (NumberFormatException exception) {
-//					view.getTextFieldErrorMessageTeacher().setText("Hourly salary must be entered in numbers");
-//				}
-//
-//				Teacher tmpTeacher = new Teacher();
-//				tmpTeacher.setAddress(teacherAddress);
-//				tmpTeacher.setCourse(null);
-//				tmpTeacher.setEmployeeId(teacherID);
-//				tmpTeacher.setHourlySalary(teacherSalary);
-//				tmpTeacher.setName(teacherName);
-//				tmpTeacher.setTitle(teacherTitle);
-//				tmpTeacher.setTaught(null);
-//
-//	TeacherTableModel teacherTableModel = new TeacherTableModel();
-//
-//				teacherTableModel.addTeacher(tmpTeacher);
-//
-//
-//
-//			}
-//		});
-//
-//}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
