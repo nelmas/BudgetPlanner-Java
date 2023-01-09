@@ -76,7 +76,8 @@ public class CourseTableModel extends AbstractTableModel {
             String newCourseCode = val.toString();
             tmpCourse.setCourseCode(newCourseCode);
         } else if (columnIndex == 2) {
-            int newCredits = (int) val;
+            String strCredits = val.toString();
+            int newCredits = Integer.parseInt(strCredits.trim());
             tmpCourse.setCredits(newCredits);
         } else if (columnIndex == 3) {
             String newCycle = val.toString();
