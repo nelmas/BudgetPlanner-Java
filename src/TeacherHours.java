@@ -6,14 +6,19 @@ public class TeacherHours {
 
     //Constructor
     
+
+    public TeacherHours () {
+
+    }
+
     public TeacherHours (String employeeId, String courseCode, int hoursTaught) {
         this.employeeId = employeeId;
         this.courseCode = courseCode;
         this.hoursTaught = hoursTaught;
     }
     //getter and setters
-    
-    public String getEmployeeId() {
+
+	public String getEmployeeId() {
         return employeeId;
     }
 

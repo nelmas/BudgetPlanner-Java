@@ -33,7 +33,8 @@ public class Controller implements ActionListener {
 		view.getBtnAddCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String courseResponsible = view.getTextFieldResponsibleTeacher().getText();
+					String responsibleId = view.getTextFieldResponsibleTeacher().getText();
+					String responsibleName = view.getTeacherTableModel().findTeacherName(responsibleId);
 					String courseName = view.getTextFieldAddCourseName().getText();
 
 					String firstLetters = courseName.substring(0, 2);
@@ -48,7 +49,7 @@ public class Controller implements ActionListener {
 
 					int courseCredit = Integer.parseInt(strCourseCredit.trim());
 
-					Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle, courseResponsible);
+					Course tmpCourse = new Course(courseName, courseCode, courseCredit, cycle, responsibleId, responsibleName);
 
 					if (courseCredit < 0) {
 						view.getTextAreaErrorMessageCourses().setText("Credits can't have a negative value");
@@ -65,20 +66,49 @@ public class Controller implements ActionListener {
 					}
 					
 
-					if (view.getTeacherTableModel().findTeacherID(courseResponsible) == false) {
+					if (view.getTeacherTableModel().findTeacherID(responsibleId) == false) {
 						view.getTextAreaErrorMessageCourses().setText("Check the ID for the responsible teacher!");
 					}
 					if (view.getCourseTableModel().findCourseCode(courseCode) == true) {
-						view.getTextAreaErrorMessageCourses().setText("Course code already exists!");
+						view.getTextAreaErrorMessageCourses().setText("A replica in Course Code has occurred please try re-add course");
 					}
-					if (view.getTeacherTableModel().findTeacherID(courseResponsible) == true
+					
+					if (view.getCourseTableModel().findTotalCredits(responsibleId) + courseCredit > 30) {
+						view.getTextAreaErrorMessageCourses().setText("A teacher cannot be responsible for more than 30 ECTS!");
+					}
+					if (view.getCourseTableModel().checkResponsibleCourses(responsibleId) == 3) {
+						view.getTextAreaErrorMessageCourses().setText("A teacher cannot be responsible for more than 3 courses!");
+					}
+
+					if (view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle") &&
+							view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Lecturer")
+							|| view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Assistant Professor")) {
+						view.getTextAreaErrorMessageCourses().setText("Only Associate Professors and Professors can teach Third cycle courses!");
+					}
+
+					if (view.getTeacherTableModel().findTeacherID(responsibleId) == true
 							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
-							&& courseCredit <= 30 && (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")) == false)
-							//(view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Lecturer" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false))
-							//&& (view.getComboBoxTeacherTitle().getSelectedItem().toString() == "Assistant Professor" && view.getComboBoxCoursesCycle().getSelectedItem().toString() == "Third Cycle" == false) )
-					{
+							&& courseCredit <= 30 && view.getCourseTableModel().findTotalCredits(responsibleId) + courseCredit <= 30
+							&& view.getCourseTableModel().checkResponsibleCourses(responsibleId) < 3 && !view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")) {
 						view.getCourseTableModel().addCourse(tmpCourse);
-						teacher.addTaught(tmpCourse);
+						view.getTextAreaErrorMessageCourses().setText("");
+					}
+					//Check so that only Associate professors and professors can teach be responsible for third cycle courses
+					if (view.getTeacherTableModel().findTeacherID(responsibleId) == true
+							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
+							&& courseCredit <= 30 && view.getCourseTableModel().findTotalCredits(responsibleId) + courseCredit <= 30
+							&& view.getCourseTableModel().checkResponsibleCourses(responsibleId) < 3 && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")
+							&& view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Associate Professor") ) {
+						view.getCourseTableModel().addCourse(tmpCourse);
+						view.getTextAreaErrorMessageCourses().setText("");
+					}
+					if (view.getTeacherTableModel().findTeacherID(responsibleId) == true
+							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
+							&& courseCredit <= 30 && view.getCourseTableModel().findTotalCredits(responsibleId) + courseCredit <= 30
+							&& view.getCourseTableModel().checkResponsibleCourses(responsibleId) < 3 && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")
+							&&  view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Professor")) {
+						view.getCourseTableModel().addCourse(tmpCourse);
+						view.getTextAreaErrorMessageCourses().setText("");
 					}
 
 				} catch (NumberFormatException numberFormatException) {
@@ -100,7 +130,7 @@ public class Controller implements ActionListener {
             }
         });
 
-        //Add teacher to course
+        //Add teacher and hours to course
         view.getBtnAddCourseTeacher().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 				try {
@@ -136,10 +166,15 @@ public class Controller implements ActionListener {
 					if (view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == true) {
 						view.getTextAreaErrorMessageCourses().setText("Teacher is already teaching the selected course!");
 					}
+					if (view.getCourseTeacherTableModel().checkTeachingCourses(employeeId) == 3) {
+						view.getTextAreaErrorMessageCourses().setText("Maximum amount of 3 courses allowed");
+					}
 					if (view.getTeacherTableModel().findTeacherID(employeeId) == true && view.getCourseTableModel().findCourseCode(courseCode) == true
 							&& view.getCourseTeacherTableModel().calculateHours(employeeId) + hoursTaught <= 3600 && hoursTaught > 0 && hoursTaught < 3600
 							&& view.getCourseTeacherTableModel().isTeachingCourse(employeeId, courseCode) == false && (view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Assistant Professor") || view.getComboBoxTeacherTitle().getSelectedItem().toString().equals("Lecturer") && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")) == false) {
 						view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
+						view.getTextAreaErrorMessageCourses().setText("");
+
 					}
 				}
 				catch (NumberFormatException numberFormatException) {
@@ -234,18 +269,32 @@ public class Controller implements ActionListener {
 					String teacherDepartment = view.getTextFieldTeacherDepartment().getText();
 
 					int teacherSalary = Integer.parseInt(strTeacherSalary);
+
+					Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
+							teacherSalary, teacherDepartment);
+
+
 					if (teacherSalary < 0) {
 						view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
 					}
 					if ((!view.getDepartmentTableModel().findDepartment(teacherDepartment))) {
 						view.getTextAreaErrorMessageTeacher().setText("Department does not exist");
+
+					}
+					if (teacherSalary > 0 && view.getDepartmentTableModel().findDepartment(teacherDepartment) == true) {
+
 					} 
+					if (view.getTeacherTableModel().findTeacherID(teacherId) == true) {
+				    	  view.getTextAreaErrorMessageTeacher().setText("A replica in ID has occurred please re-add teacher");
+					}
 					
 					else {
 
-						Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
-								teacherSalary, teacherDepartment);
+						//Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
+								//teacherSalary, teacherDepartment);
+
 						view.getTeacherTableModel().addTeacher(tmpTeacher);
+						view.getTextAreaErrorMessageTeacher().setText("");
 					}
 				} catch (NumberFormatException exception) {
 					view.getTextAreaErrorMessageTeacher().setText("Please enter only numbers as a salary!");
@@ -267,68 +316,6 @@ public class Controller implements ActionListener {
 			}
 		});
 	}
-
-//		view.getBtnAddTeacher().addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				try {
-//					String teacherName = view.getTextFieldAddTeacherName().getText();
-//					String teacherID = view.getTextFieldAddTeacherEmployeeID().getText();
-//
-//					String TeacherID = "jdjdjd"
-//					;
-//
-//
-//					String teacherTitle = view.getTextFieldAddTeacherTitle().getText();
-//					String teacherAddress = view.getTextFieldAddTeacherAddress().getText();
-//					 String teacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-//					String strTeacherSalary = view.getTextFieldAddTeacherHourlySalary().getText();
-//
-//					int teacherSalary = Integer.parseInt(strTeacherSalary);
-//
-//				Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress, teacherSalary);
-//
-//				view.getTeacherTableModel().addTeacher(tmpTeacher);
-//
-//
-//
-//
-//				}catch (NumberFormatException exception) {
-//					view.getTextFieldErrorMessageTeacher().setText("Please only enter numbers");
-//				}
-//
-//					if (teacherSalary < 0) {
-//						view.getTextFieldErrorMessageTeacher().setText("Hourly salary can't have a negative value");
-//					} else {
-//
-//						Teacher tmpTeacher = new Teacher(teacherName, teacherID, teacherTitle, teacherAddress,
-//								teacherSalary);
-//
-//						view.getTeacherTableModel().addTeacher(tmpTeacher);
-//					}
-//				} catch (NumberFormatException exception) {
-//					view.getTextFieldErrorMessageTeacher().setText("Hourly salary must be entered in numbers");
-//				}
-//
-//				Teacher tmpTeacher = new Teacher();
-//				tmpTeacher.setAddress(teacherAddress);
-//				tmpTeacher.setCourse(null);
-//				tmpTeacher.setEmployeeId(teacherID);
-//				tmpTeacher.setHourlySalary(teacherSalary);
-//				tmpTeacher.setName(teacherName);
-//				tmpTeacher.setTitle(teacherTitle);
-//				tmpTeacher.setTaught(null);
-//
-//	TeacherTableModel teacherTableModel = new TeacherTableModel();
-//
-//				teacherTableModel.addTeacher(tmpTeacher);
-//
-//
-//
-//			}
-//		});
-//
-//}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

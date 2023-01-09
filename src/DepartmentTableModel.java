@@ -44,6 +44,30 @@ public class DepartmentTableModel extends AbstractTableModel {
 
 		return null;
 	}
+	@Override
+	public void setValueAt(Object val, int rowIndex, int columnIndex) {
+		Department tmpDepartment = departmentRegister.get(rowIndex);
+		if (columnIndex == 0) {
+			String newName = val.toString();
+			tmpDepartment.setName(newName);
+		} else if (columnIndex == 1) {
+			String strBudget = val.toString();
+			int newBudget = Integer.parseInt(strBudget.trim());
+			if (newBudget > 0) {
+				tmpDepartment.setBudget(newBudget);
+			}
+		} else if (columnIndex == 2) {
+			String newAddress = val.toString();
+			tmpDepartment.setAddress(newAddress);
+		}
+		this.fireTableCellUpdated(rowIndex, columnIndex);
+	}
+
+	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex) {
+		return true;
+	}
+
 	public void removeRow(int rowIndex) {
 		departmentRegister.remove(rowIndex);
 		fireTableRowsDeleted(rowIndex, rowIndex);

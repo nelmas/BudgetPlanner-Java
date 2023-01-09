@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class CourseTableModel extends AbstractTableModel {
     private ArrayList<Course> courses = new ArrayList<Course>();
-    private String[] columns = {"Name", "Course Code", "ECTS", "Cycle", "Responsible"};
+    private String[] columns = {"Course Name", "Course Code", "ECTS", "Cycle", "Responsible", "Teacher Name"};
 
 
     public String[] getColumns() {
@@ -58,7 +58,9 @@ public class CourseTableModel extends AbstractTableModel {
             case 3:
                 return tmpCourse.getCycle();
             case 4:
-                return tmpCourse.getResponsible();
+                return tmpCourse.getResponsibleId();
+            case 5:
+                return tmpCourse.getResponsibleName();
         }
         return null;
 
@@ -74,15 +76,22 @@ public class CourseTableModel extends AbstractTableModel {
             String newCourseCode = val.toString();
             tmpCourse.setCourseCode(newCourseCode);
         } else if (columnIndex == 2) {
-            int newCredits = (int) val;
-            tmpCourse.setCredits(newCredits);
+            String strCredits = val.toString();
+            int newCredits = Integer.parseInt(strCredits.trim());
+            if (newCredits > 0) {
+                tmpCourse.setCredits(newCredits);
+            }
         } else if (columnIndex == 3) {
             String newCycle = val.toString();
             tmpCourse.setCycle(newCycle);
         } else if (columnIndex == 4) {
-            String newResponsible = val.toString();
-            tmpCourse.setResponsible(newResponsible);
+            String newResponsibleId = val.toString();
+            tmpCourse.setResponsibleId(newResponsibleId);
+        } else if (columnIndex == 5) {
+              String newResponsibleName = val.toString();
+              tmpCourse.setResponsibleName(newResponsibleName);
         }
+
         this.fireTableCellUpdated(rowIndex, columnIndex);
     }
 
@@ -101,4 +110,23 @@ public class CourseTableModel extends AbstractTableModel {
         return false;
     }
 
+    public int findTotalCredits(String identificationNumber) {
+        int totalCredits = 0;
+        for (Course course : courses) {
+            if (course.getResponsibleId().equals(identificationNumber)) {
+                totalCredits += course.getCredits();
+            }
+        }
+        return totalCredits;
+    }
+
+    public int checkResponsibleCourses(String identificationNumber) {
+        int count = 0;
+        for (Course course :courses) {
+            if (course.getResponsibleId().equals(identificationNumber)) {
+                count += 1;
+            }
+        }
+        return count;
+    }
 }

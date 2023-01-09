@@ -7,19 +7,6 @@ import java.awt.event.ActionEvent;
 
 public class View extends JFrame {
 
-	// JMenuItems
-	private JMenuBar menuBar;
-	private JMenu departmentMenu;
-	private JMenu courseMenu;
-	private JMenu teacherMenu;
-	private JMenuItem addDepartmentItem;
-	private JMenuItem removeDepartmentItem;
-	private JMenuItem getCourseInfoItem;
-	private JMenuItem editCourseItem;
-	private JMenuItem editTeacherItem;
-	private JMenuItem setHoursItem;
-	private JMenuItem displayTeachers;
-
 	private JTabbedPane tabbedPane;
 	// JPanels
 	private JPanel contentPane;
@@ -279,7 +266,7 @@ public class View extends JFrame {
 
 
 
-		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor ",
+		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor",
 				"Professor"};
 
 		comboBoxTeacherTitle = new JComboBox(teachers);
@@ -309,18 +296,18 @@ public class View extends JFrame {
 		textFieldAddCourseName.setColumns(10);
 
 		textFieldAddCredits = new JTextField();
-		textFieldAddCredits.setBounds(120, 164, 130, 26);
+		textFieldAddCredits.setBounds(120, 120, 130, 26);
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 
 		JLabel lblCourseCredits = new JLabel("Credits");
-		lblCourseCredits.setBounds(30, 169, 80, 16);
+		lblCourseCredits.setBounds(30, 120, 80, 16);
 		panelAddCourses.add(lblCourseCredits);
 
 
 
 		JLabel lblNewCycle = new JLabel("Cycle");
-		lblNewCycle.setBounds(30, 207, 61, 16);
+		lblNewCycle.setBounds(30, 160, 61, 16);
 		panelAddCourses.add(lblNewCycle);
 
 
@@ -329,12 +316,12 @@ public class View extends JFrame {
 		panelAddCourses.add(lblResponsibleTeacher);
 
 		textFieldCourseCode = new JTextField();
-		textFieldCourseCode.setBounds(120, 116, 130, 26);
+		textFieldCourseCode.setBounds(120, 255, 130, 26);
 		panelAddCourses.add(textFieldCourseCode);
 		textFieldCourseCode.setColumns(10);
 
 		lblCourseCode = new JLabel("Course Code");
-		lblCourseCode.setBounds(30, 121, 80, 16);
+		lblCourseCode.setBounds(30, 260, 80, 16);
 		panelAddCourses.add(lblCourseCode);
 
 		btnRemoveCourse = new JButton("Remove Course");
@@ -390,7 +377,8 @@ public class View extends JFrame {
 
 		comboBoxCoursesCycle = new JComboBox();
 
-		comboBoxCoursesCycle.setBounds(120, 200, 140, 30);
+		comboBoxCoursesCycle.setBounds(120, 160, 140, 30);
+
 		comboBoxCoursesCycle.setModel(new DefaultComboBoxModel(new String[] {"First Cycle", "Second Cycle", "Third Cycle"}));
 		panelAddCourses.add(comboBoxCoursesCycle);
 
@@ -413,54 +401,16 @@ public class View extends JFrame {
 		panelAddCourses.add(btnRemoveCourseTeacher);
 
 		lblHours = new JLabel("Hours ");
-		lblHours.setBounds(30, 247, 46, 14);
+		lblHours.setBounds(30, 210, 46, 14);
 		panelAddCourses.add(lblHours);
 
 		textFieldHours = new JTextField();
-		textFieldHours.setBounds(120, 241, 130, 26);
+		textFieldHours.setBounds(120, 210, 130, 26);
 		panelAddCourses.add(textFieldHours);
 		textFieldHours.setColumns(10);
 
 
 		contentPane.show();
-
-
-
-
-
-		// MenuBar
-		menuBar = new JMenuBar();
-		this.setJMenuBar(menuBar);
-		departmentMenu = new JMenu("Department");
-		courseMenu = new JMenu("Course");
-
-		// Department menu files
-		menuBar.add(departmentMenu);
-		addDepartmentItem = new JMenuItem("Add Department");
-		removeDepartmentItem = new JMenuItem("Remove Department");
-
-		departmentMenu.add(addDepartmentItem);
-		departmentMenu.add(removeDepartmentItem);
-		teacherMenu = new JMenu("Teacher");
-
-				// Teacher menu files
-				menuBar.add(teacherMenu);
-				editTeacherItem = new JMenuItem("Edit Teacher Info");
-				setHoursItem = new JMenuItem("Set Hours for Teacher");
-				displayTeachers = new JMenuItem("Display Teachers");
-
-						teacherMenu.add(editTeacherItem);
-						teacherMenu.add(setHoursItem);
-						teacherMenu.add(displayTeachers);
-
-
-		// Course menu files
-		menuBar.add(courseMenu);
-		getCourseInfoItem = new JMenuItem("Get Course Info");
-		editCourseItem = new JMenuItem("Edit Course");
-
-		courseMenu.add(getCourseInfoItem);
-		courseMenu.add(editCourseItem);
 
 		this.setVisible(true);
 	}
@@ -479,45 +429,6 @@ public class View extends JFrame {
 		return contentPane;
 	}
 
-	public JMenu getDepartmentMenu() {
-		return departmentMenu;
-	}
-
-	public JMenu getCourseMenu() {
-		return courseMenu;
-	}
-
-	public JMenu getTeacherMenu() {
-		return teacherMenu;
-	}
-
-	public JMenuItem getAddDepartmentItem() {
-		return addDepartmentItem;
-	}
-
-	public JMenuItem getRemoveDepartmentItem() {
-		return removeDepartmentItem;
-	}
-
-	public JMenuItem getGetCourseInfoItem() {
-		return getCourseInfoItem;
-	}
-
-	public JMenuItem getEditCourseItem() {
-		return editCourseItem;
-	}
-
-	public JMenuItem getEditTeacherItem() {
-		return editTeacherItem;
-	}
-
-	public JMenuItem getSetHoursItem() {
-		return setHoursItem;
-	}
-
-	public JMenuItem getDisplayTeachers() {
-		return displayTeachers;
-	}
 
 	// ButtonGetters
 	public JButton getBtnAddTeacher() {
