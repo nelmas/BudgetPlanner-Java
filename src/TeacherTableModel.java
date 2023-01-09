@@ -69,7 +69,9 @@ public class TeacherTableModel extends AbstractTableModel {
         } else if (columnIndex == 4) {
             String strSalary = val.toString();
             int newSalary = Integer.parseInt(strSalary.trim());
-            tmpTeacher.setHourlySalary(newSalary);
+            if (newSalary > 0) {
+                tmpTeacher.setHourlySalary(newSalary);
+            }
         } else if (columnIndex == 5) {
             String newDepartment = val.toString();
             tmpTeacher.setTeacherDepartment(newDepartment);
