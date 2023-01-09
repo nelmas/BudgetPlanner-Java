@@ -7,29 +7,21 @@ public class Main {
 		Department department = new Department();
 		Teacher teacher = new Teacher();
 		Course course = new Course();
-		Course course1 = new Course("SYSA21", "ad77833", 25, "First Cycle", "As7776An");
-		view.getCourseTableModel().addCourse(course1);
 		TeacherTableModel teacherTableModel = new TeacherTableModel();
-		TeacherHours teacherHours = new TeacherHours("As7776An", "ad77833", 350);
-		view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
-		
-
-		
-
-		Department department1 = new Department("SystemLinjen", "Lundvägen 2", 820);
-		view.getDepartmentTableModel().addDepartment(department1);
-		
-		Teacher teacher1 = new Teacher("Astrid Andersson", "As7776An", "Lecturer", "lundavägen 23", 220, "SystemLinjen"); 
-		view.getTeacherTableModel().addTeacher(teacher1);;
-		department1.addTeacher(teacher1);
-		
 		Controller controller = new Controller(view, teacher, department, course, teacherTableModel);
 
-		Department department1 = new Department("Systeminstitutet", "Lund", 8000);
+
+		Department department1 = new Department("Finansinstitutet", "Lundavägen 22", 8000);
 		view.getDepartmentTableModel().addDepartment(department1);
 
-		Teacher teacher1 = new Teacher("Astrid Andersson", "As7776An", "Lecturer", "Lund", 120, "Systeminstitutet");
-		view.getTeacherTableModel().addTeacher(teacher1);;
-		department1.addTeacher(teacher1);
+		Teacher teacher1 = new Teacher("Astrid Andersson", "As7776An", "Lecturer", "Lundavägen 12", 220, "Finansinstitutet");
+		view.getTeacherTableModel().addTeacher(teacher1);
+
+		Course course1 = new Course("SYSA21", "SY04146", 25, "First Cycle", "As7776An", "Astrid Andersson");
+		view.getCourseTableModel().addCourse(course1);
+
+		TeacherHours teacherHours = new TeacherHours("As7776An", "SY04146", 200);
+		view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
+
 	}  
 }

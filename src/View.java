@@ -266,7 +266,7 @@ public class View extends JFrame {
 
 
 
-		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor ",
+		String[] teachers = {"Lecturer", "Assistant Professor ", "Associate Professor",
 				"Professor"};
 
 		comboBoxTeacherTitle = new JComboBox(teachers);
@@ -429,7 +429,6 @@ public class View extends JFrame {
 		return contentPane;
 	}
 
-	
 
 	// ButtonGetters
 	public JButton getBtnAddTeacher() {

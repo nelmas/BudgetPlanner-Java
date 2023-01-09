@@ -101,10 +101,20 @@ public class TeacherTableModel extends AbstractTableModel {
         }
         return false;
     }
+
     public String findTeacherName(String identificationNumber) {
         for (Teacher teacher : teachers) {
             if (teacher.getEmployeeId().equals(identificationNumber)) {
                 return teacher.getName();
+            }
+        }
+        return "";
+    }
+
+    public String findTeacherTitle(String identificationNumber) {
+        for (Teacher teacher : teachers) {
+            if (teacher.getEmployeeId().equals(identificationNumber)) {
+                return teacher.getTitle();
             }
         }
         return "";
