@@ -259,20 +259,20 @@ public class Controller implements ActionListener {
 					String teacherDepartment = view.getTextFieldTeacherDepartment().getText();
 
 					int teacherSalary = Integer.parseInt(strTeacherSalary);
+
+					Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
+							teacherSalary, teacherDepartment);
+
+
 					if (teacherSalary < 0) {
 						view.getTextAreaErrorMessageTeacher().setText("Hourly salary can't have a negative value");
 					}
 					if ((!view.getDepartmentTableModel().findDepartment(teacherDepartment))) {
 						view.getTextAreaErrorMessageTeacher().setText("Department does not exist");
-					} 
-					
-					else {
-
-						Teacher tmpTeacher = new Teacher(teacherName, teacherId, teacherTitle, teacherAddress,
-								teacherSalary, teacherDepartment);
+					}
+					if (teacherSalary > 0 && view.getDepartmentTableModel().findDepartment(teacherDepartment) == true) {
 						view.getTeacherTableModel().addTeacher(tmpTeacher);
 						view.getTextAreaErrorMessageTeacher().setText("");
-
 					}
 				} catch (NumberFormatException exception) {
 					view.getTextAreaErrorMessageTeacher().setText("Please enter only numbers as a salary!");
