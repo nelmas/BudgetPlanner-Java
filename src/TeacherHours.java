@@ -4,6 +4,9 @@ public class TeacherHours {
     private String courseCode;
     private int hoursTaught;
 
+    public TeacherHours () {
+
+    }
     public TeacherHours (String employeeId, String courseCode, int hoursTaught) {
         this.employeeId = employeeId;
         this.courseCode = courseCode;

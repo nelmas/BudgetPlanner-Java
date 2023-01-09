@@ -19,5 +19,7 @@ public class Main {
 		Course course1 = new Course("SYSA21", "SY04146", 25, "First Cycle", "As7776An", "Astrid Andersson");
 		view.getCourseTableModel().addCourse(course1);
 
+		TeacherHours teacherHours = new TeacherHours("As7776An", "SY04146", 200);
+		view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
 	}  
 }
