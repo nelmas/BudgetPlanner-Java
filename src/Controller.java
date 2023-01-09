@@ -96,7 +96,15 @@ public class Controller implements ActionListener {
 							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
 							&& courseCredit <= 30 && view.getCourseTableModel().findTotalCredits(responsibleId) + courseCredit <= 30
 							&& view.getCourseTableModel().checkResponsibleCourses(responsibleId) < 3 && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")
-							&& view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Associate Professor") || view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Professor")) {
+							&& view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Associate Professor") ) {
+						view.getCourseTableModel().addCourse(tmpCourse);
+						view.getTextAreaErrorMessageCourses().setText("");
+					}
+					if (view.getTeacherTableModel().findTeacherID(responsibleId) == true
+							&& view.getCourseTableModel().findCourseCode(courseCode) == false && courseCredit > 0
+							&& courseCredit <= 30 && view.getCourseTableModel().findTotalCredits(responsibleId) + courseCredit <= 30
+							&& view.getCourseTableModel().checkResponsibleCourses(responsibleId) < 3 && view.getComboBoxCoursesCycle().getSelectedItem().toString().equals("Third Cycle")
+							&&  view.getTeacherTableModel().findTeacherTitle(responsibleId).equals("Professor")) {
 						view.getCourseTableModel().addCourse(tmpCourse);
 						view.getTextAreaErrorMessageCourses().setText("");
 					}
