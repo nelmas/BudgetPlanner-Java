@@ -12,11 +12,7 @@ public class TeacherHours {
         this.courseCode = courseCode;
         this.hoursTaught = hoursTaught;
     }
-    public TeacherHours () {
-    	
-    }
 
-    
 	public String getEmployeeId() {
         return employeeId;
     }
