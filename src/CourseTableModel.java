@@ -101,4 +101,23 @@ public class CourseTableModel extends AbstractTableModel {
         return false;
     }
 
+    public int findTotalCredits(String identificationNumber) {
+        int totalCredits = 0;
+        for (Course course : courses) {
+            if (course.getResponsible().equals(identificationNumber)) {
+                totalCredits += course.getCredits();
+            }
+        }
+        return totalCredits;
+    }
+
+    public int checkResponsibleCourses(String identificationNumber) {
+        int count = 0;
+        for (Course course : courses) {
+            if (course.getResponsible().equals(identificationNumber)) {
+                count += 1;
+            }
+        }
+        return count;
+    }
 }

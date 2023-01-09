@@ -296,18 +296,18 @@ public class View extends JFrame {
 		textFieldAddCourseName.setColumns(10);
 
 		textFieldAddCredits = new JTextField();
-		textFieldAddCredits.setBounds(120, 164, 130, 26);
+		textFieldAddCredits.setBounds(120, 120, 130, 26);
 		panelAddCourses.add(textFieldAddCredits);
 		textFieldAddCredits.setColumns(10);
 
 		JLabel lblCourseCredits = new JLabel("Credits");
-		lblCourseCredits.setBounds(30, 169, 80, 16);
+		lblCourseCredits.setBounds(30, 120, 80, 16);
 		panelAddCourses.add(lblCourseCredits);
 
 
 
 		JLabel lblNewCycle = new JLabel("Cycle");
-		lblNewCycle.setBounds(30, 207, 61, 16);
+		lblNewCycle.setBounds(30, 160, 61, 16);
 		panelAddCourses.add(lblNewCycle);
 
 
@@ -316,12 +316,12 @@ public class View extends JFrame {
 		panelAddCourses.add(lblResponsibleTeacher);
 
 		textFieldCourseCode = new JTextField();
-		textFieldCourseCode.setBounds(120, 116, 130, 26);
+		textFieldCourseCode.setBounds(120, 255, 130, 26);
 		panelAddCourses.add(textFieldCourseCode);
 		textFieldCourseCode.setColumns(10);
 
 		lblCourseCode = new JLabel("Course Code");
-		lblCourseCode.setBounds(30, 121, 80, 16);
+		lblCourseCode.setBounds(30, 260, 80, 16);
 		panelAddCourses.add(lblCourseCode);
 
 		btnRemoveCourse = new JButton("Remove Course");
@@ -377,7 +377,8 @@ public class View extends JFrame {
 
 		comboBoxCoursesCycle = new JComboBox();
 
-		comboBoxCoursesCycle.setBounds(120, 200, 140, 30);
+		comboBoxCoursesCycle.setBounds(120, 160, 140, 30);
+
 		comboBoxCoursesCycle.setModel(new DefaultComboBoxModel(new String[] {"First Cycle", "Second Cycle", "Third Cycle"}));
 		panelAddCourses.add(comboBoxCoursesCycle);
 
@@ -400,11 +401,11 @@ public class View extends JFrame {
 		panelAddCourses.add(btnRemoveCourseTeacher);
 
 		lblHours = new JLabel("Hours ");
-		lblHours.setBounds(30, 247, 46, 14);
+		lblHours.setBounds(30, 210, 46, 14);
 		panelAddCourses.add(lblHours);
 
 		textFieldHours = new JTextField();
-		textFieldHours.setBounds(120, 241, 130, 26);
+		textFieldHours.setBounds(120, 210, 130, 26);
 		panelAddCourses.add(textFieldHours);
 		textFieldHours.setColumns(10);
 
