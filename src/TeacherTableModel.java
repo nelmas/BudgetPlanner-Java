@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
+	
+//ArrayList of teacher objects
 
 public class TeacherTableModel extends AbstractTableModel {
     private ArrayList<Teacher> teachers = new ArrayList<>();
@@ -9,13 +11,13 @@ public class TeacherTableModel extends AbstractTableModel {
 
     public void addTeacher(Teacher teacher) {
         teachers.add(teacher);
-        this.fireTableDataChanged();
+        this.fireTableDataChanged(); // Notify that TableData has changed
     }
 
     @Override
     public int getRowCount() {
         // TODO Auto-generated method stub
-        return teachers.size();
+        return teachers.size(); //Return number of rows
     }
 
     @Override
@@ -26,13 +28,13 @@ public class TeacherTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int columnIndex) {
-        return columns[columnIndex];
+        return columns[columnIndex]; 
 
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Teacher tmpTeacher = teachers.get(rowIndex);
+        Teacher tmpTeacher = teachers.get(rowIndex); // Get the Teacher object at row index
 
         switch (columnIndex) {
             case 0:

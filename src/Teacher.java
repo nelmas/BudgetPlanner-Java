@@ -14,6 +14,7 @@ public class Teacher {
 	private ArrayList<Course> taught;
 
 	// teacher can teach several courses
+	
 	private ArrayList<Teacher> course;
 
 	// Constructors
@@ -37,6 +38,7 @@ public class Teacher {
 
 
 	// Getters & Setters
+	
 	public ArrayList<Course> getTaught() {
 		return taught;
 	}  
@@ -111,11 +113,13 @@ public class Teacher {
 	}
 
 	// Methods
+	
 	public void addCourse(Teacher course) {
 		this.course.add(course);
 	}
 
 	// remove teacher method
+	
 	public void removeCourse(Teacher course) {
 		this.course.remove(course);
 

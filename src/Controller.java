@@ -28,6 +28,7 @@ public class Controller implements ActionListener {
 	}
 
 	// AddCourse
+	
 	private void declareListeners() {
 		view.getBtnAddCourse().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

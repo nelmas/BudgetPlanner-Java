@@ -4,8 +4,12 @@ import javax.swing.table.AbstractTableModel;
 
 public class DepartmentTableModel extends AbstractTableModel {
 	
+	//ArrayList of Department objects
+	
 	private ArrayList<Department> departmentRegister = new ArrayList<Department>();
 	private String[] columns = { "Name", "Budget", "Address"};
+	
+	//method that takes a department object as a parameter
 	
 	public void addDepartment(Department department) {
 		departmentRegister.add(department);
