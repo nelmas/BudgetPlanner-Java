@@ -330,7 +330,7 @@ public class View extends JFrame {
 		panelAddCourses.add(btnRemoveCourse);
 
 		scrollPaneCourse = new JScrollPane();
-		scrollPaneCourse.setBounds(30, 379, 866, 327);
+		scrollPaneCourse.setBounds(30, 390, 866, 280);
 		panelAddCourses.add(scrollPaneCourse);
 
 
@@ -365,7 +365,7 @@ public class View extends JFrame {
 		scrollPaneCourse.setRowHeaderView(scrollBarCourse);
 
 		textAreaErrorMessageCourses = new JTextArea();
-		textAreaErrorMessageCourses.setBounds(152, 468, 523, 45);
+		textAreaErrorMessageCourses.setBounds(200, 672, 523, 45);
 		textAreaErrorMessageCourses.setBackground(UIManager.getColor("Button.background"));
 		textAreaErrorMessageCourses.setEditable(false);
 		panelAddCourses.add(textAreaErrorMessageCourses);
