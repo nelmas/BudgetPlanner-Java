@@ -69,8 +69,9 @@ public class Controller implements ActionListener {
 						view.getTextAreaErrorMessageCourses().setText("Check the ID for the responsible teacher!");
 					}
 					if (view.getCourseTableModel().findCourseCode(courseCode) == true) {
-						view.getTextAreaErrorMessageCourses().setText("Course code already exists!");
+						view.getTextAreaErrorMessageCourses().setText("A replica in Course Code has occurred please try re-add course");
 					}
+					
 					if (view.getCourseTableModel().findTotalCredits(responsibleId) + courseCredit > 30) {
 						view.getTextAreaErrorMessageCourses().setText("A teacher cannot be responsible for more than 30 ECTS!");
 					}
@@ -265,6 +266,9 @@ public class Controller implements ActionListener {
 					if ((!view.getDepartmentTableModel().findDepartment(teacherDepartment))) {
 						view.getTextAreaErrorMessageTeacher().setText("Department does not exist");
 					} 
+					if (view.getTeacherTableModel().findTeacherID(teacherId) == true) {
+				    	  view.getTextAreaErrorMessageTeacher().setText("A replica in ID has occurred please re-add teacher");
+					}
 					
 					else {
 
