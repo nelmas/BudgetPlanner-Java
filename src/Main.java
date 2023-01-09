@@ -22,6 +22,20 @@ public class Main {
 
 		TeacherHours teacherHours = new TeacherHours("As7776An", "SY04146", 200);
 		view.getCourseTeacherTableModel().addHoursTaught(teacherHours);
+		
+		Department department2 = new Department("Teknikinstitutet", "Lundavägen 16", 10000);
+		view.getDepartmentTableModel().addDepartment(department2);
+
+		Teacher teacher2 = new Teacher("Lennart Larsson", "Le2648La", "Lecturer", "Lundavägen 8", 200, "Teknikinstitutet");
+		view.getTeacherTableModel().addTeacher(teacher2);
+
+		Course course2 = new Course("COUC23", "CO08983", 20, "First Cycle", "Le2648La", "Lennart Larsson");
+		view.getCourseTableModel().addCourse(course2);
+
+		TeacherHours teacherHours2 = new TeacherHours("Le2648La", "CO08983", 80);
+		view.getCourseTeacherTableModel().addHoursTaught(teacherHours2);
+		
+		
 
 	}  
 }
