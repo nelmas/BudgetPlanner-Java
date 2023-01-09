@@ -62,7 +62,7 @@ public class CourseTeacherTableModel extends AbstractTableModel {
             tmpHours.setCourseCode(newCourseCode);
         } else if (columnIndex == 2) {
             String strNewHoursTaught = val.toString();
-            int newHoursTaught = Integer.parseInt(strNewHoursTaught);
+            int newHoursTaught = Integer.parseInt(strNewHoursTaught.trim());
             if (newHoursTaught > 0 && newHoursTaught <= 3600) {
                 tmpHours.setHoursTaught(newHoursTaught);
             }
