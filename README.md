@@ -27,7 +27,7 @@ This system replaces the current Excel-based tracking by providing a structured 
 - Validate input to prevent negative values and excessive workload  
 - Role-based restrictions on teaching and course responsibility  
 - Cost calculations at multiple levels  
-- Intuitive GUI with error handling (for higher grades)  
+- Intuitive GUI with error handling
 
 ---
 
