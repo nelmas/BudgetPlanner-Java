@@ -1,30 +1,38 @@
-# JavaBudgetDebugger
+# University Department, Course, and Teacher Management System
 
-A Java-based budgeting and debugging training project developed as part of the SYSA21 course at Lund University.
+A Java-based application developed as part of the SYSA21 course at Lund University to manage academic departments, courses, and teachers for Contoso University.
 
 ---
 
 ## Overview
 
-This project simulates a budget planning application tailored for students. It allows management of multiple student profiles, each with their own budgets, incomes, and expenditures. The system calculates financial balances and generates simple reports.
+This system replaces the current Excel-based tracking by providing a structured way to:
 
-The main goal of this project is to practice object-oriented programming concepts, system design, and debugging skills by identifying and fixing intentional bugs within the codebase.
+- Manage departments with unique names, addresses, and budgets  
+- Manage teachers assigned to one department with detailed profiles  
+- Manage courses categorized by academic level (First Cycle, Second Cycle, Third Cycle)  
+- Assign teachers to courses, track teaching hours, and assign course responsibility  
+- Enforce business rules regarding budgets, workloads, and permissions  
+- Calculate course and department costs, averages, and salary statistics  
 
 ---
 
 ## Features
 
-- Add, search, and manage student profiles  
-- Record incomes and expenditures per student  
-- Calculate budget balances  
-- Generate simple financial reports  
-- Practice debugging techniques using breakpoints and step execution in Eclipse  
+- Create, read, update, and delete Departments, Teachers, and Courses  
+- Display all teachers teaching a specific course  
+- Show course responsible teacher for each course  
+- Enforce uniqueness of identifiers (department names, employee IDs, course codes)  
+- Generate course codes and employee IDs automatically  
+- Validate input to prevent negative values and excessive workload  
+- Role-based restrictions on teaching and course responsibility  
+- Cost calculations at multiple levels  
+- Intuitive GUI with error handling (for higher grades)  
 
 ---
 
 ## Technologies Used
 
 - Java  
-- Object-Oriented Programming (OOP)  
-- Eclipse IDE (for debugging)  
-- Git and GitHub for version control  
+- Model-View-Controller (MVC) architecture  
+- GitHub for version control 
